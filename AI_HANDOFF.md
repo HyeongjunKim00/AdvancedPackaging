@@ -1,32 +1,30 @@
 # AI Handoff
 
 ## 현재 상태
-- ECTC 후보는 V-Die 전용 단상 die-gap direct cooling이다.
-- 사용자가 정한 Cu structure: fin/pillar가 서로 마주 보는 두 die를 열적으로 연결하며, gap을 정하고 기계적 지지도 제공한다. 전기 interconnect 용도는 아니다.
-- 따라서 열모델의 적절한 이름은 한쪽 표면 fin보다 **Cu thermal bridge / bridging fin**이다. 두 die를 연결하는 고체 열전도와 pillar 주위 coolant 대류를 모두 모델링한다.
-- GPU cold plate 전체 형상은 1차 범위 밖이지만, GPU→V-Die 열영향은 하부 heat-flux/temperature/equivalent resistance boundary 또는 simplified GPU solid로 남긴다.
-- 기계적 지지 기능은 구조 설명에 포함하지만, 사용자는 구조응력 해석을 원하지 않는다.
+- ECTC 후보는 V-Die 전용 단상 die-gap direct cooling이며, Cu thermal bridge 형상을 열·유압 관점에서 평가하는 방향이다.
+- 사용자는 Cu pillar가 서로 마주 보는 두 die를 열적으로 연결하고 간격을 정하며 기계적으로 지지한다고 정의했다. 전기 interconnect 용도는 아니다.
+- 사용자는 V-Die 논문이 VLSI 2026에 한 편 발표되었으나, 그 논문에서 구체적인 cooling method를 명확하게 제안하지는 않았다고 정정했다. 이전의 “V-Die 논문이 die-gap microfluidic cooling을 이미 구체적으로 제안했다”는 서술은 2차 보도를 원 논문 내용처럼 일반화한 것으로 정정한다.
+- 초록의 문제 후보는 구체적 V-Die cooling design의 미정립성과 Cu thermal bridge의 열전달 대 유압손실 trade-off다. 선행 문헌 점검 후에만 research gap으로 단정한다.
 
 ## 완료 작업
-- 연구 범위: V-Die die-gap 단상 direct cooling; die gap과 Cu pillar 형상을 변수로 고려.
-- baseline: 같은 die gap의 pillar-free channel.
-- design: Cu pillars bridging opposing die surfaces; 유체는 pillar 사이/주변을 흐름.
-- gap과 pillar height는 양쪽 접촉 가정에서 기하학적으로 연결되므로 independent sweep으로 두지 않는다.
-- 주요 trade-off: pillar가 die 양쪽의 열을 유체로 전달하고 유동을 교란할 수 있지만, flow area 축소/ΔP 증가/유량 불균일과 die-to-die thermal cross-talk을 일으킬 수 있다.
-- 연구 질문 및 모델 해석은 [Thermal Research Log](Research/Thermal/Research_Log.md)에 추가했다.
+- 연구 범위는 V-Die-only, 단상 inter-die direct cooling으로 논의 중.
+- 비교 후보: 같은 gap의 pillar-free flow channel vs opposing die를 잇는 Cu thermal bridge 배열.
+- 변수 후보: gap/pillar height를 연동하고, pillar diameter, pitch, 배열을 변경한다.
+- 동일 펌프동력 조건을 주 비교로 두고 die별 Tmax, die-to-die temperature spread, ΔP/pump power, 유량분배를 평가하는 스토리라인을 정리했다.
+- 이전 V-Die cooling prior-art 표현에 대한 정정 및 초록 흐름을 [Thermal Research Log](Research/Thermal/Research_Log.md)에 기록했다.
 
 ## 미완료 작업
-- Cu thermal bridge와 die 사이 접촉을 완전 접합으로 둘지, contact resistance를 적용할지 결정.
-- 실제 gap/diameter/pitch/배열과 active electrical region 사이 절연 가정 확인.
-- die별 power map 및 GPU 하부 열경계 확정.
-- 단상 유체와 inlet temp/flow 또는 pumping power DLC 셋업 조건에 맞춤.
-- US 11,515,232 및 V-Die 원 자료와 구조 차이/novelty 확인.
-- 열·유압 모델 수행 및 검증계획 수립. 결과가 없으면 성능 수치 주장 금지.
+- VLSI 2026 원 논문에서 냉각에 관해 실제로 제시한 내용과 범위를 직접 확인.
+- Cu thermal bridge 접촉저항/완전 접합 가정 및 유체 접촉면 정의.
+- 실제 die geometry, gap, power map, 단상 유체와 DLC 운전조건 결정.
+- US 11,515,232 및 관련 논문/특허를 확인해 novelty 문구 범위 설정.
+- CHT 또는 실험을 수행해 초록 정량 결과 확보; 결과 전 성능 수치 쓰지 않음.
 
 ## 핵심 참고자료
-- [Thermal Research Log](Research/Thermal/Research_Log.md)
-- [Intel US 11,515,232](https://patents.google.com/patent/US11515232B2/en) — conductive bumps 사이 냉각 선행; 사용자의 구조는 thermal bridge 중심이지만 prior art 청구항 대조 필요.
-- [V-Die 소개](https://www.tomshardware.com/tech-industry/semiconductors/researchers-turn-hbm-on-its-side-to-tackle-ai-memorys-heat-wall-korean-v-die-and-japanese-mosaic-designs-promise-higher-bandwidth-denser-stacks-and-cooler-future-gpus) — V-Die die-gap cooling에 관한 2차 보도.
+- [Thermal Research Log](Research/Thermal/Research_Log.md) — 초록 논리와 정정 내역.
+- [VLSI 2026 V-Die 원 논문](서지/원문 링크 아직 미확보; 다음 작업에서 확인 필요)
+- [Intel US 11,515,232](https://patents.google.com/patent/US11515232B2/en) — conductive bumps 사이 냉각의 유사 선행 개념; 청구항/구조 차이 검토 필요.
+- [Tom's Hardware V-Die article](https://www.tomshardware.com/tech-industry/semiconductors/researchers-turn-hbm-on-its-side-to-tackle-ai-memorys-heat-wall-korean-v-die-and-japanese-mosaic-designs-promise-higher-bandwidth-denser-stacks-and-cooler-future-gpus) — V-Die 냉각을 설명하는 2차 보도이며 원 논문 해석과 구별한다.
 
 ## 다음 AI용 프롬프트
-사용자 지정 Cu fin/pillar는 opposing V-Die surfaces를 연결하는 thermal bridge이며 gap을 정하고 die를 기계적으로 지지한다. 전기 interconnect가 아니다. 다음 작업은 이를 one-sided fin이 아닌 양면 열접촉 Cu post로 모델링하고, post height를 die gap과 연동하라. 구조응력 분석은 하지 않되 thermal contact assumption을 명시한다. 동일 gap pillar-free 채널 대비, Cu bridge diameter/pitch/array에 대해 die-level Tmax, die-to-die thermal coupling, ΔP/pump power, flow uniformity를 단상 CHT로 비교할 질문을 구체화한다. Cu bridge가 양 die 사이 열을 전달해 thermal cross-talk도 만들 수 있음을 포함하고, 공정/절연은 검증되지 않은 가정으로 표시한다. 출처·추론 및 repository handoff/log 규칙을 따른다.
+사용자는 VLSI 2026 V-Die 논문이 한 편 있으며 구체적인 냉각 방식을 명확히 제안한 것은 아니라고 정정했다. 이전의 2차 기사 기반 설명을 원 논문의 확정 사실로 반복하지 마라. 초록 스토리라인은 AI/3D memory thermal need → V-Die 열관리 과제 → 구체적인 cooling design의 미정립성(원문 검토 후 확정) → opposing die를 잇는 비전기적 Cu thermal bridge의 열전달/유압 trade-off → 단상 die-gap CHT, pillar-free baseline 및 동일 펌프동력 비교 → 실측/계산 결과와 의의로 구성한다. Cu bridge의 gap(height), diameter, pitch/array를 설계 변수로 두되, 정량 결과는 생성하지 않는다. VLSI 원 논문과 특허 선행을 우선 확인하고 Research Log/Handoff를 유지한다.
