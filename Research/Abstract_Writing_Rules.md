@@ -39,3 +39,12 @@ Use these rules when drafting or revising research abstracts for the lab. Keep t
 - Name the physical structure or mechanism and the study objective.
 - Use “thermal–hydraulic” only when the study evaluates both heat transfer and fluid-flow quantities such as pressure drop or pumping power. Use “thermal” when the analysis addresses heat transfer alone.
 - Avoid project nicknames when the title should describe the architecture to an external reader. Prefer descriptive wording such as “vertically oriented memory-die stacks.”
+
+
+## Additional guidance from the V-Die abstract discussion
+- Build the opening through a concrete technical chain before pivoting to the gap. For memory-integrated accelerators, distinguish **peak FLOPS** from **realized compute throughput**; explain the separate roles of resident parameter capacity and data-delivery bandwidth before introducing the package architecture.
+- Make the transition from architecture to thermal problem explicit: state which surfaces the architecture creates, where coolant can reach, and what heat-transfer path is missing or uncertain.
+- Do not force “However” into the first sentence. Establish enough technical context first, then use “However” for the specific limitation.
+- Keep causal claims qualified when operating conditions matter. Prefer “can increase memory-side heat generation” to a universal claim unless workload power data support the stronger statement.
+- Correct imprecise phrases such as “address these capacity and bandwidth.” Name the need: “address the need for greater memory capacity and I/O bandwidth.”
+- A detailed opening is useful only when each detail advances the problem definition; avoid adding broad industry context that does not lead to the studied geometry, mechanism, or metric.
