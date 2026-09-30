@@ -252,3 +252,28 @@
 - [ ] 사용자가 우려하는 배치가 바깥면 side-wrap인지, 각 die gap을 통과하는 manifold인지 도식으로 확정한다.
 - [ ] 외부 side-wrap가 바깥 die에만 열적으로 접근한다면 이를 주된 개선안으로 밀지 말고, top-only baseline 대비 이득을 먼저 screening simulation으로 확인한다.
 - [ ] 내부 die-gap 냉각은 별도 구조/공정 난이도와 V-Die 선행개념을 고려해 확장안으로 취급한다.
+
+## 2026-09-30 — V-Die die-gap Cu-pillar coolant concept as ECTC candidate
+
+### Candidate question
+- Could Cu pillars placed in the coolant gaps between upright V-Die memory dies improve heat transfer enough to justify the added hydraulic resistance, compared with an empty inter-die channel?
+
+### Relevant prior art / fact
+- V-Die has already been reported with microfluidic cooling channels between adjacent upright DRAM dies. [B: Tom's Hardware 2차 보도; original VLSI paper not reviewed here]
+- Intel patent US 11,515,232, *Liquid cooling through conductive interconnect*, explicitly describes coolant flowing between dies through conductive bumps, including copper bumps; the patent text also discusses bump dimensions, insulated bump surfaces for water use, manifold/filtering, and optionally separate fluid paths for the interconnect gaps and cold plate. This is close prior art for the broad “conductive Cu pillars plus inter-die coolant” concept. The V-Die orientation/application may differ, but novelty cannot rest on that broad combination. [A: patent text surfaced/read; patent claim scope/legal status analysis not performed]
+- Citation: [US 11,515,232](https://patents.google.com/patent/US11515232B2/en).
+
+### Potential thermal-fluid hypothesis [Inference]
+- Cu pillars might increase wetted area and disturb/renew thermal boundary layers, improving heat removal from the die faces. They also occupy flow area and can increase pressure drop, induce flow maldistribution or particle clogging. Their thermal/electrical connection can also change heat spreading between dies; do not assume it is beneficial.
+- This is package-integrated inter-die microfluidic cooling, not merely a conventional external cold-plate fin redesign.
+
+### A testable simulation question
+- “For a V-Die inter-die channel, how do Cu-pillar diameter, pitch, and arrangement affect die-level peak temperature and temperature nonuniformity at matched pumping power (or explicitly matched ΔP), relative to a pillar-free channel?”
+- Keep die gap, die geometry/materials, heat map, coolant inlet condition, and total thermal load controlled. Report Tmax by die, temperature spread, ΔP, flow distribution, and pumping power. Compare at least empty-gap channel vs pillar array; optionally include a conventional microchannel baseline.
+- A convincing abstract requires actual simulation/measurement results; do not draft quantitative results before they exist.
+
+### Limitations / open questions
+- Obtain the original V-Die geometry and its die-gap microfluidic description; the news article is not sufficient for exact geometry.
+- Determine whether the proposed Cu pillars are thermal posts, electrical interconnects, flow turbulators, or a combination. Their bonding/contact and electrical insulation assumptions affect the thermal model.
+- Check US 11,515,232 claim language and related patent families before asserting novelty or freedom to operate. This note is a novelty warning, not legal advice.
+- Establish whether the ECTC contribution is a V-Die-specific design envelope/thermohydraulic optimization, an experimental TTV demonstration, or both.
