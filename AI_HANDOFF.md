@@ -1,27 +1,28 @@
 # AI Handoff
 
 ## 현재 상태
-- ECTC 주제는 GPU 위 수직 V-Die를 덮는 cold plate의 열 시뮬레이션으로 탐색 중이다. 단상/2상, 구체 형상, 기준 조건은 확정되지 않았다.
-- 사용자의 핵심 우려: V-Die 묶음 바깥을 side-wrap로 냉각하면 냉각 면적/열원 접근성이 충분치 않아 효과가 제한적일 수 있다.
-- 핵심 구분은 냉각 방향(위/옆)이 아니라 냉각수가 바깥 perimeter만 접하는지, 각 수직 die의 넓은 면 사이를 흐르는지다.
+- ECTC 주제 후보는 GPU 위 수직 V-Die 패키지용 열관리이며, 단상/2상과 시뮬레이션/실험 범위는 미확정이다.
+- 사용자가 외부 side-wrap 냉각보다 처음 제안한 “수직 die 사이 Cu pillar를 배치하고 간극으로 coolant를 흐르게 하는” 구상을 다시 고려 중이다.
+- 이 구상은 V-Die inter-die microfluidic 방향과 잘 맞지만, 일반적인 Cu conductive bump 사이 액체냉각은 Intel US 11,515,232 선행 특허에 이미 나타난다. “Cu pillar + die 사이 유체” 자체를 신규성으로 주장하면 안 된다.
 
 ## 완료 작업
-- 상부 cold plate + 외부 side manifold 구조를 다룬 Azubuike의 Binghamton M.S. thesis (2025)를 확인했다. 따라서 상부+측면 냉각이라는 넓은 개념 자체는 선행이 있다.
-- V-Die 사이 microfluidic channel은 외부 plate의 side wrap과 다른 패키지 내부 냉각 구조이며, V-Die 제안에 이미 등장한다.
-- 사용자의 최근 우려를 기록했다: 외부 perimeter 냉각은 내부 die에 대한 열경로를 줄이지 못할 수 있다. side orientation 자체가 면적이 작다는 뜻은 아니며, 실제 wetted surface 및 열원까지의 열전도 경로가 결정요인이다.
-- 상세 내용과 출처는 [Thermal Research Log](Research/Thermal/Research_Log.md)에 있다.
+- 개념을 외부 cold plate fin 개선이 아닌 package-integrated inter-die microfluidic cooling으로 분류했다.
+- 좁은 검증 질문을 제안했다: pillar 없는 채널 대비 Cu pillar 배열의 지름/피치/배치가 동일 펌프동력 또는 명시한 ΔP 조건에서 die별 Tmax·온도 균일성에 어떤 영향을 주는지 비교.
+- 예상 trade-off는 wetted area/유동 교란으로 인한 열전달 개선 가능성과 유로 차단·압력강하·유량 불균일·막힘 위험이다. 전기/열 접촉 상태를 가정으로 명시해야 한다.
+- 근거 및 한계는 [Thermal Research Log](Research/Thermal/Research_Log.md)에 추가했다.
 
 ## 미완료 작업
-- V-Die 단면도에서 각 대안의 실제 wetted area와 열원-냉각면 전도거리를 계산.
-- 바깥 perimeter side-wrap, top-only plate, die-gap microfluidics의 냉각 경계를 구조적으로 비교.
-- 실제 die별 발열지도, 재료, 열접촉/계면조건, 유량 및 ΔP 조건 확보.
-- 단순 screening CHT 모델로 외부 side-wrap가 top-only보다 유의미한 개선을 주는지 판단. 결과가 미미하면 주제 방향을 재검토.
+- V-Die 원 VLSI 자료에서 die 간격, 냉각 유로, pillar 구조/역할을 확인.
+- US 11,515,232의 청구항 및 patent family를 조사하고 V-Die와의 구조 차이를 명확화.
+- pillar의 기능이 interconnect, thermal post, flow disturbance 중 무엇인지 연구팀 기준을 확보.
+- 실제 열원맵/기하/유체 운전 범위에 맞춰 CFD 비교 및 검증 계획을 세움.
+- 결과가 확보되기 전까지 초록에 정량 결과나 성능 개선을 쓰지 않음.
 
 ## 핵심 참고자료
 - [Thermal Research Log](Research/Thermal/Research_Log.md)
-- [Azubuike, Binghamton M.S. thesis (2025)](https://www.researchgate.net/publication/400983203_CFD_ANALYSIS_OF_COMBINED_COLD-PLATE_AND_SIDE-MANIFOLD_COOLING_OF_3D-STACKED_CHIPS_FOR_ENHANCED_THERMAL_MANAGEMENT) — top cold plate + side manifolds 선행.
-- [OCP Cold Plate Development and Qualification](https://www.opencompute.org/documents/ocp-cold-plate-development-and-qualification-with-integrated-comments-pdf) — 일반 cold plate channel fabrication.
-- [V-Die 및 MOSAIC 소개](https://www.tomshardware.com/tech-industry/semiconductors/researchers-turn-hbm-on-its-side-to-tackle-ai-memorys-heat-wall-korean-v-die-and-japanese-mosaic-designs-promise-higher-bandwidth-denser-stacks-and-cooler-future-gpus) — V-Die die 사이 microfluidic 소개(2차 보도).
+- [Intel US 11,515,232, Liquid cooling through conductive interconnect](https://patents.google.com/patent/US11515232B2/en) — Cu conductive bumps 사이 coolant 선행 개념.
+- [V-Die 및 MOSAIC 소개](https://www.tomshardware.com/tech-industry/semiconductors/researchers-turn-hbm-on-its-side-to-tackle-ai-memorys-heat-wall-korean-v-die-and-japanese-mosaic-designs-promise-higher-bandwidth-denser-stacks-and-cooler-future-gpus) — V-Die의 die 사이 microfluidic 소개(2차 보도).
+- [OCP cold plate guide](https://www.opencompute.org/documents/ocp-cold-plate-development-and-qualification-with-integrated-comments-pdf) — 외부 cold plate 일반 제작 참고; inter-die microfluidic과 구분.
 
 ## 다음 AI용 프롬프트
-사용자는 V-Die 바깥을 감싸는 외부 side-cooling이 큰 효과가 없을 수 있다고 우려한다. 이 우려를 열경로 기준으로 평가하라: 바깥 perimeter만 냉각하는 경우 내부 die의 열경로를 줄이지 못할 수 있지만, 수직 die의 넓은 면 사이로 유체가 흐르면 wetted area와 열원 근접성이 커진다. 두 구조는 별개다. 단면도에서 실제 유체 접촉면과 die별 열원-냉각면 거리부터 확인하고, top-only 대비 outer side-wrap의 screening simulation 가치가 있는지 판단하라. V-Die 사이 microfluidics는 기존 제안 축이므로 novelty로 단정하지 않는다. 사실과 추론을 분리하고 Research Log와 handoff를 유지한다.
+사용자는 V-Die 수직 die 사이 Cu pillar를 배치하고 그 사이로 유체를 흐르게 하는 아이디어로 ECTC 초록을 검토한다. 우선 Intel US 11,515,232가 conductive Cu bumps 사이 냉각수를 이미 다룬다는 점을 반영해 broad novelty를 주장하지 마라. V-Die-specific geometry, pillar geometry/role, nonuniform heat map, matched pumping power에서의 thermal-hydraulic optimization 또는 실험 TTV가 차별 기여 후보인지 살펴라. pillar가 wetted area와 mixing을 늘릴 수 있지만 ΔP, maldistribution, clogging을 악화시킬 수도 있는 가설로 취급한다. 원 VLSI 자료/치수/열원맵을 먼저 확보하고 수치 결과를 발명하지 않는다. Research Log와 handoff를 업데이트한다.
