@@ -1,27 +1,26 @@
 # AI Handoff
 
 ## 현재 상태
-- ECTC 연구 후보는 V-Die/GPU 패키지에서 콜드플레이트가 이종 die 접촉면의 높이 차를 수용하는 설계 문제다.
-- 사용자가 GPU 775 µm, HBM 약 10 mm로 설명했으나 치수 방향/기준면이 확인되지 않았다. HBM3 규격 미러에서는 약 11 × 11 mm 평면 크기와 약 0.7 mm stack height가 별도 표기되어 10 mm는 footprint일 가능성이 크다. 실제 package top-height mismatch는 아직 미확인이다.
-- 외부 cold plate가 우선안이며 die 사이 유체 냉각은 별도 확장안.
+- ECTC 열 시뮬레이션 주제는 V-Die-on-GPU 외부 콜드플레이트 설계다. 주제·구체 형상·기준 조건은 미정이다.
+- 사용자가 정정함: 높이 차 concern은 GPU와 HBM이 아니라 GPU와 수직으로 세운 V-Die 사이에 있다. 사용자가 말한 V-Die는 약 10 mm 수직 형상일 수 있으나 실제 단면/기준면은 확인되지 않았다.
+- 사용자는 기계적 접촉압 해석이 아니라 열 시뮬레이션 중심의 연구를 원한다.
 
 ## 완료 작업
-- flat cold plate가 높이가 다른 GPU/HBM 접촉면을 덮을 때 가능한 보상 구조를 정리했다: stepped contact base/pedestal, die별 분할 접촉 구조, compliant TIM/gap filler, spring/flexure load path.
-- 단차를 TIM만으로 흡수하면 BLT 및 열접촉 저항이 커질 수 있어, thermal contact와 압력/warpage를 함께 평가해야 한다는 가설을 기록했다.
-- 치수 혼동과 검증 항목을 [Thermal Research Log](Research/Thermal/Research_Log.md)에 반영했다. GB200 상세 접촉 치수는 확인되지 않았다.
+- 연구 범위를 GPU/V-Die의 열원별 열경로, 외부 콜드플레이트의 냉각면/유로 커버리지, 유량 분배가 온도장에 미치는 영향으로 수정했다.
+- 가능한 설계변수로 V-Die sidewall 커버리지, 냉각 채널 높이·위치, GPU 상면 냉각 영역, 매니폴드 유량 배분을 기록했다. 구조응력 해석은 현 범위에서 제외했다.
+- 적용 조건과 모델링 고려사항은 [Thermal Research Log](Research/Thermal/Research_Log.md)에 기록했다. 앞선 HBM 10 mm 치수 해석은 concern과 무관하므로 적용하지 않는다.
 
 ## 미완료 작업
-- GPU·HBM 상면의 동일 package 기준 z-height, 실제 단차·공차·warpage를 도면/실측으로 확인한다.
-- 775 µm가 가리키는 부품 치수와 10 mm가 평면 footprint인지 수직 높이인지 확인한다.
-- 실제 단차에 맞춰 rigid flat / stepped pedestal / compliant segmented contact 후보를 비교한다.
-- TIM bond-line thickness, contact pressure, die별 Tmax, warpage/stress를 통합한 시뮬레이션 범위를 정의한다.
-- 설계 유로를 바꾸는 경우 ΔP와 pump power도 포함한다.
+- 실제 V-Die/GPU 단면, 돌출 높이의 기준, 외부 콜드플레이트의 접촉/근접 면을 확인한다.
+- GPU와 V-Die별 전력/열유속 맵과 물성을 설정한다.
+- 열전도-대류 모델의 범위와 고정 TIM/contact resistance 조건을 결정한다.
+- 기준 콜드플레이트와 V-Die 맞춤 유로를 같은 열부하 및 입구/유량(또는 펌프동력) 조건에서 비교한다.
+- 출력 지표: GPU/V-Die별 Tmax, 온도 편차, Rth 및 필요 시 ΔP.
 
 ## 핵심 참고자료
-- [Thermal Research Log](Research/Thermal/Research_Log.md) — package-height mismatch concern과 검증 과제.
-- [JEDEC JESD238A HBM3 공개 미러](https://studylib.net/doc/28550091/jesd238a-hbm3) — 평면 X/Y 및 stack Z 치수 표; 공식 JEDEC 페이지에서 직접 확인하지 않음.
-- [NVIDIA DGX GB200 hardware guide](https://docs.nvidia.com/dgx/dgxgb200-user-guide/hardware.html) — coldplate 냉각 맥락, 세부 die 상면 치수는 미제공.
-- [콜드플레이트 조사본](Research/Thermal/Incoming/2026-09-30_콜드플레이트_ChatGPT.md) — 원문 수치 검증 미완료.
+- [V-Die 열 시뮬레이션 문제 범위](Research/Thermal/Research_Log.md)
+- [콜드플레이트 조사본](Research/Thermal/Incoming/2026-09-30_콜드플레이트_ChatGPT.md) — 원문·수치 검증 미완료.
+- [ECTC 대화 핸드오프](Research/Topic_Exploration/ECTC_HeatSink_Conversation_Handoff_2026-09-30.md)
 
 ## 다음 AI용 프롬프트
-V-Die/GPU 콜드플레이트 문제를 GPU와 DRAM의 실제 상면 높이 차 및 기계적/열적 접촉 문제로 다뤄라. 10 mm를 HBM stack 높이라고 단정하지 마라. 먼저 동일 package 기준면에 대한 GPU/HBM z-height, footprint, tolerance, warpage를 분리해 확인하라. 이후 flat plate, stepped/pedestal base, compliant/segmented interface를 비교하고 TIM BLT·contact pressure·die별 Tmax·stress를 연결하라. 실제 도면이 없으면 연구 가설과 필요한 입력만 정리하라.
+사용자는 V-Die-on-GPU의 GPU/V-Die 높이 차에 따른 열 시뮬레이션을 원하며 HBM 대상이 아니고 기계적 분석도 원하지 않는다. V-Die 단면과 냉각 경계를 먼저 확인하라. fin 형상 개선으로 미리 한정하지 말고, 냉각면/유로의 위치 및 V-Die sidewall 커버리지와 die별 열원/유량 분배가 GPU·V-Die Tmax와 온도 편차에 미치는 영향을 질문으로 구성하라. 실제 치수와 전력 맵이 없으면 숫자를 가정하지 말고 필요한 입력으로 표시하라.
