@@ -1,30 +1,31 @@
 # AI Handoff
 
 ## 현재 상태
-- 활성 연구 주제: V-Die 전용 단상 inter-die cooling. 서로 마주 보는 die 사이의 비전기 Cu thermal bridge/pillar를 열전달 구조로 고려하며, die 간격 및 유로와 열·유압 특성을 시뮬레이션하는 방향.
-- 사용자는 ECTC 2024–2026 연구실 초록/원고 5개를 읽고 문장 역할, 전개 구조, 제목 스타일을 추출해 재사용 가능한 Markdown 가이드를 만들길 요청함.
-- GitHub `Research/Thermal/Incoming/`에서 5개 PDF와 Jimin Kwon 2026 DOCX가 확인됨. GitHub API로 파일명·크기는 확인했으나 PDF 본문은 추출하지 못함. Windows shell과 CUA 프로세스 시작이 오류 1385로 실패했고, 브라우저 PDF 텍스트 읽기도 캐시 미스가 발생함. 따라서 원문에 기반한 분석이나 가이드는 아직 작성하지 않음.
+- 연구 방향: vertically oriented DRAM die stack 내부의 밀폐 inter-die gap을 단상 유체로 직접 냉각하는 구조.
+- 비전기 Cu pillar는 마주 보는 die 표면을 연결하는 thermal bridge이자 유체에 노출된 fin이다. 열전달 면적을 늘리는 동시에 die 간 열전도·압력강하를 유발할 수 있어, 효과는 시뮬레이션으로 검증해야 한다.
+- GPU 자체/외부 cold plate 설계와 기계 응력 해석은 현재 초록 범위에서 제외한다. 실제 유체, 열부하, 형상, 유량/펌프 조건은 아직 미정이다.
+- 사용자가 초록 표현 규칙을 추가했다: 장치에 의도/agency를 부여하지 말고 성능의 주체와 원인을 정확히 쓴다. “However”로 문제를 빠르게 제시하고 “In this work”를 일찍 둔다. this/that 지시대명사를 최소화한다.
+- 500–600단어 작업용 초록을 작성해 저장했다. 결과·조건 및 일부 모델 세부는 placeholder다. 아직 완성 초록이 아니며 숫자/효과를 채우면 안 된다.
+- 연구실 ECTC 샘플 원문 전체를 비교해 문장 구조를 도출하는 작업은 미완료다. GitHub Incoming PDF/DOCX 파일은 찾았지만 이 환경의 파일 추출 접근이 실패했다. 사용자가 일부 본문 텍스트를 대화에 붙였으나 모든 샘플의 완전성·파일 대응을 확정하지 않았다.
 
 ## 완료 작업
-- GitHub Incoming 폴더에서 입력 파일 확인:
-  - `ECTC2024_Abstract_Submitted.pdf`
-  - `나현_ECTC2025_Abstract_final_JM.pdf`
-  - `ECTC2025_HJung_Manuscript.pdf`
-  - `ECTC2026_Abstract_Jimin Kwon.pdf`
-  - `ECTC2026_Abstract_Jimin Kwon.docx`
-  - `ECTC2026_KKim_Abstract_V6_HJung.pdf`
-- 파일을 직접 분석하지 못한 상태를 명시함. 확인 전 내용을 추측해 요약하지 않음.
+- `Research/Abstract_Writing_Rules.md`: 사용자 코멘트를 재사용 가능한 초록 작성 규칙으로 정리.
+- `Research/Thermal/Vertically_Oriented_Die_InterDie_Cooling_Abstract_Draft.md`: 500–600단어 목표의 작업용 초록, 미확정 부분 placeholder.
+- GitHub 입력 자료 확인: ECTC2024 abstract, ECTC2025 HJung manuscript, ECTC2025 Nahyeon abstract, ECTC2026 Jimin Kwon PDF/DOCX, ECTC2026 KKim abstract.
+- 초록 원문 PDF 분석이 막힌 상태와 이유(Windows process start 오류 1385, 브라우저 PDF fetch cache miss)를 확인하고 기록했다.
 
 ## 미완료 작업
-- 위 문서의 실제 본문 추출 및 5개 고유 초록/원고 분석 (Jimin Kwon DOCX/PDF는 동일본 여부 확인).
-- 문장별 rhetorical function, 문제 정의→기존 접근→gap→기여→결과/의의 전개, 제목 문형, 시제·태, 결과 수치 제시 패턴을 정리한 재사용 가이드 생성.
-- Research Log에 분석 결과 반영.
-- 분석된 구조를 V-Die 초록에 적용하되 측정 전 결과는 placeholder로 유지.
+- 사용자로부터 추가로 붙여넣을 연구실 초록 텍스트를 받아 문서별로 분류하고, 문장 기능·gap 전개·제목 패턴을 비교한다.
+- 원문 샘플 분석을 기반으로 연구실 고유 ECTC abstract template/style guide를 만든다. 현재 `Abstract_Writing_Rules.md`는 사용자 선호 규칙이며 기존 논문 관찰 결과와 혼동하지 않는다.
+- VLSI 2026 V-Die 논문과 inter-die cooling/thermal bridge 선행을 확인해 novelty/gap 문장을 검증한다.
+- 열원 지도, die 간격/기둥 크기, working fluid, inlet temperature, flow/pumping condition, baseline 및 simulation 결과를 정한다.
+- 결과에 맞춰 작업용 초록의 placeholder를 실제 수치로 바꾸고 500–600단어 수를 재확인한다.
 
 ## 핵심 참고자료
-- [Incoming abstracts and manuscripts](https://github.com/HyeongjunKim00/AdvancedPackaging/tree/main/Research/Thermal/Incoming)
-- [Thermal Research Log](https://github.com/HyeongjunKim00/AdvancedPackaging/blob/main/Research/Thermal/Research_Log.md)
-- 연구실 초록 작성 방식의 목표는 사용자가 제시한 예시처럼 문장 기능과 순서가 분명한 인과적 구조를 파악하는 것.
+- [Abstract writing rules](Research/Abstract_Writing_Rules.md)
+- [Inter-die cooling abstract draft](Research/Thermal/Vertically_Oriented_Die_InterDie_Cooling_Abstract_Draft.md)
+- [Incoming ECTC materials](Research/Thermal/Incoming/)
+- [Thermal Research Log](Research/Thermal/Research_Log.md)
 
 ## 다음 AI용 프롬프트
-GitHub의 `Research/Thermal/Incoming/`에서 ECTC 2024–2026 PDF/DOCX를 실제로 읽을 수 있는 문서 추출 기능을 사용하라. 먼저 PDF와 Word 본문 접근을 검증하고, Jimin Kwon DOCX와 PDF의 동일 여부를 확인하라. 5개 고유 자료를 문장별 기능 및 제목 구성 기준으로 비교하고, 공통 공식과 문서별 변형을 분리한 `Research/ECTC_Abstract_Writing_Guide.md`를 작성하라. `Research/Thermal/Research_Log.md`와 이 파일도 갱신하라. 사실과 해석을 구분하고, 자료에 없는 수치·결과를 만들지 말라.
+현재 저장된 abstract writing rules와 초록 draft를 읽고, 사용자가 이어서 붙여넣는 연구실 ECTC 초록을 실제 원문 자료로 분류·분석하라. 전체 샘플 분석 결과와 사용자 선호 규칙을 구분하고, 문장별 기능 및 반복되는 제목/전개 방식을 reusable guide에 정리하라. V-Die 연구 초록은 vertically oriented memory-die stacks로 표현하고, single-phase die-gap cooling 및 Cu thermal-bridge fin을 다룬다. “However”로 구체적인 gap을 빨리 제시하고 “In this work”를 일찍 배치하며, 모호한 주어·this/that 지시대명사·근거 없는 수치/효과를 피한다. 미확정 조건과 결과는 placeholder로 남기고, 기계적 지지 효과를 해석/검증한 것처럼 쓰지 않는다. 완료 뒤 Thermal Research Log와 AI_HANDOFF를 갱신한다.
