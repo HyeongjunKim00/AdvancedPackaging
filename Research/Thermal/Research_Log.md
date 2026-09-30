@@ -368,3 +368,24 @@
 - “단상 냉각 V-Die에서 양쪽 die를 잇는 Cu thermal-bridge fin의 높이(=die gap), 직경 및 피치가 die-level Tmax, die-to-die thermal coupling, 압력강하와 pumping power 간 trade-off를 어떻게 바꾸는가?”
 - baseline은 동일 gap의 pillar-free channel. pillar design은 같은 gap을 Cu bridge로 부분 점유하며 coolant는 주변을 통과한다.
 - 동일 입구 조건/총 열부하를 유지하고 동일 pumping power를 주 비교조건으로 고려한다. die별 Tmax와 온도차, coolant outlet temperature, ΔP/유량분배를 함께 보고한다.
+
+## 2026-10-01 — V-Die 선행 논문의 냉각 범위 정정 및 초록 스토리라인
+
+### 사용자 정정
+- V-Die 아키텍처로 발표된 논문은 VLSI 2026의 한 편이며, 해당 논문이 구체적인 냉각 방식/유로/열유압 설계를 명확하게 제안한 것은 아니라는 점을 사용자가 정정했다.
+- 이전 메모의 “V-Die 제안에 die 사이 microfluidic channel이 이미 포함된다”는 표현은 Tom's Hardware 등 2차 보도 설명을 바탕으로 했으며, 원 VLSI 논문 본문을 직접 확인한 결과가 아니다. 이를 확정적인 원 논문 내용처럼 일반화하지 않는다.
+- 초록 문제 정의에서는 “기존 V-Die 냉각 구조를 개선한다”보다 “V-Die 열관리의 구체적인 냉각 구조/열유압 설계가 명확히 정립되지 않았다”를 후보로 둔다. 다만 이 gap 표현도 원 VLSI 논문 및 더 넓은 문헌 검토 후 확정한다.
+
+### 잠정 초록 흐름 [추론]
+1. 넓은 배경: AI 가속기용 3D memory integration은 고대역폭·고집적 구조의 열관리를 중요하게 만든다.
+2. 대상 문제: 수직 V-Die 사이에서 die 냉각과 간격/유로 유지가 함께 고려되어야 한다.
+3. 기존 접근: V-Die 아키텍처는 VLSI 2026에서 발표되었지만, 사용자의 확인에 따르면 구체적 cooling channel/pillar 열유압 설계는 해당 논문에서 명확히 제안되지 않았다. 원문 대조 전에는 이를 초록에서 단정하지 않는다.
+4. 해결되지 않은 질문: opposing die를 잇는 비전기적 Cu thermal bridge가 열을 유체로 전달하는 효과와 유로 차단/압력강하 사이 trade-off가 V-Die 형상에서 어떻게 나타나는가.
+5. 이번 연구: 단상 die-gap direct cooling에서 gap 및 Cu bridge 형상(높이=gap, 직경, 피치/배열)을 parametric CHT로 비교하고, pillar-free baseline과 동일 펌프동력 조건에서 평가.
+6. 결과/의의: 실제 계산/측정 후 die별 Tmax, die 간 온도편차 및 ΔP/pump power를 수치로 채운다. 결과 전에는 효과 수치를 쓰지 않는다.
+- Intel US 11,515,232에는 conductive bumps 사이 유체냉각 선행 개념이 있으므로, 넓은 “Cu interconnect + liquid between dies” 최초성은 주장하지 않는다. V-Die-specific 열-유압 설계, pillar의 비전기 thermal-bridge 기능과 matched-pumping-power 평가 범위에서 contribution을 정의한다.
+
+### 다음 행동
+- [ ] VLSI 2026 원 논문에서 cooling 관련 실제 서술·그림·가정 확인.
+- [ ] 문헌/특허 선행기술을 추가 대조한 뒤 “해결되지 않은 부분” 문장을 확정.
+- [ ] 초록에 넣을 결과값은 CHT/실험 완료 후 채운다.
