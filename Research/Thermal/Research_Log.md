@@ -186,3 +186,19 @@
 ### 다음 행동
 - [ ] 콜드플레이트가 V-Die 측면을 감싸거나 유체가 측면을 흐르는지, 상단 edge 접촉만 하는지 도식에서 확인한다.
 - [ ] 같은 package 기준으로 GPU/V-Die 높이와 열원 위치를 고정한 뒤 첫 conjugate heat-transfer model을 정의한다.
+## 2026-09-30 — V-Die 측면 인접 밀폐 유로의 제작 현실성
+
+### 자료에서 확인한 제작 방식
+- OCP Cold Plate Development and Qualification 가이드는 cold plate base와 top cover 사이에 유로를 두고, 유로를 base 또는 cover에 가공한 뒤 braze, friction-stir welding, soldering 또는 O-ring으로 조립·밀봉하는 구조를 기술한다. 각 접합 방식은 압력 지지, 재료/유체 적합성, 비용, 누설 신뢰성 등의 상충이 있다.
+- 근거: [OCP Cold Plate Development and Qualification](https://www.opencompute.org/documents/ocp-cold-plate-development-and-qualification-with-integrated-comments-pdf), pp. 6–9. [A: 공식 OCP 문서 직접 확인]
+
+### V-Die 적용 아이디어 [추론]
+- 현실성 있는 1차 열모델 후보는 V-Die 표면에 냉각수를 직접 접촉시키지 않고, CNC 가공된 금속 cold-plate base 안의 밀폐 유로가 V-Die 측면을 따라가도록 하고 cover로 봉합하는 방식이다.
+- 이는 일반 cold plate 제작 원리를 V-Die 외형에 적용한 설계 가설이다. 동일 형상의 V-Die 제작·실험 가능성을 확인한 근거는 아직 없다.
+- V-Die 사이 간극에 직접 냉각수를 넣는 구조는 별도의 package-integrated/inter-die microfluidic architecture로 분리한다. 기존 V-Die 제안 기사에는 die 사이 microfluidic 채널이 소개되어 있으므로 novelty를 단정하지 않는다.
+
+### 시뮬레이션 문제 정의 후보
+- “평면형 기준 콜드플레이트와 V-Die 측면 인접 밀폐 유로형 콜드플레이트 중 어느 설계가 같은 입구 조건 및 유압 예산에서 GPU/V-Die별 Tmax와 온도 불균일도를 더 낮추는가?”
+- 모델 변수 후보: cold-plate cavity/slot 높이, sidewall 인접 유로 위치, 유로 단면, GPU 영역 유로와 V-Die 영역 유량 분배.
+- 모델링은 고체 열전도와 유체 대류를 결합한다. TIM/접촉 열저항은 고정 입력으로 두고, 기계 응력/접촉력은 다루지 않는다.
+- [A: OCP 제작공정 근거]와 [추론: V-Die에의 적용]을 구분한다. 측면 인접 유로의 V-Die 실현성은 제작팀/공정 접근성 확인이 필요하다.
