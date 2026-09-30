@@ -389,3 +389,33 @@
 - [ ] VLSI 2026 원 논문에서 cooling 관련 실제 서술·그림·가정 확인.
 - [ ] 문헌/특허 선행기술을 추가 대조한 뒤 “해결되지 않은 부분” 문장을 확정.
 - [ ] 초록에 넣을 결과값은 CHT/실험 완료 후 채운다.
+
+## 2026-10-01 — ECTC 초록의 작업용 제목·스토리라인 초안
+
+### 사용자 목표
+- 초록을 무작위 문장 나열이 아니라, 연구실 기존 초록의 수사적 문장 순서와 각 문장의 기능을 분석한 뒤 같은 구조로 작성하고 싶다.
+- 사용자가 향후 연구실 기존 제목/초록 예시를 보내기로 했다. 그 자료를 받으면 문장별 역할, 배경에서 gap으로 좁히는 순서, 방법·결과·의의 배치, 어조/길이를 추출한다.
+
+### 현재 임시 스토리라인 [초안, 문헌 gap 미확정]
+1. 3D memory/AI accelerator의 집적도·대역폭 증가와 열관리 필요.
+2. V-Die는 DRAM die를 수직 배치해 I/O/용량 확장성을 겨냥하며, die 사이 gap의 열관리 설계가 필요.
+3. 3D package liquid cooling 및 conductive-interconnect coolant 연구는 선행이 있으므로 배경에 인정.
+4. V-Die에서 opposing die를 잇고 간격을 유지하는 비전기 Cu thermal bridge의 열 전달과 유압 손실 간 trade-off를 구체 문제로 둔다. 이 특정 gap claim은 VLSI 2026 원문 및 관련 선행 조사 후 확정한다.
+5. 단상 inter-die cooling에서 pillar-free baseline과 Cu bridge design을 CHT로 비교, gap/height, diameter, pitch/array를 평가.
+6. 결과 문장에 matched pumping power에서의 die별 Tmax/온도편차 변화 및 ΔP를 실제 수치로 삽입.
+7. 얻은 설계 지침의 범위와 V-Die thermal design에 대한 의의로 마무리.
+
+### 임시 제목
+- 우선 후보: *Thermal–Hydraulic Design of Copper Thermal Bridges for Single-Phase Inter-Die Cooling in V-Die Memory*
+- 이는 working title이며, 실험/시뮬레이션 범위와 결과에 따라 수정.
+
+### 작업용 영문 초록 뼈대
+Three-dimensional memory integration in AI accelerators increases the need for effective thermal management. The V-Die architecture arranges DRAM dies vertically to increase memory integration and I/O density, while creating inter-die gaps that require a defined cooling strategy. Although liquid cooling of 3D packages and coolant transport through conductive interconnects have been explored, the thermal-hydraulic role of non-electrical copper bridges connecting opposing V-Die surfaces remains to be established for this architecture. Here, we propose a single-phase inter-die cooling structure in which copper thermal bridges connect adjacent dies, define the die spacing, and provide additional heat-transfer area while coolant flows around them. A conjugate heat-transfer model is used to compare pillar-free channels with copper-bridge channels while varying the die gap, bridge diameter, and pitch under [matched pumping power / other finalized condition]. The optimized configuration [INSERT VERIFIED RESULTS: die-level Tmax/temperature spread, ΔP, pump power, and conditions]. These results [INSERT supported design insight] and provide a thermal-hydraulic design basis for cooling V-Die memory systems.
+
+- This draft is deliberately provisional. The prior-art/gap sentence must be checked against the VLSI 2026 paper and relevant patents/papers; outcome sentence cannot be completed before actual simulation/measurement.
+- User's future lab abstracts should be used to revise rhetorical structure and style; do not assume this draft's sentence order is the lab's final formula.
+
+### 다음 행동
+- [ ] 사용자가 연구실 기존 제목·초록을 보내면 문장 기능/전환/길이/어조를 분석해 reusable outline으로 정리.
+- [ ] VLSI 2026 original paper and adjacent prior art checked for exact cooling disclosure.
+- [ ] Define model conditions and obtain verified results before final abstract drafting.
