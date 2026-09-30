@@ -349,3 +349,22 @@
 - [ ] V-Die 기하에서 gap 및 pillar 직경/피치/배치의 현실적인 범위를 원자료·공정능력과 맞춘다.
 - [ ] 단상 유체와 입구 온도/유량 또는 펌프동력 범위를 DLC 시험 셋업에 맞춰 정한다.
 - [ ] Cu pillar 없는 기준안과 pillar 설계안을 conjugate heat-transfer 모델로 비교한다.
+
+## 2026-10-01 — Cu fin의 열적·기하학적 정의 구체화
+
+### 사용자 지정 구조
+- Cu fin/pillar는 서로 마주 보는 V-Die 두 die를 연결하는 열전달 기둥이다.
+- 사용자 의도상 전기 interconnect가 아니며, die 사이 간격을 잡고 기계적으로 지지하는 역할도 갖는다.
+- 냉각 유체는 기둥 사이/주변 단상 유로를 흐른다.
+
+### 열모델 의미 [해석]
+- 열적으로는 양쪽 die와 접촉한 Cu thermal bridge/bridging fin으로 모델링한다. 두 die의 열이 pillar로 들어가고, pillar 표면에서 유체로 대류할 수 있다.
+- 이 구조는 단순히 die 한쪽에 붙은 fin이 아니다. Cu가 양쪽 die를 열적으로 잇기 때문에 두 die 사이 열 크로스토크/열 재분배가 생길 수 있고, 방향에 따라 이득 또는 불이익이 될 수 있다.
+- 기하상 pillar height는 마주 보는 die 간격과 직접 연결된다. die gap과 pillar height를 독립변수로 동시에 변화시킬 수 없다(접촉/브레이징 두께를 무시하는 1차 모델 기준). gap parametric sweep에서는 각 gap에 맞는 pillar height를 함께 바꾼다.
+- 기계적 지지/간격 유지 기능은 연구 동기 및 구조 정의에 포함하되, 이번 사용자의 범위에 따라 응력·변형·좌굴 해석은 수행하지 않는다. thermal contact는 양쪽 면 접합으로 가정하거나 contact resistance를 명시한다.
+- pillar가 비전기적 기능이어도 Cu는 도전성이 있으므로 전기 active region과의 간격/절연/passivation은 실제 패키지 가정으로 해결돼야 한다. 열 시뮬레이션에서는 electrical isolation을 구조 전제로 둘 수 있으나, 이를 검증된 공정으로 서술하지 않는다.
+
+### 업데이트된 연구 질문 후보
+- “단상 냉각 V-Die에서 양쪽 die를 잇는 Cu thermal-bridge fin의 높이(=die gap), 직경 및 피치가 die-level Tmax, die-to-die thermal coupling, 압력강하와 pumping power 간 trade-off를 어떻게 바꾸는가?”
+- baseline은 동일 gap의 pillar-free channel. pillar design은 같은 gap을 Cu bridge로 부분 점유하며 coolant는 주변을 통과한다.
+- 동일 입구 조건/총 열부하를 유지하고 동일 pumping power를 주 비교조건으로 고려한다. die별 Tmax와 온도차, coolant outlet temperature, ΔP/유량분배를 함께 보고한다.
