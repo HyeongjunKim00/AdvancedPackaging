@@ -235,3 +235,20 @@
 - [ ] Azubuike thesis 원문에서 실제 side-manifold 단면/유체 접촉 영역과 모델 경계조건을 확인하고, 사용자의 위쪽 덮개 배치와 차이를 그림으로 대조한다.
 - [ ] 해당 thesis와 V-Die 원 학회자료, 관련 특허의 청구항·구조를 비교해 연구 질문의 novelty 범위를 정한다.
 - [ ] 주제 문구에서 “side cooling 신규 제안” 대신 V-Die-specific thermal design/비균일 열부하/동일 펌프동력 비교 등 검증 가능한 기여를 정의한다.
+
+## 2026-09-30 — V-Die 바깥 둘레 측면 냉각의 유효 면적 concern
+
+### 사용자 관찰
+- V-Die 외부에 cold plate를 두고 바깥 측면만 냉각하면, 종래 hotspot 위에 유로를 배치해 열원에 직접 냉각을 집중하는 설계 이점이 줄어들 수 있다는 우려.
+- 옆면이라는 방향 자체가 냉각 면적을 작게 만드는 것은 아니다. die의 넓은 면이 수직으로 노출되어 유체에 젖으면 면적은 클 수 있다. 핵심은 냉각수가 die 묶음의 바깥 면만 접하는지, die 사이의 각 넓은 면을 접하는지다.
+
+### 해석 [추론]
+- 외부 side-wrap plate가 V-Die 배열의 바깥 perimeter만 냉각하면, 내부 die의 열은 여전히 die/지지 구조를 통해 바깥으로 전달되어야 하므로 내부 die의 열경로를 짧게 만들지 못할 수 있다. 따라서 “감싸는 면적이 늘어 효율이 오른다”고 가정할 수 없다.
+- 각 V-Die 사이에 유체가 흐르면 반복되는 넓은 die 면에서 직접 열을 제거할 수 있어 면적과 열원 근접성이 달라진다. 다만 이는 외부 cold plate의 개선이라기보다 패키지 내부 inter-die microfluidic 냉각이며, V-Die 제안에 이미 포함된 개념이다.
+- 외부 cold plate의 열적 기여가 의미 있는지는 die별 열원 위치, 유체 접촉 면적, 냉각면까지 고체 열전도 거리/재료, interface resistance, 유량 및 ΔP를 포함한 모델로 판단해야 한다. 단순 면적만으로 효율을 결론내리지 않는다.
+
+### 다음 행동
+- [ ] 단면도에서 유체가 닿는 면을 색으로 표시하고, 외부 perimeter wetted area와 inter-die wetted area를 따로 산출한다.
+- [ ] 사용자가 우려하는 배치가 바깥면 side-wrap인지, 각 die gap을 통과하는 manifold인지 도식으로 확정한다.
+- [ ] 외부 side-wrap가 바깥 die에만 열적으로 접근한다면 이를 주된 개선안으로 밀지 말고, top-only baseline 대비 이득을 먼저 screening simulation으로 확인한다.
+- [ ] 내부 die-gap 냉각은 별도 구조/공정 난이도와 V-Die 선행개념을 고려해 확장안으로 취급한다.
