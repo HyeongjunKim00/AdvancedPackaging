@@ -202,3 +202,36 @@
 - 모델 변수 후보: cold-plate cavity/slot 높이, sidewall 인접 유로 위치, 유로 단면, GPU 영역 유로와 V-Die 영역 유량 분배.
 - 모델링은 고체 열전도와 유체 대류를 결합한다. TIM/접촉 열저항은 고정 입력으로 두고, 기계 응력/접촉력은 다루지 않는다.
 - [A: OCP 제작공정 근거]와 [추론: V-Die에의 적용]을 구분한다. 측면 인접 유로의 V-Die 실현성은 제작팀/공정 접근성 확인이 필요하다.
+## 2026-09-30 — 3D die 측면을 따라가는 cold plate/side-manifold 선행 개념
+
+### 질문 / 문제 정의
+- 수직 V-Die의 옆면을 감싸거나 따라가며 냉각하는 외부 cold plate가 이미 제안된 적이 있는가?
+
+### 확인된 선행 개념
+- Chukwudi Azubuike의 Binghamton University M.S. thesis (2025), *CFD Analysis of Combined Cold-Plate and Side-Manifold Cooling of 3D-Stacked Chips for Enhanced Thermal Management*는 상부 micro-finned cold plate와 칩 스택 측면의 coolant manifold를 결합한 외부 냉각 구조를 CFD로 분석한다. 초록/본문 발췌는 side manifold가 칩 옆면에 유체를 직접 접촉시켜 측면에서도 열을 제거한다고 설명한다. 따라서 “3D 적층 다이의 상부 cold plate에 sidewall coolant manifold를 추가해 측면을 냉각한다”는 넓은 개념은 이미 제안·해석된 선행 사례가 있다. [B: 학위논문 원문이 저자 업로드본으로 ResearchGate에서 확인됨; 학위논문, 저널/학회 논문 아님]
+- 논문 초록은 parallel-flow 및 impinging-flow 구성, 8개 die, die당 50–150 W 조건을 보고하며 성능 개선 수치도 제시한다. 이번 답변에서는 해당 성능 수치를 독립 검증하지 않았고 연구 성과 근거로 사용하지 않는다.
+- V-Die 자체도 upright DRAM die 사이의 package-integrated microfluidic channel을 제안한다는 보도가 있다. 이는 외부 cold plate의 side manifold와 다른 구조다. [B: Tom's Hardware 2차 기사]
+- OCP cold-plate 가이드는 금속 base/cover 안에 유로를 가공하고 접합·밀봉하는 통상 제작 옵션을 설명한다. 이는 sealed-channel plate 제작의 일반 근거이지, V-Die에 맞춘 side-wrap 제품의 제작 검증은 아니다. [A: 공식 OCP 가이드]
+
+### 구분과 의미
+- (1) 상부 cold plate + 스택 바깥 측면에 coolant가 직접 흐르는 side manifold: 선행 thesis와 상당히 가까움.
+- (2) V-Die 옆면을 따라가는 밀폐 금속 plate 내부 유로: 외부 냉각 구조의 다른 구현 가능성이나, 해당 V-Die 형상에 대한 정확한 선행 여부는 미확정.
+- (3) V-Die 다이 사이 간극으로 냉각수를 보내는 inter-die microfluidics: 패키지 내부 유로이며 V-Die 제안에서 이미 제시된 축.
+- 따라서 “die를 감싸는 cold plate는 선행이 없다” 또는 “side cooling 자체가 novelty”라고 주장하면 안 된다. 이 선행 사례는 사용자의 구조와 재료·형상·유체 접촉 방식이 같다는 뜻은 아니지만, 주제 범위를 좁힐 필요가 있다.
+
+### 연구 차별점 후보 [추론]
+- 기존 3D stacked-chip side-manifold CFD와 구별하려면 V-Die 특유의 GPU+upright-DRAM 3D 형상, die별 비균일 발열, 상부 덮개형 외부 plate의 유로/커버리지, 동일 펌프동력 또는 ΔP에서의 GPU/V-Die Tmax 및 온도 균일도 등을 연구 질문에 구체적으로 넣어야 한다.
+- 가장 직접적인 비교는 top-only plate 대 top-plus-V-Die-sidewall cooling이며, 실제 V-Die 단면·열원 맵을 사용해야 한다. inter-die microfluidics는 별도 확장안으로 남긴다.
+- 정확한 novelty 판단 전에 논문/학위논문 원문과 특허 청구항을 체계적으로 대조해야 한다.
+
+### 근거
+| 주장 또는 결과 | 출처/링크 | 근거 등급 | 원문 확인 여부 |
+|---|---|---|---|
+| 3D stacked chips의 상부 cold plate + 측면 side manifolds를 결합한 외부 냉각을 CFD 분석한 M.S. thesis 존재 | [Azubuike, Binghamton University thesis, 2025](https://www.researchgate.net/publication/400983203_CFD_ANALYSIS_OF_COMBINED_COLD-PLATE_AND_SIDE-MANIFOLD_COOLING_OF_3D-STACKED_CHIPS_FOR_ENHANCED_THERMAL_MANAGEMENT), DOI: 10.13140/RG.2.2.13933.65763 | [B: 저자 업로드 학위논문] | 초록·상세 발췌 확인; 기관 저장소 레코드 독립 확인은 못함 |
+| V-Die proposal places microfluidic channels between adjacent upright DRAM dies | [Tom's Hardware V-Die/MOSAIC report](https://www.tomshardware.com/tech-industry/semiconductors/researchers-turn-hbm-on-its-side-to-tackle-ai-memorys-heat-wall-korean-v-die-and-japanese-mosaic-designs-promise-higher-bandwidth-denser-stacks-and-cooler-future-gpus) | [B: 2차 기사] | 기사 확인; 원 학회자료 미확인 |
+| 일반 cold plate channels can be machined into base/cover and sealed using several joining options | [OCP Cold Plate Development and Qualification](https://www.opencompute.org/documents/ocp-cold-plate-development-and-qualification-with-integrated-comments-pdf) | [A: 공식 가이드] | 직접 확인 |
+
+### 다음 행동 / 결정
+- [ ] Azubuike thesis 원문에서 실제 side-manifold 단면/유체 접촉 영역과 모델 경계조건을 확인하고, 사용자의 위쪽 덮개 배치와 차이를 그림으로 대조한다.
+- [ ] 해당 thesis와 V-Die 원 학회자료, 관련 특허의 청구항·구조를 비교해 연구 질문의 novelty 범위를 정한다.
+- [ ] 주제 문구에서 “side cooling 신규 제안” 대신 V-Die-specific thermal design/비균일 열부하/동일 펌프동력 비교 등 검증 가능한 기여를 정의한다.
