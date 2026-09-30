@@ -1,28 +1,31 @@
 # AI Handoff
 
 ## 현재 상태
-- ECTC 후보는 V-Die 패키지 열관리이며, 사용자는 Cu pillar 사이 inter-die coolant를 넣는 방향을 고려한다.
-- 중요한 미결정사항: 냉각수가 GPU까지 직접 접촉하는지, V-Die만 냉각하는지, die-gap이 열린 dielectric-fluid cavity인지 밀폐 microchannel인지.
-- V-Die가 GPU 상면을 덮으면 GPU cold plate의 직접 접촉면이 가릴 수 있으므로, V-Die footprint와 GPU 냉각 경계 확인이 구조 설계의 선행조건이다.
+- ECTC 주제는 **V-Die에 한정한 die-gap direct cooling의 열·유압 설계**로 범위를 좁히는 방향을 논의 중이다. 사용자는 GPU까지 immersion/direct cooling할지 대신 V-Die만 직접 냉각하는 가정을 고려한다.
+- 제안되는 연구 시스템은 V-Die 수직 die 사이의 coolant passage와 Cu pillar 배열이다. “direct cooling”은 밀폐 inter-die 유로로 die 표면에서 냉각하는 것으로 정의할 수 있으며, 열린 bath immersion과 혼동하지 않는다.
+- GPU cold plate shape는 1차 연구범위에서 제외할 수 있지만, V-Die 하부에 GPU가 주는 열영향은 하부 heat-flux/temperature/equivalent thermal-resistance 경계 또는 simplified GPU solid로 반영해야 한다.
+- 직접냉각 가정은 단상/2상 선택을 자동 결정하지 않는다. 구현 가능한 유체/셋업에 따라 별도 결정해야 한다.
 
 ## 완료 작업
-- 외부 side-wrap 단독은 내부 die의 열경로를 충분히 줄이지 못할 수 있다고 정리했다.
-- Cu pillar + die 사이 coolant는 열교환면/유동 교란 개선 가능성과 ΔP·유량불균일·막힘의 trade-off로 제안했다. broad concept은 Intel US 11,515,232와 겹칠 수 있어 novelty를 넓게 주장하지 않는다.
-- 냉각 시나리오 후보를 (1) GPU+V-Die 공통 직접 냉각, (2) GPU cold plate와 V-Die 내부 냉각 분리, (3) GPU flat zone과 V-Die raised manifold를 결합한 2-zone cooler로 나눴다.
-- 상세는 [Thermal Research Log](Research/Thermal/Research_Log.md)에 기록.
+- GPU+V-Die 공통냉각, 분리냉각, 2-zone cooler 시나리오를 정리한 뒤 사용자 제안에 따라 V-Die-only 범위로 좁히는 것이 연구 질문을 단순화할 수 있다고 제안.
+- Cu pillar-free channel을 baseline, Cu-pillar channel을 design으로 두고, 같은 geometry/inlet/heat load에서 주 비교를 동일 pumping power로 수행하는 후보를 설정.
+- 핵심 지표: 각 die Tmax, die-to-die temperature spread, coolant temperature rise, ΔP/pumping power, flow distribution.
+- 수계 유체와 Cu pillar를 결합할 때 전기 절연/패시베이션은 명시적 가정이며, 공정 실현 검증 사실이 아님.
+- 자세한 근거와 미결정 사항은 [Thermal Research Log](Research/Thermal/Research_Log.md).
 
 ## 미완료 작업
-- 실제 V-Die-on-GPU 단면, footprint, 부착면, GPU 냉각 가능 면 확인.
-- die-gap의 냉각 유체 경계가 열린 dielectric immersion인지 sealed microchannel인지 결정.
-- GPU와 V-Die 각각의 열원 및 유체 공급/회수 경로를 정의.
-- 위 시나리오를 고정한 뒤 pillar-free channel과 Cu-pillar channel을 동등한 펌프동력/ΔP 조건에서 비교.
-- patent claims/family 및 V-Die 원 학회자료를 확인해 novelty를 좁힘.
+- GPU→V-Die 하부 열경계조건을 정량화할 자료 확보 또는 단순화 방법 결정.
+- V-Die 원 자료에서 die gap, coolant routing, pillar geometry/role 확인.
+- 실제 DLC 셋업에 맞춰 단상/2상 및 유체 선택.
+- Cu pillar가 전기 interconnect인지 thermal post/flow feature인지 구분하고 전기절연 가정 정의.
+- US 11,515,232 특허 청구항과 V-Die 원 학회자료를 비교해 novelty를 좁힘.
+- Simulation/measurement results가 나오기 전에는 초록의 정량 성능 주장을 작성하지 않음.
 
 ## 핵심 참고자료
 - [Thermal Research Log](Research/Thermal/Research_Log.md)
-- [Intel US 11,515,232](https://patents.google.com/patent/US11515232B2/en) — conductive bumps 사이 액체 냉각 선행 개념.
-- [V-Die 설명 기사](https://www.tomshardware.com/tech-industry/semiconductors/researchers-turn-hbm-on-its-side-to-tackle-ai-memorys-heat-wall-korean-v-die-and-japanese-mosaic-designs-promise-higher-bandwidth-denser-stacks-and-cooler-future-gpus) — die 사이 microfluidic cooling 2차 보도.
-- [OCP Cold Plate guide](https://www.opencompute.org/documents/ocp-cold-plate-development-and-qualification-with-integrated-comments-pdf) — conventional cold plate 제작의 참고자료.
+- [Intel US 11,515,232](https://patents.google.com/patent/US11515232B2/en) — conductive bump/interconnect 사이 냉각 선행 개념.
+- [V-Die 소개](https://www.tomshardware.com/tech-industry/semiconductors/researchers-turn-hbm-on-its-side-to-tackle-ai-memorys-heat-wall-korean-v-die-and-japanese-mosaic-designs-promise-higher-bandwidth-denser-stacks-and-cooler-future-gpus) — V-Die die-gap cooling에 관한 2차 보도.
+- [OCP Cold Plate Guide](https://www.opencompute.org/documents/ocp-cold-plate-development-and-qualification-with-integrated-comments-pdf) — 일반 cold plate 참고자료; V-Die inter-die cooler와 구분.
 
 ## 다음 AI용 프롬프트
-다음 토론에서는 Cu pillar 형상을 정하기 전에 V-Die-on-GPU 단면의 냉각 경계를 확정하라. V-Die가 GPU 상면을 덮으면 GPU cold plate의 직접 접촉이 가려질 수 있다. 실제 노출면을 확인해 (a) GPU+V-Die 공통 직접 냉각, (b) GPU cold plate와 V-Die die-gap coolant 분리, (c) GPU flat zone + V-Die raised manifold 2-zone cooler 중 가능한 시나리오를 도식화하라. 열린 dielectric-fluid cavity와 sealed inter-die microchannel을 혼동하지 말고, 물 사용 시 전기 격리/실링 가정을 명시한다. 시나리오 고정 후에만 pillar-free 대비 Cu-pillar design의 thermal-hydraulic comparison을 정의한다. Facts/inference 분리 및 저장소 handoff/log 규칙을 따른다.
+사용자가 GPU cold plate 전체 형상까지 동시에 다루지 않고 V-Die만 direct cooling하는 범위로 좁히려 한다. 이 방향을 검토할 때 GPU를 완전히 무시하지 말고 V-Die 하부에 heat-flux/temperature/equivalent-resistance boundary 또는 simplified GPU solid로 열영향을 반영하라. die-gap direct cooling은 밀폐 inter-die channel로 정의하고 open-bath immersion과 구분한다. Cu pillar-free channel과 Cu-pillar channel을 동일 열원/inlet 조건 및 matched pumping power에서 비교해 die별 Tmax, temperature spread, ΔP, pump power를 평가하는 질문을 구체화하라. Direct cooling은 단상/2상을 자동 결정하지 않으므로 actual DLC setup에 맞춰 선택한다. V-Die 원 자료와 US 11,515,232 선행을 비교하여 novelty를 신중히 다루고, 모든 연구기록과 handoff를 유지한다.
