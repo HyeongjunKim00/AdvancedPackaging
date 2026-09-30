@@ -419,3 +419,18 @@ Three-dimensional memory integration in AI accelerators increases the need for e
 - [ ] 사용자가 연구실 기존 제목·초록을 보내면 문장 기능/전환/길이/어조를 분석해 reusable outline으로 정리.
 - [ ] VLSI 2026 original paper and adjacent prior art checked for exact cooling disclosure.
 - [ ] Define model conditions and obtain verified results before final abstract drafting.
+
+## 2026-10-01 — 연구실 ECTC 초록 샘플 PDF 수신, 본문 확인 대기
+
+### 요청
+- 사용자가 ECTC 2024/2025/2026 초록·원고 PDF 다섯 편을 참고해 초록의 문장 구조와 연구실 writing pattern을 추출하고, 향후 재사용할 별도 Markdown guide를 만들도록 요청했다.
+
+### 접근 상태
+- 전달된 자료는 Dropbox 로컬 Windows 경로로만 제공됨.
+- 현재 세션에서 해당 경로의 파일 본문을 읽을 수 없었으며, PDF 내용은 분석하지 않았다. 일반적인 초록 작성 지식을 샘플 분석 결과처럼 기록하지 않는다.
+- 파일명 목록: ECTC2024_Abstract_Submitted.pdf; 나현_ECTC2025_Abstract_final_JM.pdf; ECTC2025_HJung_Manuscript.pdf; ECTC2026_Abstract_Jimin Kwon.pdf; ECTC2026_KKim_Abstract_V6_HJung.pdf.
+
+### 다음 행동
+- [ ] 사용자가 PDF를 저장소 Research/Thermal/Incoming/에 업로드하거나 채팅에 직접 첨부하면 내용을 읽고 비교한다.
+- [ ] 문장별 rhetorical function, paragraph order, gap-to-contribution transition, title pattern, tense/voice, word count, result presentation을 정리한다.
+- [ ] 관찰된 공통 패턴/개별 예외를 구분한 재사용 가능한 별도 Markdown guide를 생성하고 AI_HANDOFF를 갱신한다.
