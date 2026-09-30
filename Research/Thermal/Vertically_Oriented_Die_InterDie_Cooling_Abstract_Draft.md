@@ -2,9 +2,9 @@
 
 **Thermal–Hydraulic Design of Copper-Pillar Inter-Die Cooling for Vertically Oriented DRAM Stacks**
 
-## Abstract (~561 words; replace placeholders before submission)
+## Abstract (~563 words; replace placeholders before submission)
 
-Modern AI accelerators continue to increase peak floating-point operations per second (FLOPS), but peak FLOPS does not determine application-level compute throughput by itself. The processor must store the active model parameters and receive weights and activations at a rate that keeps its compute units supplied with data. Memory capacity therefore sets the scale of parameter sets that can be resident, whereas memory bandwidth constrains the rate of data delivery and can expose transfer bottlenecks. To expand both capacity and I/O bandwidth within a compact package footprint, the vertical-die (V-die) architecture places DRAM dies vertically and uses high-density interconnects along their side edges.
+Modern AI accelerators continue to increase peak floating-point operations per second (FLOPS), but peak FLOPS does not determine application-level compute throughput by itself. The memory subsystem must retain active model parameters and deliver weights and activations at a rate that keeps the processing units supplied with data. Memory capacity therefore sets the scale of parameter sets that can remain resident in package memory, whereas bandwidth constrains the rate of data delivery and can expose transfer bottlenecks. To expand both capacity and I/O bandwidth within a compact package footprint, the vertical-die (V-die) architecture places DRAM dies vertically and uses high-density interconnects along their side edges.
 
 However, vertical orientation changes the surfaces available for heat removal. Facing DRAM sidewalls form narrow inter-die gaps, while the upper surface of a conventional package remains the primary contact plane for a top-mounted cold plate. A top-side plate can remove heat through that plane, but it does not directly expose the facing die sidewalls to coolant. Increasing the number of DRAM dies or their operating activity can also increase memory-side heat generation and produce a nonuniform die-level heat load. The inter-die gap must therefore be treated as both a coolant passage and a heat-transfer region rather than as unused spacing.
 
