@@ -1,25 +1,25 @@
 # AI Handoff
 
 ## 현재 상태
-- ECTC 후보: GPU 위에 수직 V-Die를 배치하고 그 위를 덮는 외부 콜드플레이트의 열성능을 시뮬레이션한다.
-- 사용자는 기계적 접촉압 분석보다 열 시뮬레이션을 원한다. GPU–V-Die 실제 상대 높이/기준면, 열원 맵, 냉각 경계는 미확정이다.
-- die 사이 유체 냉각은 별도 확장 가능성이다.
+- ECTC 후보는 GPU 위 수직 V-Die를 덮는 외부 콜드플레이트의 열성능 시뮬레이션이다. 사용자 관심은 공정 현실성이 있는 형상을 반영하는 것이다.
+- 실제 V-Die 단면·치수·열원 맵은 미확정이며, 기계 응력/접촉력 분석은 범위 밖이다.
 
 ## 완료 작업
-- 상부 덮개 배치를 확인했다. 연구문제는 콜드플레이트가 GPU 상면과 돌출 V-Die를 동시에 어떻게 냉각하는지로 좁혀진다.
-- 시뮬레이션 가설은 평면형 기준 콜드플레이트와 V-Die 형상에 맞춘 단차/공간·유로를 비교하는 것이다. 유체가 V-Die 측면을 흐르는 경우와 상단에만 열적으로 연결되는 경우를 분리해야 한다.
-- 관련 열 시뮬레이션 모델링 포인트를 [Thermal Research Log](Research/Thermal/Research_Log.md)에 추가했다.
+- 현실적 1차 제작안 후보를 V-Die 측면 가까이를 지나는 밀폐 금속 유로로 정리했다. 채널을 CNC 가공한 베이스/커버로 구성하고 brazing/FSW 등으로 밀봉하는 일반 cold plate 제조 개념을 V-Die에 적용하는 추론이다.
+- OCP 가이드는 base/cover 내 가공 유로와 brazing, FSW, soldering, O-ring 접합의 장단점을 다룬다. 단, V-Die 외형에 특화된 제작/실험 선례를 확인한 것은 아니다.
+- inter-die 직접 냉각은 package-integrated microfluidics로 분리한다. V-Die 제안 자체에서 die 사이 채널이 이미 제시됐으므로 novelty를 주장하지 않는다.
+- 구체적인 비교 질문과 모델변수는 [Thermal Research Log](Research/Thermal/Research_Log.md)에 기록했다.
 
 ## 미완료 작업
-- 콜드플레이트가 V-Die 측면을 감싸는지, 냉각수가 측면을 지나가는지, 상단 edge만 접촉하는지 그림/구조로 확인한다.
-- GPU와 V-Die 높이의 동일 기준면 치수 및 열원 위치를 확인한다. 775 µm와 10 mm를 검증 전 Δh로 간주하지 않는다.
-- GPU/V-Die별 열부하, 재료/TIM 열저항, 입구온도/유량 조건을 정해 conjugate heat-transfer model을 세운다.
-- baseline과 형상적응 유로의 die별 Tmax·온도편차를 비교하고 필요 시 ΔP도 평가한다.
+- 측면 인접 밀폐 유로가 실제 V-Die 치수와 제작 설비로 구현 가능한지 공정팀/장비 기준 확인.
+- GPU/V-Die의 단면, 높이 기준, 전력/열유속 맵 및 재료를 확보.
+- 평면형 baseline과 V-Die 측면 인접 유로형을 같은 inlet/total heat/pumping budget으로 CHT 시뮬레이션.
+- 측면 채널 단면·높이, cold-plate coverage, 유량 분배를 파라미터화하고 Tmax, die 간 온도편차, Rth, ΔP를 비교.
 
 ## 핵심 참고자료
-- [Thermal Research Log](Research/Thermal/Research_Log.md) — 상부 덮개 배치와 냉각 경계 구분.
-- [콜드플레이트 조사본](Research/Thermal/Incoming/2026-09-30_콜드플레이트_ChatGPT.md) — 출처 수치 원문 검증 미완료.
-- [ECTC 대화 인계](Research/Topic_Exploration/ECTC_HeatSink_Conversation_Handoff_2026-09-30.md)
+- [Thermal Research Log](Research/Thermal/Research_Log.md) — 측면 인접 밀폐 유로 가설 및 시뮬레이션 제안.
+- [OCP Cold Plate Development and Qualification](https://www.opencompute.org/documents/ocp-cold-plate-development-and-qualification-with-integrated-comments-pdf) — 일반 cold plate 유로 및 접합 제조 방식.
+- [V-Die 및 MOSAIC 소개](https://www.tomshardware.com/tech-industry/semiconductors/researchers-turn-hbm-on-its-side-to-tackle-ai-memorys-heat-wall-korean-v-die-and-japanese-mosaic-designs-promise-higher-bandwidth-denser-stacks-and-cooler-future-gpus) — die 간 microfluidic cooling 소개(2차 기사).
 
 ## 다음 AI용 프롬프트
-사용자는 콜드플레이트가 V-Die 위쪽을 덮는 배치라고 확정했다. 기계 해석을 제안하지 말고 열전달 시뮬레이션 범위를 논의하라. 먼저 콜드플레이트가 V-Die 측면을 감싸는 유로를 갖는지, 유체가 측면을 흐르는지, 위쪽 edge와만 열적으로 연결되는지를 그림으로 확인하라. 이를 평면형 baseline과 V-Die 형상적응 채널/바닥 공간 설계의 열성능 비교로 연결하고, 실제 치수·전력맵 없이는 수치를 만들지 마라.
+사용자는 콜드플레이트가 위에서 V-Die를 덮는 배치를 전제로 하며, 기계 분석보다 열 시뮬레이션에 집중한다. 공정 현실성을 고려한 1차 후보는 V-Die 옆의 cold-plate 금속 안에 밀폐 유로를 두고 커버로 봉합하는 방식이다. 이것을 검증된 V-Die 공정이라고 말하지 말고, 일반 cold-plate 제조법을 적용한 가설로 둬라. 평면형 baseline과 sidewall-adjacent sealed-channel design을 비교하는 CHT 질문을 구체화하고, 실제 치수·전력지도·가공 최소 feature를 먼저 확인하라. inter-die 직접 냉각은 별도 package-integrated 방향으로 구분한다.
