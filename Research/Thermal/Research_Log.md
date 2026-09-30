@@ -299,3 +299,28 @@
 - [ ] V-Die 유로를 열린 dielectric-fluid cavity와 sealed microchannel 중 무엇으로 가정할지 선택한다.
 - [ ] GPU/V-Die 각 열원을 독립적으로 정의하고, coolant inlet/outlet, 유로 분리/공유를 도식화한다.
 - [ ] 시나리오가 고정된 뒤 Cu pillar 유무/피치/직경을 주요 인자로 하는 열·유압 비교를 설계한다.
+
+## 2026-10-01 — 연구범위를 V-Die direct cooling으로 한정하는 선택지
+
+### 사용자 제안
+- GPU와 V-Die 전체 시스템의 냉각 아키텍처를 동시에 설계하기보다, V-Die만을 연구 대상으로 두고 die-gap direct cooling을 전제로 할지 검토.
+
+### 권장 범위 [연구 설계 추론]
+- ECTC 1차 질문은 **V-Die의 die-gap coolant passage와 Cu pillar 배열의 열-유압 성능**에 한정할 수 있다.
+- GPU 콜드플레이트의 형상을 연구 변수로 포함하지 않는다. 대신 GPU가 V-Die 하부에 주는 영향을 완전히 제거하지 않고, V-Die 하부에 열유속/온도/등가 thermal-resistance 경계조건을 부여하거나 단순화한 GPU solid를 포함한다. 어떤 조건인지 초록과 모델에 명시한다.
+- 직접 냉각은 “die 사이 밀폐된 inter-die microchannel/유로를 통해 유체가 die 표면에서 열을 받는 구조”로 우선 정의한다. 열린 dielectric bath immersion과 혼용하지 않는다. 직접냉각 가정만으로 단상/2상 유동 선택이 결정되지는 않는다.
+- Cu pillar는 유로 내 열전달 보강 요소로 둘지, 전기 interconnect를 겸하는지 명시한다. 수계 유체를 가정할 경우 conductor와의 전기 절연/패시베이션을 모델 전제에 넣어야 한다. 이번 단계에서는 공정 실현이 검증된 사실로 취급하지 않는다.
+
+### 질문/비교 후보
+- “V-Die die-gap direct liquid cooling에서 Cu pillar의 유무·직경·피치가 기준 열원과 inlet 조건에서 die별 Tmax 및 온도 편차와 ΔP/pumping power 사이 trade-off를 어떻게 바꾸는가?”
+- baseline: pillar-free inter-die channel.
+- design: 동일 die gap 및 inlet/heat load에서 Cu-pillar channel. 이후 동일 펌프동력 비교를 주 분석으로 하고, 동일 유량 결과는 부가 비교로 고려.
+- 지표: die별 Tmax, die-to-die temperature spread, coolant temperature rise, ΔP, pumping power, 유량 균일도.
+- GPU 냉각 자체의 성능 향상이나 전체 패키지 냉각 우월성을 주장하지 않는다.
+
+### 남은 결정
+- [ ] GPU→V-Die 열경계조건을 실제 데이터 기반 heat flux, 등가 thermal resistance, 또는 단순화 GPU solid 중 선택.
+- [ ] sealed inter-die channel을 실제 설계 가정으로 둘 수 있는지 V-Die 단면/공정자료 확인.
+- [ ] 단상/2상 여부 및 유체를 DLC 셋업에서 구현 가능한 범위와 맞춰 결정.
+- [ ] Cu pillar 기능(전기 접속/열전달/유동교란)과 절연 가정 정의.
+- [ ] 원 V-Die 자료 및 US 11,515,232 선행과 구별되는 contribution을 설정.
