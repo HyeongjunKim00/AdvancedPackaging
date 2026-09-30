@@ -1,6 +1,6 @@
 # About Me
 
-Kim Hyungjun
+Kim Hyeongjun
 
 ## Research Areas
 
