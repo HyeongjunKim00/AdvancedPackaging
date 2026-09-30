@@ -277,3 +277,25 @@
 - Determine whether the proposed Cu pillars are thermal posts, electrical interconnects, flow turbulators, or a combination. Their bonding/contact and electrical insulation assumptions affect the thermal model.
 - Check US 11,515,232 claim language and related patent families before asserting novelty or freedom to operate. This note is a novelty warning, not legal advice.
 - Establish whether the ECTC contribution is a V-Die-specific design envelope/thermohydraulic optimization, an experimental TTV demonstration, or both.
+
+## 2026-09-30 — V-Die 냉각 시나리오와 GPU cold-plate 경계
+
+### 질문
+- V-Die die-gap을 immersion-like하게 냉각할 때 GPU까지 유체에 노출할지, GPU cold plate를 별도로 유지할지, 그 형상을 어떻게 정의할지.
+
+### 설계 시나리오 [추론]
+1. **GPU와 V-Die를 함께 직접 냉각하는 공통 유체 공간**: 패키지 안의 GPU 냉각면과 V-Die 사이를 하나의 밀폐 유체 공간으로 연결한다. 전기 접점·패드·Cu pillar의 유체 적합성, 절연/패시베이션, 패키지 seal이 선결 조건이다. 물을 쓰려면 전기적 격리와 부식/누설 관리가 필요하고, dielectric coolant를 쓰면 물성/점도/열용량과 펌프 조건을 다시 설정해야 한다. [일반 열유체/패키지 추론; 재료 적합성 데이터 미확인]
+2. **하이브리드 분리 냉각**: GPU에는 conventional cold plate를 유지하고, V-Die die-gap에는 별도 manifold/microfluidic loop를 둔다. 열기여도를 분리하기 쉽고 현실적인 비교 기준을 제공한다. 단, V-Die가 GPU 상면을 덮는 구조라면 GPU cold plate의 직접 접촉면이 물리적으로 가려질 수 있으므로 V-Die footprint/부착 위치를 먼저 확정해야 한다.
+3. **통합형 2-zone cooler**: GPU 위에는 평면 cold-plate base, V-Die 영역에는 raised cavity/manifold와 die-gap 유로를 둔다. 두 영역은 분리된 유로 또는 제어 가능한 병렬 유로로 구성한다. 패키지에 맞춘 특수 cooler가 필요하며, 실제 형상은 단면도 없이 확정할 수 없다.
+
+### 핵심 구조 문제
+- V-Die가 GPU 열접촉면을 완전히 덮으면 “GPU cold plate는 그대로 유지”가 불가능할 수 있다. GPU의 열을 빼낼 수 있는 실제 노출 상면, 주변부, 패키지/기판 방향 열경로를 도면에서 확인해야 한다.
+- V-Die die-gap을 흐르는 냉각수는 열린 immersion bath인지, die 사이에 봉합된 microchannel인지 구분한다. 두 번째는 immersion이라기보다 package-integrated direct liquid cooling이며 전기 절연 문제가 달라진다.
+- 초록의 Cu pillar 비교는 먼저 냉각 경계를 고정해야 한다. 권장 1차 baseline 후보는 동일 GPU cooling boundary를 유지한 상태에서 V-Die gap의 pillar-free channel과 Cu-pillar channel을 비교하는 것이다. 다만 실제 GPU 면이 가려져 GPU 냉각경계를 구현할 수 있는지 확인 전에는 이를 확정하지 않는다.
+
+### 다음 행동
+- [ ] V-Die가 GPU 위에서 차지하는 footprint와 die attach/contact를 단면으로 고정한다.
+- [ ] GPU의 열이 빠져나가는 면 및 현재 cold plate가 접촉할 수 있는 영역을 표시한다.
+- [ ] V-Die 유로를 열린 dielectric-fluid cavity와 sealed microchannel 중 무엇으로 가정할지 선택한다.
+- [ ] GPU/V-Die 각 열원을 독립적으로 정의하고, coolant inlet/outlet, 유로 분리/공유를 도식화한다.
+- [ ] 시나리오가 고정된 뒤 Cu pillar 유무/피치/직경을 주요 인자로 하는 열·유압 비교를 설계한다.
