@@ -434,3 +434,35 @@ Three-dimensional memory integration in AI accelerators increases the need for e
 - [ ] 사용자가 PDF를 저장소 Research/Thermal/Incoming/에 업로드하거나 채팅에 직접 첨부하면 내용을 읽고 비교한다.
 - [ ] 문장별 rhetorical function, paragraph order, gap-to-contribution transition, title pattern, tense/voice, word count, result presentation을 정리한다.
 - [ ] 관찰된 공통 패턴/개별 예외를 구분한 재사용 가능한 별도 Markdown guide를 생성하고 AI_HANDOFF를 갱신한다.
+
+
+## 2026-10-01 — Vertically oriented die stack cooling abstract draft
+
+### 사용자 지정 작성 조건 (Fact: user-provided)
+- 본문 용어는 “V-Die” 대신 “vertically oriented die stacks / vertically oriented DRAM dies”를 사용한다.
+- 초록은 대략 500–600 words를 목표로 한다.
+- 모호한 주어를 피한다. AI 가속기 자체에 의도·행위를 부여하기보다, 예를 들어 processor throughput이 memory capacity/bandwidth에 의존한다고 정확히 쓴다.
+- 문제 정의 전환에 “However”를 일찍 사용하고, “In this work”로 기여를 초반에 밝힌다.
+- this/that 지시대명사를 최소화하고, 주어·물리적 메커니즘을 명시한다.
+
+### 현재 모델/초록 범위 (Fact: user-provided)
+- 수직 배치 DRAM die 사이를 단상 유체로 직접 냉각하는 개념.
+- 비전기 Cu pillar는 마주 보는 die 표면을 연결하며, 냉각 목적의 fin/thermal bridge로 고려한다.
+- 사용자는 우선 열 시뮬레이션을 통한 초록 작성을 원했고, 기계적 지지 효과의 해석은 현재 범위가 아니다.
+- GPU cold plate 자체의 구조 설계는 현재 초록의 중심 범위가 아니다.
+
+### 초록 framing (Inference; 검증되지 않은 연구 가설)
+- Cu pillar는 wetted area를 늘려 die에서 fluid로의 열전달을 도울 수 있다.
+- Pillar가 양쪽 die에 접촉하므로 die 간 열전도/thermal coupling도 만들 수 있다. 이것이 이득인지 손해인지는 simulation 결과로 확인해야 한다.
+- 설계변수 후보: inter-die gap(기둥 높이와 연계), pillar diameter/pitch/layout, coolant flow. 평가 후보: die별 Tmax, die 간 온도차, 온도 불균일도, ΔP, pumping power.
+- top-mounted cold plate는 외부 노출면을 냉각한다는 일반 설명에서 출발해, 수직 die의 opposing sidewalls 사이 냉각 경계가 별도의 설계 질문이라는 초안 논리를 구성했다. 문헌 기반 novelty/gap으로 단정하지 않는다.
+
+### 기록한 산출물
+- [Abstract writing rules](../Abstract_Writing_Rules.md) — 사용자 작성 선호를 규칙으로 정리.
+- [Work-in-progress abstract](Vertically_Oriented_Die_InterDie_Cooling_Abstract_Draft.md) — 약 500–600단어 작업 초안, 실제 조건/결과 placeholder.
+- [AI handoff](../../AI_HANDOFF.md) — 현재 상태와 다음 단계.
+
+### 남은 입력
+- 실제 die heat map/thermal load, geometry, gap·pillar ranges, coolant properties, inlet condition, flow/pump budget, baseline, simulation result 및 validation.
+- 연구실 샘플 초록 문서별 텍스트와 파일명 대응. 사용자가 붙여넣은 원문 조각과 전체 PDF 분석 결과를 혼동하지 않는다.
+- VLSI 2026 V-Die 논문 및 관련 inter-die cooling prior art를 확인한 뒤 novelty/gap 문장을 확정한다.
