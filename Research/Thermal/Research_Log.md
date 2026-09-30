@@ -131,3 +131,23 @@
 ### 후보 문제 문장 [추론]
 - “V-Die die별 비균일 발열과 패키지 열경로를 포함할 때, 외부 측면 콜드플레이트가 die 수/간격 변화에도 die별 최고온도와 온도편차를 제어할 수 있는가? 유량 분배 설계가 제한된 ΔP 또는 펌프동력에서 이를 개선하는가?”
 - 이 질문을 설정한 뒤 manifold, 접촉면 또는 fin 형상 중 실제 지배 병목을 확인한다. fin 형상은 원인 분석 후 선택할 설계변수로 둔다.
+## 2026-09-30 — GB200 콜드플레이트와 GPU/HBM 높이 불일치 concern
+
+### 사용자가 제기한 concern
+- 큰 콜드플레이트가 GPU와 HBM처럼 높이가 다른 부품 위에 놓일 때, 단차/공차를 어떻게 맞추고 균일한 열접촉·하중을 유지하는가?
+- 사용자는 GPU 775 µm, HBM 약 10 mm라고 언급했으나 두 수치의 기준면과 방향은 확인되지 않았다.
+
+### 확인된 정보
+- JEDEC JESD238A HBM3 치수표의 공개 미러에서 HBM3 device 평면 치수 X/Y는 각각 10.975 mm, Z 적층 높이는 구성별 695/720/745 µm로 표기된다. 따라서 10 mm는 수직 stack height가 아니라 평면 footprint를 지칭했을 가능성이 높다. 이 자료는 공식 JEDEC 호스트에서 직접 열람한 것이 아니라 표준 문서 공개 미러다.
+- NVIDIA의 DGX GB 하드웨어 가이드는 냉각수가 매니폴드를 거쳐 tray 내 CPU/GPU에 부착된 cold plate를 통과한다고 설명하지만, GPU/HBM 상면 단차나 GB200 package-level 접촉 치수는 공개 가이드 검색 범위에서 확인되지 않았다.
+
+### 해석과 한계
+- **[추론]** 연구 대상은 “HBM이 10 mm 높다”가 아니라, package/substrate 기준면에서 GPU 및 각 HBM cold-plate contact surface의 실제 z-height 차이, 공차, warpage와 체결 하중 분포일 가능성이 높다.
+- flat cold-plate base가 높이가 다른 접촉면을 동시에 덮으면 stepped contact surface, 부품별 독립 cold plate/thermal pedestal, 국소 compliant TIM/gap filler, spring/flexure load path 등이 설계 보상 후보가 된다. TIM을 두껍게 해 단차를 흡수하면 열저항이 증가할 수 있으므로 접촉 압력/BLT와 열성능을 함께 평가해야 한다.
+- 10 mm를 실제 수직 단차로 가정한 구조 설계나 수치 모델링은 보류한다. 사용한 775 µm 값의 대상(실리콘 두께, 패키지 높이 또는 stack spec)도 확인이 필요하다.
+
+### 다음 행동
+- [ ] 동일 패키지 기준면을 표시한 GB200/V-Die 단면 또는 도면 확보.
+- [ ] GPU 상면과 각 HBM stack 상면의 z-height 및 허용공차를 분리 기록.
+- [ ] 실제 step을 기준으로 rigid-flat, stepped/pedestal, compliant/segmented contact 구조를 비교할지 검토.
+- [ ] 측정/시뮬레이션 지표: die별 Tmax, TIM BLT/접촉 열저항, 접촉 압력 분포, warpage/응력, ΔP/펌프동력(유로 설계가 포함될 경우).
