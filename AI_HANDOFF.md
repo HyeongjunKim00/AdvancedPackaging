@@ -43,3 +43,13 @@
 - Before Icepak build, decide die count/axes, per-die power map, base/support boundary, coolant wetting/passivation around edge I/O, water properties, exterior boundary condition, comparison baseline, and whether primary comparison is fixed flow or matched pumping power.
 - “TDP” is not a direct solver output; derive a maximum allowable load only after defining a die-temperature limit and load-scaling method.
 - Detailed conditions, arithmetic, assumptions, and pending inputs are recorded in [Thermal Research Log](Research/Thermal/Research_Log.md), section “V-Die-only single-phase Icepak input review.”
+
+
+## 2026-10-01 — First V-Die Icepak case: 40 dies
+- User selected die count as a model parameter, set the first geometry to 40 dies, requested the silicon interposer be included, excluded GPU, and delegated hotspot selection.
+- Proposed controlled hotspot: four central cells in a 4×4 map at 2× mean, normalized so total per-die power stays fixed; this is a synthetic map, not a validated V-Die I/O map.
+- Keep 150/175/200 µm gap sweep, 50 µm Cu pillar diameter, 150 µm pitch; pillar height follows the gap. Interposer is 25×25×0.775 mm silicon.
+- Critical unresolved load: using 22.5 W/die from the earlier 8-die case yields 900 W for 40 dies; preserving 180 W total yields only 4.5 W/die. The first is more consistent with die-count power scaling but requires confirmation.
+- Flow inconsistency: under assumed 11 mm × gap channels with 39 parallel gaps, 0.5 m/s corresponds to about 1.93–2.57 L/min total, outside the proposed 0.5–1.5 L/min range. Choose total flow or channel velocity as the independent condition after fixing the channel/manifold geometry.
+- No Icepak project has been built or run. Actual execution requires solver access plus die-to-interposer contact, inlet/outlet manifold, water properties, coolant wetting/passivation, and external boundary definitions.
+- Detailed arithmetic and scope are recorded in [Thermal Research Log](Research/Thermal/Research_Log.md), section “40-die V-Die Icepak case selected for setup.”
