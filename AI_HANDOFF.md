@@ -2,6 +2,8 @@
 
 ## Latest update — 2026-10-02 (later): 10-die stack simulations (Claude, Cowork)
 
+**Start here for V-Die work: [V-Die simulation knowledge](Research/Thermal/VDie_Simulation_Knowledge.md)** — user decisions, validated conclusions, claims to avoid, Icepak/PyAEDT pitfalls, workflow rules. Keep that file updated (edit the relevant section, add the date) instead of appending long notes here.
+
 **Supersedes the 40-die plan below.** Details: [10-die results](Research/Thermal/VDie_10Die_Stack_Results_2026-10-02.md).
 
 ### Status

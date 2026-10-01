@@ -18,6 +18,7 @@ Kim Hyeongjun
 ## Current Research Context
 - 현재 대화의 활성 주제는 AI 가속기·HBM·3D 패키징용 ECTC 히트싱크 연구 주제 탐색이다.
 - DLC 테스트 셋업 구축이 지도 의견상 우선 과제다. ECTC 주제, 단상/2상 선택, 기준 구조와 측정 조건은 아직 미결정이다.
+- V-Die Cu pillar inter-die 냉각(ECTC 2027 초록, 시뮬레이션 전용)의 결정·결론·교훈은 `Research/Thermal/VDie_Simulation_Knowledge.md`에 누적한다.
 - V-Die, direct-to-silicon, conventional cold plate/heat sink는 서로 다른 구조와 선행기술 범위로 다룬다. 최신 상태는 `AI_HANDOFF.md`와 해당 Research 문서에서 확인한다.
 
 ## Working Preferences
