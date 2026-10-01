@@ -61,3 +61,11 @@
 - No Icepak result has been produced. The current interface cannot run Ansys/Icepak and no existing Icepak project was identified.
 - Still required for execution: solver/project access, die-to-interposer contact condition, inlet/outlet manifold and a consistent flow boundary (40 dies produce 39 gaps), water properties, passivation/wetted-area assumption, and external boundary condition. Under the assumed 11 mm × gap channel cross-section, 0.5 m/s minimum needs about 1.93–2.57 L/min total; reconcile with prior 0.5–1.5 L/min proposal.
 - See [Thermal Research Log](Research/Thermal/Research_Log.md), section “40-die V-Die load fixed at 3 W per die.”
+
+
+## 2026-10-01 — Icepak execution attempt
+- User requested an actual run for 40 V-Die DRAM dies at 3 W/die (120 W total), including silicon interposer and excluding GPU.
+- Retried local PowerShell execution; Windows prevented process creation with `CreateProcessWithLogonW failed: 1385`. Codex reports no terminal attached to this thread and no Ansys/Icepak tool is exposed.
+- This confirms only that this session cannot launch/check the local solver. It does not establish whether Ansys is installed on the user's computer. No Icepak model was run and no temperatures/pressure drops are available.
+- To execute, use a session with local terminal/app access to the Windows machine where Ansys is installed, or provide an accessible Ansys project and solver execution path. Do not report estimates as solver outputs.
+- Detailed attempt is logged in [Thermal Research Log](Research/Thermal/Research_Log.md).
