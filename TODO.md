@@ -3,6 +3,8 @@
 ## P0 — 작업 흐름과 연구 질문 확정
 - [x] Debug the two-die PyAEDT Icepak baseline (fixed 2026-10-02: Region padding/material; see [v3 results](Research/Thermal/VDie_Icepak_Study_v3_Results_2026-10-02.md))
 - [ ] Replace assumed I/O hotspot and 3 W/die with a real V-die power map; rerun key cases
+- [x] 10-die stack: top-side vs inter-die (no pillar / I/O-zone pillar) ([results](Research/Thermal/VDie_10Die_Stack_Results_2026-10-02.md))
+- [ ] Fold 10-die results into the abstract revision
 - [ ] Simulate thinner dies to validate the top-side die-count limit (~43 dies, analytic)
 - [ ] Reword the abstract thermal-crosstalk sentence; finalize ≤700 words ([revision](Research/Thermal/Abstract_Methods_Results_Revision_2026-10-02.md))
 - [ ] 실제 AI 앱에서 저장소별 지침이 읽히는지 확인 (Codex, Claude, Gemini, Copilot 중 사용하는 도구)

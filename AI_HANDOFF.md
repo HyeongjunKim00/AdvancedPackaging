@@ -1,5 +1,24 @@
 # AI Handoff
 
+## Latest update — 2026-10-02 (later): 10-die stack simulations (Claude, Cowork)
+
+**Supersedes the 40-die plan below.** Details: [10-die results](Research/Thermal/VDie_10Die_Stack_Results_2026-10-02.md).
+
+### Status
+- 40-die model abandoned (user decision): gap mesh could not be controlled and AEDT crashed with 2,340 pillars. Reduced to 10 dies.
+- Three 10-die cases solved and validated: top-side cold plate (no coolant), inter-die water without pillars, inter-die water with Cu pillars in the I/O-hotspot zone only.
+- Key results: stack Tmax rise 51.4 K (top-side) vs 3.0 K (inter-die); hotspot-zone pillars cut the I/O hotspot rise by 15–16% (interior) / 20% (end die) for +2.5% Δp; idle neighbors warm 0.16 K; stack Tmax set by the two single-side-cooled end dies.
+- Mesh lessons: disable Icepak MLM, MaxSizeRatio 2, refine with a manual local region over hotspots + extreme pillars (never hundreds of objects, never a model box).
+
+### Next steps
+1. Fold the 10-die numbers into the abstract revision (methods: 10-die stack; results table above).
+2. Optional: outer-face cooling for end dies; real I/O power map; full-face pillars remain covered by the segment study.
+
+### Next AI prompt
+Read AI_GUIDE.md, TODO.md, this handoff, and the 10-die results file. Scripts run on the user's Windows PC through `RunScript/auto_runner.py` (queue folder of one-line `*.request` files); never run git from a Linux sandbox on the user's repo (it leaves an undeletable index.lock). Do not claim 40-die simulation results.
+
+---
+
 ## Latest update — 2026-10-02: Icepak study v3 complete; abstract methods/results revised (Claude, Cowork)
 
 **This section supersedes all Icepak status notes below.**

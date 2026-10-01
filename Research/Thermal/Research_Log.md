@@ -609,3 +609,25 @@ Three-dimensional memory integration in AI accelerators increases the need for e
 ### 다음 작업
 - 실제 V-die 전력맵 반영, 얇은 die 직접 해석, 매니폴드 분배.
 - 상세: [v3 results](VDie_Icepak_Study_v3_Results_2026-10-02.md)
+
+
+## 2026-10-02 — 10-die stack: top-side cold plate vs inter-die water (no pillar / I/O-zone Cu pillars)
+
+### 질문 / 문제 정의
+- 대표구간 결과가 실제 적층 구조(끝단 die, 인터포저 포함)에서도 유지되는가.
+
+### 조건과 범위
+- 10 die (11×11×0.2 mm), gap 175 µm ×9, Si 인터포저 0.775 mm(풋프린트로 절단), 3 W/die + 짝수 die 하단 I/O hotspot +50 W/cm² [가정].
+- Top-side: gap 냉각수 없음, die 상단 25 °C 이상적 cold plate. Inter-die: 물 0.5 m/s 균일 입구, 정상 층류.
+- Pillar: d75/p150 staggered, hotspot 주변 1.2×1.2 mm만 (540개).
+
+### 근거
+| 주장 또는 결과 | 출처/링크 | 근거 등급 | 원문 확인 여부 |
+|---|---|---|---|
+| Stack Tmax 상승 51.4 K (top-side) vs 3.0 K (inter-die) | results_ndie.csv | 시뮬레이션 | — |
+| I/O hotspot −15~16 % (내부), −20 % (끝단), Δp +2.5 % | per_die CSV | 시뮬레이션 | — |
+| 빈 채널 Δp 1,952 Pa vs 해석해 1,918 Pa; 메쉬 세분화 ΔTmax 0.007 K | results_ndie.csv | 시뮬레이션 + 해석해 | — |
+| Stack Tmax는 단면 냉각 끝단 die가 결정 | per_die CSV | 시뮬레이션 [해석: 추론] | — |
+
+### 다음 작업
+- 초록 반영; 끝단 die 외측 냉각 검토. 상세: [10-die results](VDie_10Die_Stack_Results_2026-10-02.md)

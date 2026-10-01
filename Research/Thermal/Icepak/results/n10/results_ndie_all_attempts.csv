@@ -1,0 +1,16 @@
+case,status,velocity_m_s,total_power_W,n_pillars,cells,iterations,Tmax_C,T_hotspot_max_C,Tmax_active_mean_C,Tmax_idle_mean_C,dT_adjacent_max_C,Tmax_center_die_C,Tmax_end_die_C,dp_Pa,pumping_power_W,Tmax_interposer_C,error
+vdie10_empty_manual_nomlm_v0p5_man25um_gc7,OK,0.5,30.225,0,332112,95,28.0087,27.2156,27.067079999999997,26.996500000000005,1.2042000000000002,26.7048,28.0087,1951.8905,0.016908251456250002,26.9673,
+vdie10_empty_stackregion_v0p5_man25um_gc7,OK,0.5,30.225,0,307680,96,28.0054,27.2124,27.06288,26.99436,1.2009000000000007,26.7011,28.0054,1977.67048,0.017131570533,26.895,
+vdie10_topside_manual_nomlm_man25um_gc7,OK,,30.225,0,334400,75,76.442,76.442,76.39218,76.01514,0.3959000000000117,76.0096,76.442,,,76.2199,
+vdie10_pillar_manual_nomlm_v0p5_man25um_gc7,FAILED,0.5,30.225,540,,,,,,,,,,,,,TypeError: argument of type 'NoneType' is not iterable
+vdie10_empty_manual_nomlm_v0p5_man18um_gc10_meshchk,OK,0.5,30.225,0,488724,95,28.0158,27.2184,27.070100000000004,26.99864,1.2091999999999992,26.7051,28.0158,2018.78149,0.017487694657125002,26.9631,
+vdie10_pillar_manual_nomlm_pb_v0p5_man25um_gc7,FAILED,0.5,30.225,540,,,,,,,,,,,,,RuntimeError: analyze returned False
+vdie10_topside_manual_nomlm_pb_man25um_gc7,FAILED,,30.225,0,,,,,,,,,,,,,RuntimeError: analyze returned False
+vdie10_empty_manual_nomlm_pb_v0p5_man25um_gc7,FAILED,0.5,30.225,0,,,,,,,,,,,,,RuntimeError: analyze returned False
+vdie10_pillar_manual_nomlm_ext_v0p5_man25um_gc7,FAILED,0.5,30.225,540,,,,,,,,,,,,,RuntimeError: analyze returned False
+vdie10_pillar_manual_nomlm_ext_v0p5_man25um_gc3,FAILED,0.5,30.225,540,,,,,,,,,,,,,RuntimeError: analyze returned False
+vdie10_pillar_manual_nomlm_ext_v0p5_man25um_gc3_2,FAILED,0.5,30.225,540,,,,,,,,,,,,,RuntimeError: analyze returned False
+vdie10_pillar_manual_nomlm_ext_v0p5_man25um_gc3_msg,FAILED,0.5,30.225,540,,,,,,,,,,,,,RuntimeError: analyze returned False; see aedt_messages.txt
+vdie10_pillar_manual_nomlm_r2_l25_v0p5_man25um_gc3,OK,0.5,30.225,540,837856,157,27.9945,26.8021,27.12294,27.123379999999997,1.0360999999999976,26.8684,27.9945,1998.12682,0.01730877357825,27.1418,
+vdie10_pillar_auto34_v0p5_man25um_gc7,FAILED,0.5,30.225,540,,,,,,,,,,,,,RuntimeError: analyze returned False; see aedt_messages.txt
+vdie10_empty_manual_nomlm_r2_l25_v0p5_man25um_gc3,OK,0.5,30.225,0,321088,96,28.0098,27.2478,27.08838,26.99922,1.2052000000000014,26.7098,28.0098,1949.18715,0.016884833686875,26.9925,
