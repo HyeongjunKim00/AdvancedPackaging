@@ -33,3 +33,13 @@
 
 ## 다음 AI용 프롬프트
 먼저 AI_GUIDE, PROJECT_CONTEXT, TODO, AI_HANDOFF와 관련 Research 문서를 읽는다. 사용자는 지금까지 Icepak을 수행한 적 없고 전기적 시뮬레이션(HFSS)만 수행했을 가능성이 있다고 정정했다. Incoming의 `261001_기존 시뮬레이션 방식.txt`는 HFSS CPW parametric sweep 대화록이므로 run-folder/log/iteration/export workflow만 참고하고 Icepak 해석이나 thermal results로 간주하지 말 것. 확인된 AEDT results는 HFSSDesign1.asol이었다. 새 Icepak 모델을 실행하기 전, V-die 관련 실제 CAD/geometry를 찾고 재료·열원맵·유체와 inlet 조건·기준 형상·펌프 조건을 확정한다. 미확인 물리 조건과 결과를 만들지 말고 원본을 보존해 별도 Run 폴더에서 작업한다. 이후 현재 저장된 abstract writing rules와 초록 draft를 읽고, 사용자가 이어서 붙여넣는 연구실 ECTC 초록을 실제 원문 자료로 분류·분석하라. 전체 샘플 분석 결과와 사용자 선호 규칙을 구분하고, 문장별 기능 및 반복되는 제목/전개 방식을 reusable guide에 정리하라. V-Die 연구 초록은 vertically oriented memory-die stacks로 표현하고, single-phase die-gap cooling 및 Cu thermal-bridge fin을 다룬다. “However”로 구체적인 gap을 빨리 제시하고 “In this work”를 일찍 배치하며, 모호한 주어·this/that 지시대명사·근거 없는 수치/효과를 피한다. 미확정 조건과 결과는 placeholder로 남기고, 기계적 지지 효과를 해석/검증한 것처럼 쓰지 않는다. 완료 뒤 Thermal Research Log와 AI_HANDOFF를 갱신한다.
+
+
+## 2026-10-01 — V-Die-only Icepak model inputs reviewed
+- User scope: simulate the V-Die assembly only; exclude GPU/main logic die and the 1 kW whole-system claim from model results.
+- Provisional user inputs: 11 × 11 mm × 200 µm DRAM dies (100 µm alternative), 4/8 vertical die array, 150–200 µm die gap, bridging Cu pillars d=50 µm/pitch=150 µm, 180 W total stack load, 4×4 heat zones, single-phase DI water, Tin=25°C baseline/45°C secondary, proposed channel velocity 0.5–2 m/s.
+- Arithmetic review found the proposed hotspot definitions conflict: 1.5–2× per-die mean corresponds to 55.8–74.4 W/cm² (45 W/die) or 27.9–37.2 W/cm² (22.5 W/die), while 100–120 W/cm² is a stronger separate load. Normalize the map if total power remains fixed.
+- Flow velocity and total L/min are linked through channel cross-section and number of gaps; require flow direction and manifold geometry.
+- Before Icepak build, decide die count/axes, per-die power map, base/support boundary, coolant wetting/passivation around edge I/O, water properties, exterior boundary condition, comparison baseline, and whether primary comparison is fixed flow or matched pumping power.
+- “TDP” is not a direct solver output; derive a maximum allowable load only after defining a die-temperature limit and load-scaling method.
+- Detailed conditions, arithmetic, assumptions, and pending inputs are recorded in [Thermal Research Log](Research/Thermal/Research_Log.md), section “V-Die-only single-phase Icepak input review.”
