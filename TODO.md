@@ -1,6 +1,7 @@
 # TODO
 
 ## P0 — 작업 흐름과 연구 질문 확정
+- [ ] Debug the two-die PyAEDT Icepak baseline: resolve inlet/outlet/symmetry faces reported without mesh before rerunning DOE or scaling to 40 dies. See [run handoff](Research/Thermal/VDie_Icepak_Run_Handoff_2026-10-01.md).
 - [ ] 실제 AI 앱에서 저장소별 지침이 읽히는지 확인 (Codex, Claude, Gemini, Copilot 중 사용하는 도구)
 - [ ] ECTC 히트싱크의 대상 구조와 병목을 한 문장으로 정의
 - [ ] DLC 테스트 셋업의 실제 운전 범위와 TTV 가능성을 기록 (지도 의견상 우선 과제)
