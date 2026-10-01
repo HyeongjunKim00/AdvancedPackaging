@@ -551,3 +551,20 @@ Three-dimensional memory integration in AI accelerators increases the need for e
 - Fix actual channel flow direction/cross-section and choose either total flow or channel velocity as the independent boundary variable.
 - Define interposer-to-die attachment/contact, coolant wetting/passivation relative to edge I/O pads, water properties, outlet pressure, and external boundary condition.
 - The local Icepak solver/model is not yet available in this session; no geometry has been built and no thermal result has been generated. Do not describe the proposed settings as simulation results.
+
+
+## 2026-10-01 — 40-die V-Die load fixed at 3 W per die
+
+### User decision [Fact: user-provided]
+- Set each DRAM die heat generation to 3 W for the initial 40-die case.
+- Total V-Die heat load: 120 W. GPU remains outside the model; silicon interposer remains included.
+
+### Updated provisional hotspot [Inference/modeling choice]
+- Retain a 4 × 4 heat map per die, with four central zones at 2× the per-die mean and the other twelve zones normalized to preserve 3 W/die.
+- Per die: mean heat flux = 3/1.21 ≈ 2.48 W/cm²; hotspot-zone flux ≈ 4.96 W/cm²; remaining-zone flux ≈ 1.65 W/cm². Each hotspot zone dissipates 0.375 W and each remaining zone 0.125 W; total remains 3 W.
+- This is a synthetic hotspot for an initial controlled model, not a measured or validated V-Die I/O power map.
+
+### Execution status
+- No Icepak solver run or thermal result is available in this session. Existing findings indicate no prior Icepak project was identified; local Ansys execution is not available through the current interface.
+- Before a runnable model, still define die-to-interposer thermal attachment/contact, actual inlet/outlet manifold and flow boundary, coolant properties, wetted/passivated die surface, and exterior boundary condition.
+- At 40 dies there are 39 gaps. Under the earlier assumed 11 mm × gap channel cross-section, the proposed 0.5 m/s minimum channel velocity entails about 1.93–2.57 L/min total flow for 150–200 µm gaps, above the earlier 0.5–1.5 L/min range. Resolve by choosing channel velocity or total flow as the independent condition.
