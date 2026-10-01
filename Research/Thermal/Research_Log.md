@@ -490,3 +490,40 @@ Three-dimensional memory integration in AI accelerators increases the need for e
 
 ### 다음 작업
 - V-die용 실제 geometry/CAD, die별 열부하 및 국소 I/O hotspot, 재료, 단상 유체/입구 조건, 비교 기준 구조, 유량 또는 펌프동력을 확인한 뒤 별도 Icepak Run을 구성한다.
+
+
+## 2026-10-01 — V-Die-only single-phase Icepak input review
+
+### 사용자 제공 조건 [Fact: user-provided; not independently validated]
+- DRAM die: 11 × 11 mm, thickness 200 µm (100 µm alternative); nominal 4- or 8-die parallel vertical array; gap 150–200 µm.
+- Cu thermal pillars: diameter 50 µm, pitch 150 µm; pillar bridges opposing die faces.
+- V-Die stack total heat: 180 W (45 W/die for 4 dies; 22.5 W/die for 8 dies).
+- Proposed per-die heat map: 4 × 4 zones, each 2.75 × 2.75 mm; central four zones are proposed hotspots at 1.5–2× mean or 100–120 W/cm².
+- Single-phase DLC; DI water; inlet 25°C baseline and 45°C secondary case; channel velocity sweep 0.5–2 m/s and total-flow proposal 0.5–1.5 L/min.
+- GPU/main logic die and 1 kW whole-system target are excluded from the current V-Die-only model.
+- Silicon/Cu conductivities were proposed as 148/398 W·m⁻¹·K⁻¹. Water density, heat capacity, and viscosity remain unspecified.
+
+### Consistency checks [Inference: arithmetic from supplied dimensions/loads]
+- Die face area is 1.21 cm². Mean die heat flux is about 37.2 W/cm² for 45 W/die and 18.6 W/cm² for 22.5 W/die.
+- A 1.5–2× hotspot relative to each die's mean therefore means 55.8–74.4 W/cm² (4-die case) or 27.9–37.2 W/cm² (8-die case). The separate 100–120 W/cm² condition is not the same hotspot definition: it is about 2.7–3.2× or 5.4–6.5× the respective mean.
+- If the four hotspot zones are raised while all other zones stay at the mean, total die power exceeds the specified 45/22.5 W. A normalized map is needed if total die power must remain fixed.
+- Under the provisional assumption that flow runs along an 11 mm die face and each gap has a 11 mm × gap inlet cross-section, 0.5–2 m/s corresponds to about 0.05–0.26 L/min per gap. Total flow then depends on the number of gaps (3 for four dies; 7 for eight dies) and manifold distribution. Thus velocity and total flow cannot both be treated as independent inputs.
+- At 180 W total and 0.5–1.5 L/min water, ideal bulk coolant temperature rise is approximately 5.2–1.7 K if all generated heat enters the coolant. This is a first-order energy-balance estimate, not a simulation result.
+
+### Missing definitions before a defensible model
+1. Fix die count and coordinate axes; define which die dimension is upright, channel flow direction, inlet/outlet plenums, edge margins, and whether the array has 3 or 7 active gaps.
+2. Define pillar array in both face directions, edge keep-out, contact/bond assumption at both die walls, and whether pillar pitch is center-to-center. Gap and pillar height are coupled if pillars bridge the faces.
+3. Select the heat-map rule: fixed total per-die power with normalized 4×4 zones, or an added absolute hotspot load. Locate hotspot zones relative to actual side-edge I/O pads; clarify whether each die has the same map.
+4. Define retained support/base/interposer and its material, thickness, and thermal contact. Excluding GPU does not by itself specify the bottom boundary of the V-Die assembly.
+5. Define water properties (ρ, Cp, k, μ at operating temperature), pressure outlet/reference pressure, and whether the coolant directly wets passivated die surfaces or stays in an isolated channel. Keep electrical pads outside the wetted region or state the passivation/isolation assumption.
+6. Choose one primary external boundary: adiabatic surfaces for isolating gap-cooling, or natural convection for a package-level model. Do not combine results without labeling the boundary condition.
+7. Define comparison cases: same-gap empty water channel versus Cu-bridge channel to isolate the pillar effect; optionally a sealed/no-direct-cooling case to quantify the benefit of adding a coolant path.
+8. Choose comparison basis: same channel velocity/flow for mechanism comparison, and/or matched pumping power for thermal-hydraulic efficiency. Report total flow, ΔP, and Q·ΔP consistently.
+9. Replace “TDP” as a direct output. A maximum allowable heat load requires a stated die-temperature limit and a documented load-scaling procedure. Define Rth as (Tmax,die − Tin)/P with P explicitly the total V-Die heat or per-die heat.
+10. Check Reynolds number and mesh independence for the chosen flow field; resolve local flow around 50 µm pillars and walls before selecting laminar/turbulence and near-wall mesh treatment.
+
+### Next decisions
+- [ ] Start with 4 dies or 8 dies; recommended first model: 4 dies, then use 8 as a scaling check if time allows.
+- [ ] Choose normalized 1.5–2× hotspot or absolute 100–120 W/cm²; do not apply both without defining total-power normalization.
+- [ ] Confirm if the 180 W V-Die load is the fixed total model load; keep 1 kW as out-of-scope context.
+- [ ] Provide the missing support/base, inlet/outlet manifold, coolant contact/passivation, and boundary-condition definitions before building Icepak geometry.
