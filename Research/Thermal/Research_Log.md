@@ -527,3 +527,27 @@ Three-dimensional memory integration in AI accelerators increases the need for e
 - [ ] Choose normalized 1.5–2× hotspot or absolute 100–120 W/cm²; do not apply both without defining total-power normalization.
 - [ ] Confirm if the 180 W V-Die load is the fixed total model load; keep 1 kW as out-of-scope context.
 - [ ] Provide the missing support/base, inlet/outlet manifold, coolant contact/passivation, and boundary-condition definitions before building Icepak geometry.
+
+
+## 2026-10-01 — 40-die V-Die Icepak case selected for setup
+
+### User decisions [Fact: user-provided]
+- Make die count an explicit model parameter and use 40 dies for the first case.
+- Include the silicon interposer in the thermal model.
+- GPU is outside the present model.
+- User delegated the initial hotspot assumption.
+
+### Proposed first-case settings [Inference/provisional; not simulated]
+- Keep die count as discrete parameter `N_die`; generate geometry for `N_die=40` (39 inter-die gaps). Treat later counts as generated configurations, not assume a continuous geometry sweep.
+- Retain the supplied 25 × 25 × 0.775 mm silicon interposer. Include die-to-interposer attachment/contact as an explicit layer or thermal-contact condition; its thickness/conductance is still missing.
+- Use a central 2 × 2 zone hotspot at 2× the per-die mean as a synthetic, normalized initial TTV map. Keep total power per die unchanged by reducing the other 12 zones to 2/3 of the mean. This is a convenient controlled test map, not a validated V-Die I/O power map.
+- Candidate nominal gap is 175 µm with 150/175/200 µm as a geometry sweep; pillar diameter 50 µm and pitch 150 µm remain the supplied baseline. Pillar height tracks gap.
+- Provisional die load for 40-die scaling: 22.5 W/die, carried over from the user-provided 8-die case, gives 900 W total. This is only a modeling default and needs user confirmation because retaining the earlier 180 W aggregate instead would give 4.5 W/die.
+- Under the assumed 11 mm × gap channel cross-section and all 39 gaps flowing in parallel, 0.5 m/s implies roughly 1.93–2.57 L/min total for 150–200 µm gaps. Therefore the previously proposed 0.5–1.5 L/min total-flow range does not overlap the proposed 0.5–2 m/s channel-velocity sweep at its lower end (conditional geometry calculation).
+- At 900 W total, ideal water temperature rise is roughly 8.6 K at 1.5 L/min and 25.9 K at 0.5 L/min, assuming all heat enters the coolant. This reinforces that the flow boundary must be selected consistently.
+
+### Still needed before a defensible Icepak run
+- Confirm total stack power policy: 900 W (22.5 W/die) for 40-die scaling, or fixed 180 W aggregate (4.5 W/die).
+- Fix actual channel flow direction/cross-section and choose either total flow or channel velocity as the independent boundary variable.
+- Define interposer-to-die attachment/contact, coolant wetting/passivation relative to edge I/O pads, water properties, outlet pressure, and external boundary condition.
+- The local Icepak solver/model is not yet available in this session; no geometry has been built and no thermal result has been generated. Do not describe the proposed settings as simulation results.
