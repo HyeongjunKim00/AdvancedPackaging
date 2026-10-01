@@ -1,0 +1,4 @@
+case_id,status,mode,die_power_W,gap_um,velocity_m_s,Tmax_die_C,Tavg_die_C,dp_Pa,flow_rate_mL_min_per_gap,pumping_power_W_per_gap,iterations,cells,error
+full_topside_P3_g175_m3_r3,OK,topside,3.0,175.0,,75.4039,58.60465,,,,28,864360,top BC: source_fixed_temperature
+full_interdie_P3_g175_v0p5_m3_r3,OK,interdie,3.0,175.0,0.5,26.5391,26.11755,2156.001141,57.75000000000001,0.0020751510982125,30,1734656,
+full_interdie_P3_g175_v1_m3_r3,OK,interdie,3.0,175.0,1.0,26.1187,25.823,4990.3830800000005,115.5,0.009606487429,30,1734656,

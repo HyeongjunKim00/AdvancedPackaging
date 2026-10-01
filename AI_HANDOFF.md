@@ -1,5 +1,35 @@
 # AI Handoff
 
+## Latest update — 2026-10-02: Icepak study v3 complete; abstract methods/results revised (Claude, Cowork)
+
+**This section supersedes all Icepak status notes below.**
+
+### Current status
+- Icepak runs now work. Root cause of the 2026-10-01 failures: AEDT auto-created an air Region with 50% padding, so the water box's inlet/outlet/symmetry faces were interior faces. Fix: Region padding 0 in all six directions, Region material = water, inlet/outlet as 2D sheets on the gap cross-section, symmetry on Region ±Z faces.
+- v2 nine-case DOE pillar results stopped at the default 100-iteration cap → **unconverged, do not use**. v3 sets 400 iterations and logs iteration count; all 53 v3 segment cases converged (≤110 iterations).
+- Study v3 (53 segment cases + 3 full-die cases) is complete. Summary: [results](Research/Thermal/VDie_Icepak_Study_v3_Results_2026-10-02.md); figures/CSVs: `Research/Thermal/Icepak/results/`; scripts: `Research/Thermal/Icepak/scripts/`.
+- Reviewer comment SK1 (simulation vs fabrication) answered as simulation-only. Revised methods/results text (360 words): [abstract revision](Research/Thermal/Abstract_Methods_Results_Revision_2026-10-02.md).
+
+### Key results (assumed loads: 3 W/die + 0.3 mm I/O hotspot at +50 W/cm²)
+- Top-side ideal cold plate: ΔTmax 50.4 K (analytic 50.7 K) vs inter-die water 0.5 m/s: 1.5 K, 0.08 W pumping for 39 gaps.
+- Matched 1 W stack pumping power: d75/p150 staggered → hotspot rise −37%, ΔT_die-die −77% vs pillar-free; 4× pumping without pillars → −17% only.
+- Pillars warm the neighbor die (≤0.1 K) → the draft claim "coolant/pillars reduce thermal crosstalk" must be reworded.
+- Top-side exceeds 85 °C beyond ~43 dies in a 14.8 mm stack (analytic, calibrated at N = 40; thinner dies not simulated).
+
+### Execution workflow (user's PC)
+- Start `RunScript/auto_runner.py` in PowerShell; put one-line `*.request` files (`<script> <args>`) into `RunScript/queue/`. Results append to `Runs/study_v3/*.csv`; OK cases are skipped on re-run. Keep the PC awake.
+
+### Next steps
+1. Replace assumed I/O hotspot/die power with a real V-die power map if available; absolute ΔT values (~1 K) are small at 3 W/die.
+2. Simulate thinner dies (100–150 µm) to replace the analytic die-count extrapolation.
+3. Fix the earlier abstract paragraph on thermal crosstalk; confirm total abstract ≤700 words.
+4. Optional: manifold model for flow distribution across 39 gaps.
+
+### Next AI prompt
+Read AI_GUIDE.md, PROJECT_CONTEXT.md, TODO.md, this handoff, the v3 results summary, and the abstract revision file. Icepak v3 scripts are in Research/Thermal/Icepak/scripts and run on the user's Windows PC via auto_runner. Do not reuse v2 pillar results (unconverged). Keep the assumed hotspot load labeled as an assumption.
+
+---
+
 ## Latest update — 2026-10-01: PyAEDT Icepak DOE troubleshooting
 
 **This section supersedes older Icepak status notes below.**

@@ -584,3 +584,28 @@ Three-dimensional memory integration in AI accelerators increases the need for e
 - 40 DRAM dies × 3 W/die = 120 W total; GPU excluded; silicon interposer included.
 - Provisional synthetic hotspot: central four cells in a 4×4 map at 2× mean, with remaining cells normalized to preserve 3 W per die.
 - This model specification can be implemented once a Windows/Ansys execution path is available. Remaining boundary/contact assumptions are documented in the immediately preceding 40-die setup entries.
+
+
+## 2026-10-02 — Icepak study v3: inter-die Cu-pillar cooling vs top-side cold plate
+
+### 질문 / 문제 정의
+- Inter-die 단상 수냉이 top-side cold plate 대비 die 온도를 얼마나 낮추는가, Cu pillar 형상(지름·pitch·배열·gap)이 동일 펌핑동력에서 hotspot·ΔT_die-die·Δp에 어떤 영향을 주는가.
+
+### 조건과 범위
+- 패키지/열원 구조: 11×11×0.2 mm Si die, gap 175 µm(125/250 스윕), 3 W/die 균일 + 활성 die 0.3×0.3 mm I/O hotspot +50 W/cm² [가정].
+- 냉각 방식 및 작동 유체: 단상 물, 상수 물성, 정상 층류(Re_Dh ≤ 1,120), Si/Cu 공액 전도. 단위셀 [반 die | gap | 반 die], 횡방향 대칭.
+- 입구 온도·유량 또는 펌프동력: 25 °C, 0.5/1/2 m/s → log(펌핑동력) 보간으로 동일 펌핑동력 비교. 40-die stack 환산 = 구간값 × 121/2.88 × 39 [추론: 균일 분배, 매니폴드 제외].
+- 기준 구조와 비교 조건: pillar 없는 gap; full-die top-side 이상적 등온 cold plate (TIM 저항 0).
+
+### 근거
+| 주장 또는 결과 | 출처/링크 | 근거 등급 | 원문 확인 여부 |
+|---|---|---|---|
+| Top-side ΔTmax 50.4 K (해석해 50.7 K) | Icepak full_topside_P3_g175_m3_r3 | 시뮬레이션 + 해석해 검증 | — |
+| Inter-die 0.5 m/s ΔTmax 1.54 K, 39 gap 펌핑 0.081 W | Icepak full_interdie_P3_g175_v0p5 | 시뮬레이션 | — |
+| 1 W stack 펌핑: d75/p150 staggered hotspot −37 %, ΔT_die-die −77 % | study_v3 matched_pumping_power.csv | 시뮬레이션 + 보간 [추론] | — |
+| 메쉬 세분화 시 온도 ≤1 %, 빈 채널 Δp 8 % | study_v3 m4 vs m5 | 시뮬레이션 | — |
+| Top-side 85 °C 한계 ≈ 43 die (14.8 mm stack) | 1D 해석식, N=40에서 검증 | [추론] | — |
+
+### 다음 작업
+- 실제 V-die 전력맵 반영, 얇은 die 직접 해석, 매니폴드 분배.
+- 상세: [v3 results](VDie_Icepak_Study_v3_Results_2026-10-02.md)
