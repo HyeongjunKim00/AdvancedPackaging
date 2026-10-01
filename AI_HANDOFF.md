@@ -1,5 +1,32 @@
 # AI Handoff
 
+## Latest update — 2026-10-01: PyAEDT Icepak DOE troubleshooting
+
+**This section supersedes older Icepak status notes below.**
+
+### Current status
+- A two-die representative single-phase inter-die model was attempted; it is not the requested 40-die production-scale model.
+- Latest DOE run `DOE_screening_20261001_224905`: first two cases failed, and the script stopped by its own two-consecutive-failure guard.
+- AEDT generated 110,706 cells, but the profile ended at `Populate Solver Input` with `Engine Detected Error`. No valid temperature, pressure-drop, or pumping-power results exist.
+- AEDT validation warns that inlet Face 37, outlet Face 39, and symmetry Faces 35/36 do not have mesh. The cause of three `Command is read only` macro messages is unresolved.
+- The local script was changed to numeric outlet pressure `0.0` and simplified mesh settings (global resolution 3; local level 5); these edits did not yield a solve.
+
+### Completed this turn
+- Recorded the run evidence and next debug sequence in [V-Die Icepak run handoff](Research/Thermal/VDie_Icepak_Run_Handoff_2026-10-01.md).
+- Updated [Thermal Research Log](Research/Thermal/Research_Log.md).
+- The full local script source is not yet stored in the public GitHub repository; its local filename is `vdie_cu_pillar_doe_screening.py`. Absolute machine paths and host identifiers are omitted from public notes.
+
+### Next steps
+1. Inspect the latest AEDT model's water-volume geometry and verify that inlet/outlet/symmetry faces are actual meshed faces of the fluid region.
+2. Fix boundary/mesh assignment and solve one empty-channel case; verify solver iterations and field post-processing.
+3. Resume the nine-case DOE only after the minimal case works.
+4. Expand toward the 40-die, 120 W model only after validating a tractable stack/manifold representation with 39 inter-die gaps.
+
+### Next AI prompt
+Read `AI_GUIDE.md`, `PROJECT_CONTEXT.md`, `TODO.md`, and this handoff first. Then read [V-Die Icepak run handoff](Research/Thermal/VDie_Icepak_Run_Handoff_2026-10-01.md) and the newest section of `Research/Thermal/Research_Log.md`. Continue debugging the existing local two-die PyAEDT Icepak model, focusing on boundary faces reported without mesh (inlet 37, outlet 39, symmetry 35/36). Do not run the full DOE or claim thermal results until a one-case baseline solves and post-processing succeeds. The user's 40-die × 3 W target is a later scale-up, not the current model.
+
+---
+
 ## 현재 상태
 - 연구 방향: vertically oriented DRAM die stack 내부의 밀폐 inter-die gap을 단상 유체로 직접 냉각하는 구조.
 - 비전기 Cu pillar는 마주 보는 die 표면을 연결하는 thermal bridge이자 유체에 노출된 fin이다. 열전달 면적을 늘리는 동시에 die 간 열전도·압력강하를 유발할 수 있어, 효과는 시뮬레이션으로 검증해야 한다.
