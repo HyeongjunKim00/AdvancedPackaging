@@ -466,3 +466,27 @@ Three-dimensional memory integration in AI accelerators increases the need for e
 - 실제 die heat map/thermal load, geometry, gap·pillar ranges, coolant properties, inlet condition, flow/pump budget, baseline, simulation result 및 validation.
 - 연구실 샘플 초록 문서별 텍스트와 파일명 대응. 사용자가 붙여넣은 원문 조각과 전체 PDF 분석 결과를 혼동하지 않는다.
 - VLSI 2026 V-Die 논문 및 관련 inter-die cooling prior art를 확인한 뒤 novelty/gap 문장을 확정한다.
+
+
+## 2026-10-01 — 기존 시뮬레이션 방식 확인 및 Icepak 상태
+
+### 질문 / 문제 정의
+- 사용자의 이전 Ansys 실행 workflow를 파악하고, 로컬에 실행 가능한 Icepak 열해석 모델이 있는지 확인.
+
+### 조건과 범위
+- Incoming에 업로드된 대화록과 사용자의 ECTC 2027 작업 폴더의 AEDT 파일/결과를 확인.
+- Icepak 모델을 생성하거나 실행하지 않았으며 열 결과도 없음.
+
+### 근거
+| 주장 또는 결과 | 출처/링크 | 근거 등급 | 원문 확인 여부 |
+|---|---|---|---|
+| 업로드된 기존 시뮬레이션 대화록은 CPW gap sweep을 수행한 HFSS workflow이며, scripted AEDT build/run, 오류 로그 확인, 반복 sweep/export, CSV 및 matplotlib 후처리를 포함함 | [Incoming 대화록](Incoming/261001_기존%20시뮬레이션%20방식.txt) | [A: 사용자 제공 기록] | 전체 텍스트 확인 |
+| 확인한 ECTC 2027 AEDT 결과 폴더에 HFSSDesign1.asol이 있으며, 사용자의 ECTC_abstract_형준 폴더에서는 AEDT/CAD 형상을 찾지 못함 | 로컬 Dropbox의 ECTC 2027 작업 폴더 | [A: 로컬 파일 메타데이터] | 파일명·결과 파일 확인 |
+| 확인 범위 내 Icepak 해석 프로젝트는 아직 확인되지 않음; 사용자는 이전에는 전기 해석만 수행했을 가능성이 있다고 정정함 | Incoming 대화록 및 사용자 정정 | [A: 사용자 제공 기록] | 확인 |
+
+### 성능 지표
+- 적용할 수 있는 HFSS workflow 패턴: 별도 Run 폴더, 스크립트 기반 실행, 로그/산출물 감시, solver 실패 진단, CSV·그림 후처리.
+- Icepak 시뮬레이션 지표/조건/결과: 미정. HFSS workflow 정보만으로 열 모델의 geometry, 재료, 열원, 유체 경계조건을 결정할 수 없음.
+
+### 다음 작업
+- V-die용 실제 geometry/CAD, die별 열부하 및 국소 I/O hotspot, 재료, 단상 유체/입구 조건, 비교 기준 구조, 유량 또는 펌프동력을 확인한 뒤 별도 Icepak Run을 구성한다.
