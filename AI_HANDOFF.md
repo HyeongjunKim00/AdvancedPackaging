@@ -53,3 +53,11 @@
 - Flow inconsistency: under assumed 11 mm × gap channels with 39 parallel gaps, 0.5 m/s corresponds to about 1.93–2.57 L/min total, outside the proposed 0.5–1.5 L/min range. Choose total flow or channel velocity as the independent condition after fixing the channel/manifold geometry.
 - No Icepak project has been built or run. Actual execution requires solver access plus die-to-interposer contact, inlet/outlet manifold, water properties, coolant wetting/passivation, and external boundary definitions.
 - Detailed arithmetic and scope are recorded in [Thermal Research Log](Research/Thermal/Research_Log.md), section “40-die V-Die Icepak case selected for setup.”
+
+
+## 2026-10-01 — 40-die V-Die power set to 3 W/die
+- User set the first model to 40 dies at 3 W/die: total V-Die heat generation is 120 W. Include 25 × 25 × 0.775 mm silicon interposer; exclude GPU.
+- Initial hotspot choice: per-die 4×4 zones, central four at 2× mean; normalize the remaining twelve zones to keep 3 W/die. This gives about 4.96 W/cm² in hot zones and 1.65 W/cm² elsewhere. This is a synthetic map, not measured.
+- No Icepak result has been produced. The current interface cannot run Ansys/Icepak and no existing Icepak project was identified.
+- Still required for execution: solver/project access, die-to-interposer contact condition, inlet/outlet manifold and a consistent flow boundary (40 dies produce 39 gaps), water properties, passivation/wetted-area assumption, and external boundary condition. Under the assumed 11 mm × gap channel cross-section, 0.5 m/s minimum needs about 1.93–2.57 L/min total; reconcile with prior 0.5–1.5 L/min proposal.
+- See [Thermal Research Log](Research/Thermal/Research_Log.md), section “40-die V-Die load fixed at 3 W per die.”
