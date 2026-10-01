@@ -1,6 +1,6 @@
 # 10-die V-die stack — top-side cold plate vs inter-die water (with/without Cu pillars)
 
-Ansys Icepak 2026.1 via PyAEDT, script `Icepak/scripts/vdie_ndie.py`. 40-die model was reduced to 10 dies (user decision, 2026-10-02) after mesh/AEDT stability problems at 40 dies.
+Ansys Icepak 2026.1 via PyAEDT, script `RunScript/vdie_ndie_v5.py` in 사용자 PC의 Icepak 프로젝트 폴더(P11_V-die Cu pillar cooling). 40-die model was reduced to 10 dies (user decision, 2026-10-02) after mesh/AEDT stability problems at 40 dies.
 
 ## Model
 - 10 Si dies, 11 (flow) × 11 (height) × 0.200 mm; 9 gaps of 0.175 mm; Si interposer 0.775 mm under the stack, truncated to the stack footprint (lateral spreading neglected); interposer bottom and stack outer faces adiabatic.
@@ -33,4 +33,4 @@ Ansys Icepak 2026.1 via PyAEDT, script `Icepak/scripts/vdie_ndie.py`. 40-die mod
 ## Limits
 - Assumed loads; ideal uniform manifold; interposer truncated; adiabatic outer faces (worst case for end dies); steady laminar.
 - Pillars only in the I/O zone; full-face pillar effect is from the segment study (`VDie_Icepak_Study_v3_Results_2026-10-02.md`).
-- Figure: `Icepak/results/n10/fig5_10die_comparison.png`.
+- Figures/CSVs are not in the repo; they are in 사용자 PC의 Icepak 프로젝트 폴더(P11_V-die Cu pillar cooling), `Runs/study_ndie/`.

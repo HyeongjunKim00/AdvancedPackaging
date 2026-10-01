@@ -28,7 +28,7 @@ Read AI_GUIDE.md, TODO.md, this handoff, and the 10-die results file. Scripts ru
 ### Current status
 - Icepak runs now work. Root cause of the 2026-10-01 failures: AEDT auto-created an air Region with 50% padding, so the water box's inlet/outlet/symmetry faces were interior faces. Fix: Region padding 0 in all six directions, Region material = water, inlet/outlet as 2D sheets on the gap cross-section, symmetry on Region ±Z faces.
 - v2 nine-case DOE pillar results stopped at the default 100-iteration cap → **unconverged, do not use**. v3 sets 400 iterations and logs iteration count; all 53 v3 segment cases converged (≤110 iterations).
-- Study v3 (53 segment cases + 3 full-die cases) is complete. Summary: [results](Research/Thermal/VDie_Icepak_Study_v3_Results_2026-10-02.md); figures/CSVs: `Research/Thermal/Icepak/results/`; scripts: `Research/Thermal/Icepak/scripts/`.
+- Study v3 (53 segment cases + 3 full-die cases) is complete. Summary: [results](Research/Thermal/VDie_Icepak_Study_v3_Results_2026-10-02.md); figures, CSVs and scripts are kept outside the repo in 사용자 PC의 Icepak 프로젝트 폴더(P11_V-die Cu pillar cooling) (`RunScript/`, `Runs/`).
 - Reviewer comment SK1 (simulation vs fabrication) answered as simulation-only. Revised methods/results text (360 words): [abstract revision](Research/Thermal/Abstract_Methods_Results_Revision_2026-10-02.md).
 
 ### Key results (assumed loads: 3 W/die + 0.3 mm I/O hotspot at +50 W/cm²)
@@ -47,7 +47,7 @@ Read AI_GUIDE.md, TODO.md, this handoff, and the 10-die results file. Scripts ru
 4. Optional: manifold model for flow distribution across 39 gaps.
 
 ### Next AI prompt
-Read AI_GUIDE.md, PROJECT_CONTEXT.md, TODO.md, this handoff, the v3 results summary, and the abstract revision file. Icepak v3 scripts are in Research/Thermal/Icepak/scripts and run on the user's Windows PC via auto_runner. Do not reuse v2 pillar results (unconverged). Keep the assumed hotspot load labeled as an assumption.
+Read AI_GUIDE.md, PROJECT_CONTEXT.md, TODO.md, this handoff, the v3 results summary, and the abstract revision file. Icepak scripts live outside the repo in the user's local project folder (`RunScript/`) and run on the user's Windows PC via auto_runner. Do not reuse v2 pillar results (unconverged). Keep the assumed hotspot load labeled as an assumption.
 
 ---
 
