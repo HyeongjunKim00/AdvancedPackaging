@@ -13,7 +13,7 @@
 
 ### Completed this turn
 - Recorded the run evidence and next debug sequence in [V-Die Icepak run handoff](Research/Thermal/VDie_Icepak_Run_Handoff_2026-10-01.md).
-- Updated [Thermal Research Log](Research/Thermal/Research_Log.md).
+- The existing `Research/Thermal/Research_Log.md` was not changed: the public-file update was blocked because the full file contains local-path/environment metadata. Current run findings are recorded in the dedicated handoff linked above; no historical log content was republished.
 - The full local script source is not yet stored in the public GitHub repository; its local filename is `vdie_cu_pillar_doe_screening.py`. Absolute machine paths and host identifiers are omitted from public notes.
 
 ### Next steps
