@@ -568,3 +568,19 @@ Three-dimensional memory integration in AI accelerators increases the need for e
 - No Icepak solver run or thermal result is available in this session. Existing findings indicate no prior Icepak project was identified; local Ansys execution is not available through the current interface.
 - Before a runnable model, still define die-to-interposer thermal attachment/contact, actual inlet/outlet manifold and flow boundary, coolant properties, wetted/passivated die surface, and exterior boundary condition.
 - At 40 dies there are 39 gaps. Under the earlier assumed 11 mm × gap channel cross-section, the proposed 0.5 m/s minimum channel velocity entails about 1.93–2.57 L/min total flow for 150–200 µm gaps, above the earlier 0.5–1.5 L/min range. Resolve by choosing channel velocity or total flow as the independent condition.
+
+
+## 2026-10-01 — Icepak run attempt blocked by execution access
+
+### User request
+- Run the 40-die V-Die thermal case at 3 W/die (120 W total), with silicon interposer included and GPU excluded.
+
+### Attempt and observed blocker
+- Retried a local PowerShell command intended to check the working directory and Ansys executable availability. The command process did not start: Windows returned `CreateProcessWithLogonW failed: 1385`.
+- The Codex app reports that no terminal session is attached to this thread. No Ansys/Icepak-specific execution tool is available in the current tool set.
+- Therefore the local Ansys executable could not be checked or launched, and no Icepak model was opened, built, solved, or post-processed. This is an execution-access blocker, not a thermal result or a finding that Ansys is absent from the user's computer.
+
+### Current model settings (user input plus provisional hotspot)
+- 40 DRAM dies × 3 W/die = 120 W total; GPU excluded; silicon interposer included.
+- Provisional synthetic hotspot: central four cells in a 4×4 map at 2× mean, with remaining cells normalized to preserve 3 W per die.
+- This model specification can be implemented once a Windows/Ansys execution path is available. Remaining boundary/contact assumptions are documented in the immediately preceding 40-die setup entries.
