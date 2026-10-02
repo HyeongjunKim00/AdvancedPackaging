@@ -4,7 +4,17 @@ Replaces the methods-to-conclusion part of the working abstract (from the pillar
 
 All numbers come from the Icepak study in [results summary](VDie_Icepak_Study_v3_Results_2026-10-02.md). Bracketed items are wording choices to confirm, not missing data.
 
-## Revised text v3 (2026-10-02, current) — physics-focused, no specific numbers, 325 words
+## Revised text v4 (2026-10-02, current) — v3 + key numbers only, 358 words
+
+사용자 요청: 수치를 전부 빼지 말고 v2의 약 1/5만, 핵심 변수에 대해서만. 남긴 수치: Re<1,200(층류 근거), top-side 51.4 K vs inter-die 3.0 K(10-die), pillar −37% vs 유량 4배 −17%(단위셀, 동일 펌핑동력), I/O 주변 pillar −15~20% / Δp +2.5%(10-die).
+
+We evaluate the scheme with three-dimensional conjugate heat-transfer simulations that couple heat conduction in the Si dies, Cu pillars, and Si interposer with convective heat transfer to the coolant. Because the inter-die gaps are only a few hundred micrometers wide, the channel Reynolds number remains below 1,200, and the coolant flow is treated as steady, incompressible, single-phase laminar flow; the momentum and energy equations are solved together with conduction in the solids. Each die carries a uniform memory heat load, and selected dies carry an additional localized I/O heat source. Coolant enters every gap at a fixed velocity and temperature and leaves through a pressure outlet. A periodic inter-die unit cell is used to vary pillar diameter, pitch, arrangement (in-line or staggered), and inter-die spacing, with pillar height set by the gap, and the configurations are compared at matched pumping power. A multi-die stack on the interposer then compares inter-die cooling with and without pillars against a top-side cold plate, modeled as an isothermal boundary on the die top edges with no coolant in the gaps. The model is checked against the analytic laminar pressure drop of a parallel-plate channel and by mesh refinement.
+
+With top-side cooling, heat must conduct along the full die height through the thin Si cross-section, so the peak die temperature increases as the dies become thinner, which limits the number of dies that fit within a fixed stack height. In a 10-die stack, inter-die flow removes heat through each die face and reduces the peak temperature rise from 51.4 K with the top-side cold plate to 3.0 K. At matched pumping power, staggered pillars reduce the hotspot temperature rise by up to 37%, whereas quadrupling the pumping power without pillars reduces it by only 17%. Pillars placed around the I/O sources in the stack lower the hotspot rise by 15–20% with a 2.5% increase in pressure drop, at the cost of heat conduction into adjacent dies. In the stack, the end dies, cooled from one side only, set the peak temperature. The resulting design map relates pillar geometry and placement to hotspot temperature, die-to-die temperature uniformity, and pumping power for inter-die direct cooling.
+
+---
+
+## Superseded: v3 (2026-10-02) — physics-focused, no specific numbers, 325 words
 
 사용자 요청: 수치를 빼고 "어떤 physics를 반영하는지" 중심으로. 수치는 결과 문서에 보관하고 필요 시 다시 넣는다.
 
