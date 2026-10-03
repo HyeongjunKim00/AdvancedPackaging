@@ -48,3 +48,11 @@ Use these rules when drafting or revising research abstracts for the lab. Keep t
 - Keep causal claims qualified when operating conditions matter. Prefer “can increase memory-side heat generation” to a universal claim unless workload power data support the stronger statement.
 - Correct imprecise phrases such as “address these capacity and bandwidth.” Name the need: “address the need for greater memory capacity and I/O bandwidth.”
 - A detailed opening is useful only when each detail advances the problem definition; avoid adding broad industry context that does not lead to the studied geometry, mechanism, or metric.
+
+## Sentence focus and information order
+- Put the central phenomenon or measured quantity near the beginning of the sentence when it is the main point of the study. In the current V-Die abstract, the first result concerns the thermal change as die count increases; lead with **thermal scaling / thermal response**, then state die count and the comparison between cooling architectures.
+- Avoid automatically reframing a direct research statement as a subordinate clause beginning with **“how”** when that pushes the central subject later in the sentence. The reason is rhetorical: readers should encounter the study's main variable or outcome early, and the sentence should foreground the scientific question rather than its grammatical framing.
+- Prefer concise, noun-led constructions such as: “We first characterize die-count-dependent thermal scaling by comparing top-side cold-plate cooling with inter-die liquid cooling.” A more explicit alternative is: “We first compare the thermal response across vertically oriented die stacks with increasing die counts, using top-side cold-plate and inter-die liquid cooling.”
+- Do not preserve a technically or grammatically awkward sentence merely to avoid “how.” Preserve the information priority—main phenomenon first—and rewrite the syntax naturally.
+- For planned work before simulations or measurements, describe the comparison and metrics without result verbs or implied outcomes. Do not write that one architecture reduces temperature until validated data support the claim.
+- When recording user feedback, preserve the rationale behind the edit (why the wording/order matters), not only a list of preferred or discouraged words.
