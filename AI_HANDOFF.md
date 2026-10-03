@@ -1,5 +1,12 @@
 # AI Handoff
 
+
+## Latest update — 2026-10-03: abstract sentence focus preference
+- The user prefers to foreground the main scientific topic or metric early in each sentence. For the first planned result, the focus is **thermal scaling / thermal response as die count increases**; the sentence should begin with that concept before describing the cooling-architecture comparison.
+- Avoid reflexively rewriting the user's direct wording with a subordinate “how” clause when that delays the key concept. Preserve the reason behind edits: sentence order should help a reviewer identify the research focus immediately, not merely comply with a banned-word list.
+- Preferred direction: “We first characterize die-count-dependent thermal scaling by comparing top-side cold-plate cooling with inter-die liquid cooling.” Improve syntax naturally while keeping thermal scaling up front.
+- No simulation or measurement has yet validated the planned die-count result. Describe it as a planned comparison; do not state a cooling improvement or insert numerical outcomes.
+- Next: continue drafting the planned result/method transition with the thermal response first, clarify die-count and per-die heat-load conditions, then update the abstract only after study conditions and results are established.
 ## Latest update — 2026-10-03: direction change after advisor comments (Claude, Cowork)
 
 **Read first: [10-03 direction change](Research/Thermal/VDie_Direction_Change_2026-10-03.md)**, then [Simulation Knowledge](Research/Thermal/VDie_Simulation_Knowledge.md). This supersedes everything below where they conflict.
