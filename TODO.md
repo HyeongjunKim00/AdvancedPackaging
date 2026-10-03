@@ -1,6 +1,11 @@
 # TODO
 
 ## P0 — 작업 흐름과 연구 질문 확정
+- [ ] (10-03) 새 기준 형상 확정: gap = Cu pillar 높이(후보 100 µm), Ø(후보 100 µm), pitch ([방향 전환](Research/Thermal/VDie_Direction_Change_2026-10-03.md))
+- [ ] (10-03) 새 형상 45 °C에서 (A) cold plate+TIM vs (B) inter-die 냉각 재계산
+- [ ] (10-03) 냉각수(water vs 유기계) × 유량 스윕, passivation 박막 열저항 포함
+- [ ] (10-03) 초록 공정 문단·결과 문단 작성 (ECTC 마감 10-05)
+- [x] (10-03) 다이 수 스케일링(21/47 die) 폐기 — 사용자 결정
 - [x] Debug the two-die PyAEDT Icepak baseline (fixed 2026-10-02: Region padding/material; see [v3 results](Research/Thermal/VDie_Icepak_Study_v3_Results_2026-10-02.md))
 - [ ] Replace assumed I/O hotspot and 3 W/die with a real V-die power map; rerun key cases
 - [x] 10-die stack: top-side vs inter-die (no pillar / I/O-zone pillar) ([results](Research/Thermal/VDie_10Die_Stack_Results_2026-10-02.md))

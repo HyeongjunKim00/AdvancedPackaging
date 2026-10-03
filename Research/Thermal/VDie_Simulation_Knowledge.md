@@ -2,7 +2,8 @@
 
 > 목적: 다음 AI가 이 문서만 읽고 V-Die Cu pillar 냉각 연구의 **의도, 결정, 근거, 실패 교훈**을 이어받게 한다.
 > 결과 수치의 상세는 [study v3 결과](VDie_Icepak_Study_v3_Results_2026-10-02.md), [10-die 결과](VDie_10Die_Stack_Results_2026-10-02.md)에 있다. 이 문서는 "왜 그렇게 했는가"를 남긴다.
-> 최종 갱신: 2026-10-02 (Claude, Cowork 세션). 새 논의가 생기면 이 문서를 **덮어쓰지 말고 해당 절을 갱신**하고, 날짜를 남긴다.
+> **2026-10-03 방향 전환: 먼저 [10-03 방향 전환 문서](VDie_Direction_Change_2026-10-03.md)를 읽을 것.** pillar는 고정된 지지 구조체, 스윕 변수는 냉각수·유량·passivation. 아래 1절의 "pillar = fin/bridge, trade-off 정량화가 기여"는 10-02까지의 관점이다.
+> 최종 갱신: 2026-10-03 (Claude, Cowork 세션). 새 논의가 생기면 이 문서를 **덮어쓰지 말고 해당 절을 갱신**하고, 날짜를 남긴다.
 
 ---
 
@@ -32,6 +33,11 @@
 | 10-02 | 열부하 근거: DRAM die 1.2 W + I/O 0.3 W = 1.5 W/die (UCLA j84의 HBM 8-high 12 W: die 1.2 W, buffer 2.4 W를 die별 I/O로 분배, PHY 비율 20 %) | 50 W/cm² 임의 hotspot 폐기 |
 | 10-02 | TIM: 20 W/mK, 75 µm (IEEE HIR 2023 Ch.20, 0.0375 K·cm²/W). cold plate: 등가 HTC 4,000 W/m²K(arXiv 2503.04049, 강제 액체대류) 기본, 30,000은 민감도 | 출처 있는 값 우선, 낙관값은 민감도로만 |
 | 10-02 | 깃헙에는 **AI가 배울 수 있는 정리 문서(md) 중심**으로 올린다 | 결과 파일·그림·스크립트를 무작위로 올리는 것은 사용자 의도가 아님 |
+| 10-03 | 다이 수 스케일링(21/47 die, 15 mm 고정 stack) **폐기** | 이전 AI가 임의 추가. 시뮬과 전제도 불일치(t=0.2 mm vs 1.325 mm) |
+| 10-03 | 냉각수·cold plate 기준 온도 **45 °C** | ASHRAE W45(JEDEC 아님). 스크립트 v7d `--tin 45` |
+| 10-03 | **공정 내용 포함, 실물 데모 예정** (10-02 "시뮬레이션만" 결정 번복) | 지도교수 코멘트 |
+| 10-03 | pillar **고정**(최소 지지, matrix), 최적화 제외. 스윕은 냉각수 종류·유량·passivation 재료/두께 | 지도교수 코멘트. die 면 passivation, pillar는 미passivation, 이웃 wafer 뒷면에 본딩 |
+| 10-03 | pillar 후보 높이 100 µm × Ø100 µm (공정 가능 최소 Ø50 µm) | 미확정. gap = pillar 높이 |
 
 ## 3. 확인된 결론 (근거 등급 포함)
 
@@ -57,7 +63,17 @@
 - **교훈 1:** pillar가 velocity inlet 면에 붙어 있으면(0.04 mm) 유동이 전혀 안 풀림(Δp = 0, 수백 °C). 입·출구에서 pillar-free 구간(0.6 mm)을 둘 것.
 - **교훈 2 (물리, 가설):** gap 높이 11 mm 중 하단 0.6 mm에만 pillar 띠를 두면, 저항이 큰 pillar 영역을 피해 냉각수가 위쪽 빈 공간으로 **우회(bypass)** → PHY 근처 유속 감소 → 오히려 뜨거워짐. 대표구간(단위셀) 모델은 pillar가 단면 전체를 채워 우회가 불가능했기 때문에 이득이 나왔음. 모든 die 동일 발열이라 pillar의 die 간 열전달 효과도 없음. → pillar는 **단면 전체 배치 또는 유동 가이드(유로를 PHY 쪽으로 몰기)** 가 필요. 유속장 확인 필요.
 
+## 3.6 v7c/v7d 결과 (2026-10-03)
+- 상세 표는 [10-03 문서](VDie_Direction_Change_2026-10-03.md) 4절. 핵심: 같은 유속에서 전체 높이 pillar는 피크 상승 −31 %이지만 Δp 7.5배; **펌핑동력을 맞춘 빈 채널(1.37 m/s)과 차이 0.06 K** → pillar 열적 이득 주장 금지.
+- 45 °C (A): 171.5 / 89.9 °C (h 4,000 / 30,000), 25 °C 대비 정확히 +20 K.
+- 3.5절의 v7b(PHY 띠 pillar) 결과는 bypass로 무효 처리.
+
 ## 4. 하지 말아야 할 주장 / 초록 표현 교정
+- (10-03) "pillar가 냉각 성능을 높인다" → 펌핑동력 기준으로 근거 없음. pillar = 지지·gap 유지.
+- (10-03) "pillar가 microchannel을 형성" → 부정확. 유로는 die 사이 gap.
+- (10-03) "완전발달 층류라 h가 유속에 둔감" → 틀림(열적 입구길이 ~21 mm > 11 mm).
+- (10-03) "구조체 없으면 HBM처럼 직렬 열저항 누적" → 부정확. 문제는 냉각수 접근 불가(윗면 모서리로만 방열).
+- (10-03) "45 °C는 JEDEC 표준" → 틀림. ASHRAE W45.
 
 - "coolant/pillar가 thermal crosstalk을 줄인다" → **틀림**. 이웃 die를 가장 잘 분리하는 것은 pillar 없는 gap. 올바른 표현: 냉각수가 열적 접지 역할, pillar는 약간의 die 간 결합을 대가로 hotspot을 낮추고 온도를 균일화.
 - "40-die stack을 해석했다" → 금지. 40-die는 메쉬가 gap을 해상하지 못해 유동 결과가 무효. 유효한 전체 stack 해석은 10-die.
@@ -81,7 +97,9 @@
    → hotspot + **pillar 패치의 극단 pillar 몇 개만** 묶은 단일 local region(수동 25 µm).
 7. pillar 케이스 solver 크래시("execution error on server") → `MaxSizeRatio=2`로 셀 크기 전이를 완만하게.
 8. 실패 원인이 로그에 없을 때: 실패 직후 같은 세션에서 `odesktop.GetMessages(project, design, sev)`를 파일로 저장. 프로젝트를 다시 열면 메시지가 비어 있다.
-9. 검증 기준선: 빈 채널 Δp는 평행평판 층류 12μUL/h² + 입구효과와 비교, top-side는 q‴H²/2k와 비교. 이 두 검증 없이 결과를 쓰지 않는다.
+9. (10-03) **Windows MAX_PATH 260자**: 케이스 폴더명이 길면 solver가 `grid_output` 복사에 실패("path not found"). 폴더명을 짧게.
+10. (10-03) pillar가 단면 일부(하단 띠)에만 있으면 유동이 빈 공간으로 bypass → 오히려 뜨거워짐. pillar는 단면 전체에.
+11. 검증 기준선: 빈 채널 Δp는 평행평판 층류 12μUL/h² + 입구효과와 비교, top-side는 q‴H²/2k와 비교. 이 두 검증 없이 결과를 쓰지 않는다.
 
 ## 6. 작업 환경 교훈
 

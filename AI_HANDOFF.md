@@ -1,5 +1,26 @@
 # AI Handoff
 
+## Latest update — 2026-10-03: direction change after advisor comments (Claude, Cowork)
+
+**Read first: [10-03 direction change](Research/Thermal/VDie_Direction_Change_2026-10-03.md)**, then [Simulation Knowledge](Research/Thermal/VDie_Simulation_Knowledge.md). This supersedes everything below where they conflict.
+
+### Status
+- The previous AI's handoff drifted: die-count scaling (21/47 dies, fixed 15 mm stack) and "SK1 requires stacking limit" are dropped. The user's question is (A) top cold plate + TIM, no fluid vs (B) inter-die coolant with Cu pillars.
+- Advisor: include process content; a simple 2-die demo will be fabricated. Cu pillars are a required wafer-level spacer (wafer stack → dice → mount vertically); keep pillars fixed (minimal support, matrix). Sweep coolant type (water vs organic dielectric), flow, passivation material/thickness instead of pillar geometry.
+- Coolant / cold-plate reference temperature now 45 °C (ASHRAE W45). (A) at 45 °C: 171.5 / 89.9 °C for h = 4,000 / 30,000. (B) at 45 °C (old gap 175 µm geometry, 0.5 m/s): 46.78 °C no pillar / 46.24 °C with pillars; Δp 1.4 / 13.1 kPa (lower water viscosity than at 25 °C).
+- At matched pumping power the pillar thermal benefit is ~0 → do not claim pillars improve cooling.
+- Pillar candidate 100 µm tall × 100 µm diameter (gap = pillar height); pitch undecided. New geometry not yet simulated.
+- Abstract intro: use "propose", frame V-die weakness as heat exiting only through the narrow top edge, and the contribution as expanding the wetted area to the die faces. Process paragraph draft in progress.
+
+### Next steps
+1. Fix new baseline geometry (gap/pillar height, diameter, pitch) with the user.
+2. Re-run (A) vs (B) at 45 °C on the new geometry; then coolant × flow sweep with a passivation thin-layer resistance.
+3. Draft process + results paragraphs; keep the abstract word limit (verify the ECTC limit from the official call).
+
+### Next AI prompt
+Read AI_GUIDE.md, TODO.md, this section, the 10-03 direction-change doc, and the Simulation Knowledge doc. Discuss content with the user before writing abstract text. Scripts run only on the user's Windows PC via the auto_runner queue; never run git from a VM/sandbox on the user's repo. Treat numbers not traceable to result files or sources as unverified.
+
+---
 ## Latest update — 2026-10-02 (later): 10-die stack simulations (Claude, Cowork)
 
 **Start here for V-Die work: [V-Die simulation knowledge](Research/Thermal/VDie_Simulation_Knowledge.md)** — user decisions, validated conclusions, claims to avoid, Icepak/PyAEDT pitfalls, workflow rules. Keep that file updated (edit the relevant section, add the date) instead of appending long notes here.
