@@ -1,6 +1,9 @@
 # AI Handoff
 
-
+## Latest update — 2026-10-03: prefer metric-led sentences
+- The user prefers abstract sentences that do not begin with “We” when a natural alternative is available. Lead with the measured quantity or comparison target, because the reader should see the main evidence or research question immediately.
+- Preserve active, direct wording where possible; do not turn every “We…” sentence into weak passive voice. Preferred pattern: make the metric the subject, e.g. “Maximum die temperature and coolant pressure drop serve as the primary metrics for comparing …”
+- Apply this preference to the V-Die abstract and future abstract work, alongside the earlier preference to place “thermal scaling / thermal response” early and avoid “how” clauses that delay the topic.
 ## Latest update — 2026-10-03: abstract sentence focus preference
 - The user prefers to foreground the main scientific topic or metric early in each sentence. For the first planned result, the focus is **thermal scaling / thermal response as die count increases**; the sentence should begin with that concept before describing the cooling-architecture comparison.
 - Avoid reflexively rewriting the user's direct wording with a subordinate “how” clause when that delays the key concept. Preserve the reason behind edits: sentence order should help a reviewer identify the research focus immediately, not merely comply with a banned-word list.
