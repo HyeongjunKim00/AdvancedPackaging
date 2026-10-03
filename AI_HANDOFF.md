@@ -1,5 +1,11 @@
 # AI Handoff
 
+## Latest update — 2026-10-03: revise order of planned cooling studies
+- The planned result sequence is: (1) compare top-side cold-plate cooling and inter-die liquid cooling as die count increases from 10 to 40 in increments of five at fixed power per die; (2) within inter-die cooling, compare coolant types and flow rates at a representative intermediate/high die count; (3) evaluate Cu-pillar pitch and in-line/staggered arrangement under shortlisted coolant/flow conditions; (4) examine die thickness and inter-die gap for fixed-footprint capacity scaling.
+- Coolant/flow comparison must precede pillar-layout study because fluid properties and operating flow can change the thermal/hydraulic ranking of pillar configurations. Do not call a pitch/layout universally optimal based on only one coolant.
+- Keep the first comparison's interpretation precise: fixed die power means total heat load increases with die count. If die thickness and gap are fixed while count changes, footprint also changes; that study does not by itself prove greater capacity at fixed footprint.
+- Preferred non-“We” sentence direction for the coolant/flow study: “The coolant-flow map relates maximum die temperature to pressure drop and pumping power for water and [selected coolant] at a representative [N]-die stack; paired fixed-flow and fixed-pumping-power comparisons separate cooling response from hydraulic cost.” Fill coolant, N, and tested ranges only after they are decided.
+- No new simulation results were produced in this discussion. Keep all planned comparisons in future tense/planned-work wording and do not imply measured improvements.
 ## Latest update — 2026-10-03: prefer metric-led sentences
 - The user prefers abstract sentences that do not begin with “We” when a natural alternative is available. Lead with the measured quantity or comparison target, because the reader should see the main evidence or research question immediately.
 - Preserve active, direct wording where possible; do not turn every “We…” sentence into weak passive voice. Preferred pattern: make the metric the subject, e.g. “Maximum die temperature and coolant pressure drop serve as the primary metrics for comparing …”
