@@ -26,6 +26,9 @@
 
 - When user, advisor, or reviewer feedback changes the research logic or identifies a reusable writing mistake, update the relevant Markdown guidance with both the rule and the reason behind it. Also update `AI_HANDOFF.md` with the latest decision and what it supersedes. Do not merely store a list of edits without the rationale.
 
+
+- When the user designates a word or phrase as forbidden, avoid it in subsequent user-facing prose and relevant drafts. Record the preference and its rationale in the applicable style guide and handoff, with context-appropriate alternatives.
+
 ## 작업 종료와 인계
 모든 작업 종료 시 `AI_HANDOFF.md`를 갱신한다. 반드시 다음을 포함한다.
 - 현재 상태
