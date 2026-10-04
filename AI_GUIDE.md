@@ -23,6 +23,9 @@
 - 연구 기록은 관련 `Research/<분야>/Research_Log.md`에 추가한다. 미확인·충돌 항목은 해결된 것처럼 쓰지 않는다.
 - 사용자가 요청한 원격 저장소 변경은 의도한 범위만 수행한다. 공개 저장소이므로 비공개 연구자료·계약자료·민감한 측정 데이터를 커밋하지 않는다.
 
+
+- When user, advisor, or reviewer feedback changes the research logic or identifies a reusable writing mistake, update the relevant Markdown guidance with both the rule and the reason behind it. Also update `AI_HANDOFF.md` with the latest decision and what it supersedes. Do not merely store a list of edits without the rationale.
+
 ## 작업 종료와 인계
 모든 작업 종료 시 `AI_HANDOFF.md`를 갱신한다. 반드시 다음을 포함한다.
 - 현재 상태
