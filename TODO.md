@@ -1,29 +1,34 @@
 # TODO
 
-## P0 — 작업 흐름과 연구 질문 확정
-- [ ] (10-03) 새 기준 형상 확정: gap = Cu pillar 높이(후보 100 µm), Ø(후보 100 µm), pitch ([방향 전환](Research/Thermal/VDie_Direction_Change_2026-10-03.md))
-- [ ] (10-03) 새 형상 45 °C에서 (A) cold plate+TIM vs (B) inter-die 냉각 재계산
-- [ ] (10-03) 냉각수(water vs 유기계) × 유량 스윕, passivation 박막 열저항 포함
-- [ ] (10-03) 초록 공정 문단·결과 문단 작성 (ECTC 마감 10-05)
-- [x] (10-03) 다이 수 스케일링(21/47 die) 폐기 — 사용자 결정
-- [x] Debug the two-die PyAEDT Icepak baseline (fixed 2026-10-02: Region padding/material; see [v3 results](Research/Thermal/VDie_Icepak_Study_v3_Results_2026-10-02.md))
-- [ ] Replace assumed I/O hotspot and 3 W/die with a real V-die power map; rerun key cases
-- [x] 10-die stack: top-side vs inter-die (no pillar / I/O-zone pillar) ([results](Research/Thermal/VDie_10Die_Stack_Results_2026-10-02.md))
-- [ ] Fold 10-die results into the abstract revision
-- [ ] Simulate thinner dies to validate the top-side die-count limit (~43 dies, analytic)
-- [ ] Reword the abstract thermal-crosstalk sentence; finalize ≤700 words ([revision](Research/Thermal/Abstract_Methods_Results_Revision_2026-10-02.md))
-- [ ] 실제 AI 앱에서 저장소별 지침이 읽히는지 확인 (Codex, Claude, Gemini, Copilot 중 사용하는 도구)
-- [ ] ECTC 히트싱크의 대상 구조와 병목을 한 문장으로 정의
-- [ ] DLC 테스트 셋업의 실제 운전 범위와 TTV 가능성을 기록 (지도 의견상 우선 과제)
+## P0 — V-Die study definition and ECTC abstract
 
-## P1 — ECTC 열관리 근거 정리
-- [ ] HBM cooling roadmap 및 관련 선행기술 확인
-- [ ] TIM bottleneck 및 lid/spreader 역할 정리
-- [ ] Direct liquid cooling trends와 단상 기준선 후보 정리
+- [ ] Fix the benchmark at 12 dies and define the conventional horizontal HBM/top-side cold-plate reference.
+- [ ] Define identical comparison conditions: per-die heat input, coolant, inlet temperature, and flow or pumping-power basis.
+- [ ] At 12 dies, compare the HBM reference with V-die inter-die cooling and isolate pillar-free, in-line, and staggered Cu-pillar effects.
+- [ ] Decide whether pillar pitch is fixed or swept in the initial pillar study; confirm diameter/height candidates (100 µm each) and passivation material/thickness.
+- [ ] Select a Cu-pillar configuration, then sweep per-die power at the proposed 12/16/20/24 levels. Confirm units and set the allowable maximum die-temperature criterion.
+- [ ] Use the two-die TTV to assess structural feasibility and validate local temperature/pressure-drop predictions. Do not claim validation of full 12-die scaling from a two-die test vehicle.
+- [ ] Update the abstract with measured/simulated results only after runs complete; preserve placeholders until then.
+- [ ] Record the DLC setup operating range and the available TTV sensor/measurement plan.
+- [ ] Verify that repository instructions are read by the AI tools in use (Codex, Claude, Gemini, Copilot).
 
-## P2 — 제품·시장 배경
-- [ ] NVIDIA thermal roadmap (제품 전력·냉각 수치의 정의와 출처 확인)
+## P1 — ECTC thermal-management background
 
-## 운영
-- 완료한 항목은 근거 또는 산출물 링크를 남긴 뒤 체크한다.
-- 조사 결과는 관련 `Research/` 로그에, 작업 인계는 `AI_HANDOFF.md`에 기록한다.
+- [ ] Review HBM cooling roadmap and relevant prior art.
+- [ ] Summarize TIM bottlenecks and lid/spreader functions.
+- [ ] Review direct liquid-cooling trends and single-phase baseline options.
+
+## P2 — Product and market background
+
+- [ ] Verify NVIDIA thermal-roadmap claims, including definitions and sources for power and cooling figures.
+
+## Completed / superseded
+
+- [x] Earlier 10–40-die scaling and full coolant × flow × pitch matrix superseded by the advisor-directed fixed 12-die sequence unless the study scope is revised again.
+- [x] Previous 40-die PyAEDT debugging and earlier 10-die studies remain archived as historical work; they are not results for the revised 12-die study.
+
+## Operations
+
+- Keep evidence or output links with completed items.
+- Save research findings in the relevant `Research/` files and update `AI_HANDOFF.md` at the end of each work session.
+- Separate verified facts, source claims, assumptions, and inference.
