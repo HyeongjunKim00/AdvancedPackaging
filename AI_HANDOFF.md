@@ -21,6 +21,7 @@
 **Read first: [10-03 direction change](Research/Thermal/VDie_Direction_Change_2026-10-03.md)**, then [Simulation Knowledge](Research/Thermal/VDie_Simulation_Knowledge.md). This supersedes everything below where they conflict.
 
 ### Status
+- **2026-10-04:** 20-die / gap 100 µm results added to the direction-change doc §8. Work moves to a second PC (separate project folder per the CAD/RunScript/Runs/Results/Documents template); the full Korean handoff prompt is kept in the user's claude.ai project.
 - The previous AI's handoff drifted: die-count scaling (21/47 dies, fixed 15 mm stack) and "SK1 requires stacking limit" are dropped. The user's question is (A) top cold plate + TIM, no fluid vs (B) inter-die coolant with Cu pillars.
 - Advisor: include process content; a simple 2-die demo will be fabricated. Cu pillars are a required wafer-level spacer (wafer stack → dice → mount vertically); keep pillars fixed (minimal support, matrix). Sweep coolant type (water vs organic dielectric), flow, passivation material/thickness instead of pillar geometry.
 - Coolant / cold-plate reference temperature now 45 °C (ASHRAE W45). (A) at 45 °C: 171.5 / 89.9 °C for h = 4,000 / 30,000. (B) at 45 °C (old gap 175 µm geometry, 0.5 m/s): 46.78 °C no pillar / 46.24 °C with pillars; Δp 1.4 / 13.1 kPa (lower water viscosity than at 25 °C).
