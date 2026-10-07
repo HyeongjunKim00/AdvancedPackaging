@@ -122,3 +122,31 @@
 3. 얇은 die(100–150 µm) 직접 해석으로 top-side 적층 한계 외삽 검증.
 4. 39 gap 매니폴드 유량 분배.
 5. 초록 수정본에 10-die 수치 반영 ([수정본](Abstract_Methods_Results_Revision_2026-10-02.md)).
+
+
+---
+
+## 8. 2026-10-07 update — Cu-post bonding and passivation concept
+
+### Current concept
+- Cu posts have two intended roles: (1) mechanical support and inter-die gap control during wafer-level assembly, and (2) a solid thermal bridge that conducts heat between adjacent DRAM dies. The thermal bridge can redistribute heat in either helpful or harmful ways; its effect must be measured/simulated rather than assumed beneficial.
+- Proposed assembly route: form Cu posts on one wafer and thermocompression-bond them to Cu landing pads on the neighboring wafer backside. The post-to-pad joint provides both structural attachment and thermal conduction.
+- Electrically isolate coolant-facing DRAM surfaces and exposed Cu-post sidewalls with conformal passivation. Keep the Cu-Cu bond interfaces uncoated so that the metal joint can form. Selective masking or post-bond coating is a proposed sequence, not yet process-validated.
+
+### Bonding-temperature evidence and its limits
+- **Published example:** collective Cu-Cu thermocompression literature includes bonding near 400 °C under a specific pressure/time/process window ([source](https://meridian.allenpress.com/jmep/article/16/1/28/9271/Collective-Cu-Cu-Thermocompression-Bonding-Using)).
+- **Published example:** a separate low-temperature bonding study reports Cu-Cu bonding around 180 °C with a specific Ti-based surface treatment, and Cu-In bonding near 170 °C ([source](https://doi.org/10.1109/ECTC.2013.6575718)). These temperatures are not interchangeable recipes; surface preparation, oxide control, pressure, time, pad geometry, and atmosphere differ.
+- **Inference / unresolved:** literature examples establish that Cu-Cu thermocompression is a candidate bonding family, but they do not establish feasibility for the proposed 100 µm-diameter, 100 µm-tall posts, the target wafer stack, or the passivation sequence. Do not put a single bonding temperature into the abstract until a process is selected and verified.
+
+### Required validation
+1. Specify Cu landing-pad metallurgy, thickness, and backside preparation.
+2. Determine bonding temperature, pressure, duration, alignment tolerance, and wafer thermal-budget compatibility.
+3. Confirm uniform post contact and inspect joint voiding; measure bond strength and thermal contact resistance.
+4. Measure wafer/die warpage and post-height uniformity before and after bonding.
+5. Choose passivation chemistry/thickness and a sequence that coats coolant-exposed Si/Cu while protecting the joint interface; verify pinhole coverage and coolant compatibility.
+6. Update the abstract's die count, per-die power, and pitch range consistently. Current working versions contain unresolved alternatives.
+
+### Writing guidance
+- Describe pillars as mechanically supporting neighboring dies **and** conducting heat between them.
+- State that the Cu-Cu bond interface remains uncoated when describing passivation. Avoid implying that passivation covers the bonding face.
+- Keep process temperatures attributed to specific literature examples. Do not imply process validation or thermal benefit before measurements/simulations exist.
