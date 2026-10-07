@@ -2,12 +2,13 @@
 
 ## P0 — V-Die study definition and ECTC abstract
 
-- [ ] Fix the benchmark at 12 dies and define the conventional horizontal HBM/top-side cold-plate reference.
-- [ ] Define identical comparison conditions: per-die heat input, coolant, inlet temperature, and flow or pumping-power basis.
-- [ ] At 12 dies, compare the HBM reference with V-die inter-die cooling and isolate pillar-free, in-line, and staggered Cu-pillar effects.
-- [ ] Decide whether pillar pitch is fixed or swept in the initial pillar study; confirm diameter/height candidates (100 µm each) and passivation material/thickness.
-- [ ] Select a Cu-pillar configuration, then sweep per-die power at the proposed 12/16/20/24 levels. Confirm units and set the allowable maximum die-temperature criterion.
-- [ ] Use the two-die TTV to assess structural feasibility and validate local temperature/pressure-drop predictions. Do not claim validation of full 12-die scaling from a two-die test vehicle.
+- [ ] Reconcile the current study sequence: the latest discussion includes a 12-die HBM-representative benchmark and a 20-die pillar-layout sweep, while prior drafts proposed different die counts. Confirm one consistent simulation matrix before finalizing the abstract.
+- [ ] Define the HBM reference and V-die conditions with matched per-die heat input, coolant, inlet temperature, and a clearly stated flow or pumping-power basis.
+- [ ] Compare pillar-free, in-line, and staggered Cu-post configurations. The latest draft mentions 200 µm–1 mm pitch and 100 µm diameter/height, but confirm final geometry and which die count applies.
+- [ ] Confirm the per-die power sweep and temperature limit. Prior drafts contain different power ranges; do not treat them as approved until confirmed.
+- [ ] Evaluate Cu-to-Cu thermocompression bonding to a backside Cu landing pad, including bonding temperature, pressure, time, alignment, thermal budget, joint resistance, and bond strength.
+- [ ] Select passivation material/thickness and coating sequence for coolant-facing die surfaces and exposed Cu-post sidewalls while keeping Cu-Cu bond interfaces clean.
+- [ ] Use the two-die TTV to assess local structural/flow feasibility and validate local temperature and pressure-drop predictions. Do not claim full-stack validation from a two-die test vehicle.
 - [ ] Update the abstract with measured/simulated results only after runs complete; preserve placeholders until then.
 - [ ] Record the DLC setup operating range and the available TTV sensor/measurement plan.
 - [ ] Verify that repository instructions are read by the AI tools in use (Codex, Claude, Gemini, Copilot).
