@@ -1,3 +1,34 @@
+# Latest update — 2026-10-07: Cu-post bonding and dual thermal/mechanical role
+
+## Current direction
+- Cu posts between neighboring vertically oriented DRAM dies have two intended functions: they mechanically support the dies and maintain coolant passages, and they conduct heat between adjacent dies as thermal bridges. Their contribution must be assessed by both die-temperature metrics and hydraulic cost; do not presume that inter-die heat spreading always improves the maximum temperature.
+- The current process concept is wafer-level Cu-post formation followed by Cu-to-Cu thermocompression bonding to an isolated Cu landing pad on the neighboring wafer backside. The bonded posts provide mechanical support and a solid heat-conduction path.
+- Coolant-facing silicon/passivation surfaces and exposed post sidewalls need electrical isolation from coolant. The Cu-to-Cu bond interfaces must remain metallurgically joinable and therefore are excluded from the passivation coating. Selective coating or post-bond passivation is a process concept, not yet validated for this geometry.
+- A two-die thermal test vehicle can assess bond/flow feasibility and local temperature/pressure predictions. It cannot validate full-stack temperature scaling.
+
+## What changed in this session
+- Replaced the support-only interpretation with the intended dual role: mechanical spacer/support plus inter-die thermal conduction.
+- Added the proposed Cu-to-Cu thermocompression joint and clarified that the bond face is not coated.
+- Reviewed published bonding examples. Reported Cu-Cu thermocompression temperatures are process-specific: literature examples include 400 °C for a collective bonding process and 180 °C with a particular Ti surface-protection approach. These are examples, not a selected recipe or proof that the user's 100 µm by 100 µm post geometry is feasible.
+- No simulation or experimental results were generated. Keep outcome claims and numerical improvement placeholders unfilled.
+
+## Open decisions and checks
+- Confirm the backside Cu landing-pad metallurgy, post-to-pad alignment, bonding pressure/time/temperature, and whether the wafer thermal budget is acceptable.
+- Select passivation material, thickness, coverage sequence, and a masking/selective-coating strategy that leaves the Cu-Cu joint clean.
+- Check bond strength, contact thermal resistance, post-height uniformity, wafer/die warpage, coolant compatibility, and corrosion protection.
+- Reconcile the current abstract's study-plan inconsistencies before submission: the draft contains both 12-die HBM-representative benchmarking and a 20-die pillar sweep, and older drafts contain different die-power and pitch ranges. Treat all ranges as proposed until the advisor and model plan confirm them.
+- Preserve the distinction between verified literature process examples, the proposed fabrication route, and simulation assumptions.
+
+## Key references
+- Collective Cu-Cu thermocompression bonding example: [Journal of Microelectronics and Electronic Packaging article](https://meridian.allenpress.com/jmep/article/16/1/28/9271/Collective-Cu-Cu-Thermocompression-Bonding-Using).
+- Low-temperature Cu-Cu / Cu-In bonding examples: [IEEE ECTC paper, DOI 10.1109/ECTC.2013.6575718](https://doi.org/10.1109/ECTC.2013.6575718).
+- Reflow solder and thermal-property references discussed earlier: [Sn-Ag solder datasheet](https://mgchemicals.com/downloads/tds/tds-4900-4917.pdf), [Sn-Bi datasheet](https://www.ametekinterconnect.com/-/media/ametek-ecp/v2/files/cw_datasheets_sds_cfsi/datasheets/bi58sn42-data-sheet.pdf), [Indium material data](https://documents.indium.com/qdynamo/download.php?docid=394).
+
+## Next AI prompt
+Read `AI_GUIDE.md`, `PROJECT_CONTEXT.md`, `TODO.md`, this latest section of `AI_HANDOFF.md`, and `Research/Thermal/VDie_Simulation_Knowledge.md`. Continue refining the V-die inter-die cooling abstract and process concept. First resolve the inconsistent die-count/power/pitch study plan with the researcher. Keep Cu posts' mechanical support and heat-bridge roles explicit, describe thermocompression bonding as a proposed route with process-specific literature precedents, and do not claim a validated process or uncomputed cooling benefit.
+
+---
+
 # AI Handoff
 
 ## Latest update — 2026-10-03: revise order of planned cooling studies
