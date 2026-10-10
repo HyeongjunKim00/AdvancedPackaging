@@ -1,3 +1,17 @@
+# Latest update — 2026-10-11: abstract editing preferences clarified
+
+## User feedback and reusable rules
+- Reserve **“However,”** for the abstract's central, specific problem statement after enough context has been established. Do not use it for a routine contrast between architecture descriptions and their limitations; omit the transition or preserve the user's original sentence if no key problem pivot is being made.
+- Write top-first: put the main point, physical mechanism, design trade-off, metric, or intended inference at the start of the sentence. Avoid delaying it behind author-led or procedural framing. Prefer concise, direct wording while keeping the causal relation clear; do not force passive or awkward noun-led constructions.
+- When giving revision feedback, present **original wording → proposed wording → reason**. Identify what the revision keeps, combines, or removes.
+- The assistant's previous suggestions were unsatisfactory: the first overused “However,” outside the designated central problem statement; the second buried the point in a conventional setup; the third did not sufficiently foreground the main information. Apply the rules above when continuing this abstract.
+- Detailed reusable guidance added to [Abstract Writing Rules](Research/Abstract_Writing_Rules.md). No abstract text or research results were changed in this update.
+
+## Next AI prompt
+Read `AI_GUIDE.md`, `PROJECT_CONTEXT.md`, `TODO.md`, this update, and `Research/Abstract_Writing_Rules.md` before revising the current V-Die abstract. Follow the user's deliberate “However,” rule and top-first sentence preference. For proposed edits, show the original sentence, the replacement, and a short reason. Do not infer or invent simulation outcomes.
+
+---
+
 # Latest update — 2026-10-07: Cu-post bonding and dual thermal/mechanical role
 
 ## Current direction
