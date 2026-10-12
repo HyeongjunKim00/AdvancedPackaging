@@ -115,3 +115,10 @@ Use these rules when drafting or revising research abstracts for the lab. Keep t
 - Describe the proposed mechanism: coolant flows through the inter-die gaps and removes heat from die faces; Cu pillars support adjacent dies, maintain the gaps, add coolant-exposed area, and conduct heat between dies.
 - State the study objective as identifying the thermal limit of the heat-path reference and the die-count/per-die-power envelope supported by direct liquid cooling under matched conditions and a specified DRAM temperature ceiling.
 - Do not imply that Cu-pillar geometry optimization is the entire contribution when the central result is a comparative thermal operating envelope.
+
+
+## Avoid generic “study” framing in abstracts
+- Avoid using **“study”** as the grammatical subject in phrases such as “This study investigates,” “This study compares,” or “The study evaluates.” The user wants an abstract to state the scientific purpose and the planned/observed evidence directly, rather than sound like a report that cases were tried and results happened to follow.
+- Lead with the question, constraint, metric, or inference the work is designed to resolve. Name the action and its purpose together: for example, “Comparative simulations quantify the thermal limit of inter-die heat-path cooling as die count and per-die power increase,” or “Die-count and power sweeps determine the operating envelope below the specified DRAM temperature limit.”
+- Avoid merely swapping “This study” for “We” or passive voice. Keep the sentence purpose-led and concrete, with the method serving the stated research objective.
+- Apply this rule to abstract prose; it does not prohibit “study” when referring to prior literature or using the word in other contexts where it is precise and necessary.
