@@ -100,3 +100,10 @@ Use these rules when drafting or revising research abstracts for the lab. Keep t
 - Before returning any sentence drafted or substantially revised for the user, translate it into Korean and check that the Korean rendering is natural, preserves the intended technical meaning, and exposes ambiguity or overclaim. Apply this check to every proposed sentence, not only the opening or novelty statement.
 - For English academic prose, use the Korean back-translation as an internal quality check before delivery. Include the Korean version in the response when it helps the user assess nuance or when the user asks for it; do not force a literal translation if it sounds unnatural.
 - If a contrast such as “rather than” produces a cumbersome sentence, split the physical mechanisms into parallel clauses or sentences. Select connectors only after checking how the complete sentence reads in Korean.
+
+
+## Contrast and comparison review
+- After drafting a sentence, inspect what each comparison clause actually compares. Identify the grammatical subject, verb, comparison target, and the scope of any final phrase such as “as in HBM.” Ensure the structures or heat paths are parallel enough for the intended contrast.
+- Do not assume that a grammatically valid connector such as “rather than” makes the comparison clear. A trailing contrast may attach ambiguously to only the nearest phrase instead of the full physical pathway.
+- If clause order creates ambiguity, name the reference architecture first and then state the proposed architecture’s corresponding mechanism. For the HBM/V-die heat-path contrast, an example is: “Unlike in HBM, where heat must travel through overlying dies and bonding layers, heat generated in each DRAM die of a V-die stack is conducted laterally through silicon toward a top-mounted cold plate.” Check whether “must travel” accurately describes the cited HBM cooling configuration before using it.
+- For every proposed alternative, include a natural Korean rendering and check that the Korean makes the intended comparison explicit. Then provide the original, revision, and reason when the user asks for careful editing.
