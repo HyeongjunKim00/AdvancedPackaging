@@ -1,3 +1,14 @@
+# Latest update — 2026-10-12: use mechanism-specific verbs
+
+## New writing correction
+- The user flagged “allow” as semantically weak when it states only that a material or structure makes an outcome possible without specifying the mechanism.
+- Do not make a material property sound agentic. Silicon’s thermal conductivity does not itself “spread” heat or “allow heat to spread.”
+- State the physical process directly: heat flows or is conducted in-plane through silicon; then describe how conduction resistance depends on conductivity and path geometry. For example: “Heat from each upright die is conducted in-plane through silicon toward a top-mounted cold plate; the corresponding conduction resistance depends on silicon’s thermal conductivity, die thickness, and path length.”
+- Avoid claims that high conductivity alone reduces stack temperature or suppresses accumulation. Those outcomes require the thermal model or measurement.
+- The abstract draft was updated to replace the generic conductivity-led “provides/allows” construction with a heat-conduction mechanism and the relevant geometric dependencies.
+
+---
+
 # Latest update — 2026-10-12: clarify HBM-to-V-die motivation and prose
 
 ## Research narrative to carry forward
