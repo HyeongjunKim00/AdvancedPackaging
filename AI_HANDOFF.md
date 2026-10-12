@@ -1,3 +1,34 @@
+# Latest update — 2026-10-12: correct the paper’s core cooling comparison
+
+## Core research question
+The direct comparison is **between two V-die cooling architectures**, not between HBM and V-die:
+1. **Inter-die heat-path cooling:** Cu heat-path layers between upright DRAM dies conduct heat toward a top-mounted cold plate. Coolant does not flow through the inter-die gaps.
+2. **Direct-to-silicon liquid cooling:** coolant flows through the gaps between passivated upright dies and removes heat from their broad faces. Cu pillars maintain the gaps, support adjacent dies, and add coolant-exposed area; the pillars also form solid thermal bridges between dies.
+
+HBM remains the motivation/background: stacking increases DRAM capacity, TSV-based I/O routing area constrains bandwidth scaling, and through-stack heat conduction adds thermal resistance. V-die was proposed to increase capacity and side-edge I/O connections by adding upright dies and to provide an in-plane silicon heat path. The paper’s thermal comparison concerns the two cooling methods within V-die.
+
+## Main objective and comparison logic
+- Identify the thermal limit of inter-die heat-path cooling as die count or per-die power increases.
+- Compare the two V-die cooling architectures under matched geometry and thermal boundary conditions.
+- Determine the die count and/or per-die heat load that direct-to-silicon liquid cooling can support below a specified DRAM temperature limit.
+- Report *T*max and die-temperature distribution for both methods. Report pressure drop and pumping power for liquid cooling, with the comparison basis stated.
+- Do not present the values shown in the supplied concept figure as verified outcomes until the corresponding simulation conditions, convergence, and model validation are checked.
+- The exact die-count sweep, power sweep, Cu heat-path layer geometry, Cu-pillar geometry, coolant, and flow/pumping basis remain to be confirmed.
+
+## Working title
+“Comparative Thermal Analysis of Inter-Die Heat-Path Cooling and Direct-to-Silicon Liquid Cooling in Vertical-Die (V-die) DRAM”
+
+## Draft transition for the study method
+“Within V-die packages, inter-die heat-path cooling conducts heat through Cu heat-path layers toward a top-mounted cold plate without coolant flowing through the inter-die gaps. The thermal limit of this solid heat path as die count and per-die power increase motivates comparison with direct-to-silicon liquid cooling, which circulates coolant through the inter-die gaps to remove heat from the die surfaces.”
+
+## Supersedes older study framing
+Earlier handoff/draft passages treated a 12-die HBM cold-plate package as the direct thermal reference and emphasized Cu-pillar layout optimization. That is not the current paper’s central comparison. Preserve the HBM scaling discussion as context, but update the abstract, TODO, and future handoffs around the heat-path-cooling versus direct-to-silicon-liquid-cooling comparison. Do not discard the prior history; this update records the current direction.
+
+## Next AI prompt
+Read AI_GUIDE.md, PROJECT_CONTEXT.md, TODO.md, this latest section of AI_HANDOFF.md, and the current abstract draft. Revise the abstract around the two V-die cooling architectures above. First check that the heat-path reference and direct liquid-cooling model use a fair comparison basis. Ask the researcher to resolve the die-count/power sweep and the geometry of the Cu heat-path layers if those values are absent. Distinguish the measured/simulated thermal operating envelope from unverified claims, and translate each proposed English sentence into Korean to review naturalness and comparison scope before returning it.
+
+---
+
 # Latest update — 2026-10-12: validate comparison structure, not only translation
 
 ## Additional sentence-review requirement
