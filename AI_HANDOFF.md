@@ -1,3 +1,20 @@
+# Latest update — 2026-10-12: place Cu heat-path baseline before the problem pivot
+
+## Introductory narrative sequence
+Place the Cu heat-path cooling description immediately after the V-die in-plane silicon heat path and before the problem statement/direct-cooling proposal. The intended order is:
+1. HBM capacity, TSV-I/O, and stack-thermal constraints.
+2. V-die proposal and the relationship between added dies, capacity, and the total side-edge I/O connections.
+3. Heat conduction in-plane through each upright silicon die toward the top-mounted cold plate.
+4. Define **inter-die heat-path cooling**: Cu heat-path layers fill the inter-die gaps and conduct heat along the die height toward the cold plate; coolant does not flow through these gaps.
+5. State the unresolved limitation: Cu layers thermally couple adjacent dies, and the thermal limit of this solid path as die count/per-die power increase remains to be quantified.
+6. Introduce the core comparison: direct-to-silicon liquid cooling sends coolant through the gaps to remove heat from die faces; Cu pillars maintain those gaps and also provide thermal bridges and coolant-exposed area.
+
+The key distinction is that the Cu heat-path layers in the cold-plate reference and the Cu pillars in direct liquid cooling are not the same cooling configuration. Do not merge their mechanisms or describe the study as HBM-versus-V-die. HBM is background; both comparison cases are V-die cooling methods.
+
+The current abstract draft now follows this insertion order. The Cu heat-path layer dimensions and interface to the top cold plate remain to be confirmed; avoid making stronger geometric claims than the model/figure supports.
+
+---
+
 # Latest update — 2026-10-12: correct the paper’s core cooling comparison
 
 ## Core research question
