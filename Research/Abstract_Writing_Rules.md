@@ -77,3 +77,13 @@ Use these rules when drafting or revising research abstracts for the lab. Keep t
 - When revising, preserve the intended information hierarchy and the user's established abstract conventions. Do not mechanically compress by combining clauses if the result weakens the problem statement, causal logic, or emphasis.
 - When identifying repetition, show the original wording and a proposed replacement side by side, then explain what information is retained, combined, or removed. Apply this format in discussions with the user as well as when proposing abstract edits.
 - Rationale: the user reserves “However,” for the pivotal problem statement and prefers a top-first argument in which the central idea appears immediately. Generic contrast markers and delayed, author-led phrasing dilute that structure.
+
+
+## HBM-to-V-die rationale and architecture wording
+- Introduce V-die as an architecture proposed to address HBM scaling constraints, rather than saying it “recently emerged” when the reason for the proposal matters.
+- State HBM’s limits precisely: die stacking increases DRAM capacity; TSV-based I/O routing area can constrain further bandwidth scaling; heat conduction across stacked dies and bonding layers increases thermal resistance as the stack grows. Do not claim HBM cannot increase capacity through stacking.
+- Explain V-die’s capacity/bandwidth mechanism without implying higher I/O density per die: upright DRAM dies expose side-edge pads, and adding dies can increase memory capacity and the total number of side-edge I/O connections.
+- Explain the thermal rationale once: silicon’s high in-plane thermal conductivity can provide an in-plane heat-spreading path toward a top-mounted cold plate, unlike HBM’s heat path through multiple stacked dies and bonding layers. Verify the cited value and conditions for any numerical conductivity (for example, *k* = 140 W/m·K).
+- Treat an improved heat path as structural rationale, not proof of lower temperature or suppressed heat accumulation. Reserve claims such as “suppresses heat accumulation” for results supported by the model or measurements.
+- Avoid repeating the same heat-path explanation in consecutive sentences. Follow the architecture benefit with the remaining limitation, such as the long path to a narrow upper edge or thermal coupling between adjacent dies, then introduce the proposed cooling method.
+- Use the argument order: HBM I/O and thermal constraints → V-die proposed to address those constraints → die-count scaling of capacity and side-edge I/O → in-plane silicon heat path → unresolved thermal bottleneck → present study.
