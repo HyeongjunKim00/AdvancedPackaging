@@ -184,3 +184,8 @@ The user rejects “allow” when it merely asserts that a property makes an out
 ## 11. 2026-10-12 update — sentence-level Korean naturalness check
 
 Before returning any sentence written or substantially revised for the researcher, translate it into Korean and check naturalness, technical meaning, and unintended overclaim. Apply the check sentence by sentence. For English academic prose, this is an internal QA step; show the translation in the answer when useful or requested. A connector such as “rather than” may be grammatical but still awkward in the sentence's full context; use parallel clauses or split sentences when Korean back-translation reveals that problem.
+
+
+## 12. 2026-10-12 update — inspect comparison scope and clause attachment
+
+When reviewing English abstract sentences, translate to Korean and separately inspect the comparison logic: identify both comparison targets and check whether a final phrase attaches to the intended full clause. In “... toward a top-mounted cold plate, rather than through overlying dies and bonding layers as in HBM,” the reader may be unsure whether the comparison is between the complete heat paths or only the nearest phrases. Restructure by naming the HBM path first and then the V-die path if that makes the contrast explicit. Suggested structure: “Unlike in HBM, where heat must travel through overlying dies and bonding layers, heat generated in each DRAM die of a V-die stack is conducted laterally through silicon toward a top-mounted cold plate.” Verify that any statement about the HBM path matches the cited stack and cooling boundaries; the sentence example is not a substitute for source validation.
