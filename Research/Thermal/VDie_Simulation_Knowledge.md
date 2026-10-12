@@ -179,3 +179,8 @@ The value *k* = 140 W/m·K was carried over from the researcher's draft and stil
 ## 10. 2026-10-12 update — mechanism-specific wording for thermal conductivity
 
 The user rejects “allow” when it merely asserts that a property makes an outcome possible without naming the mechanism. Avoid agentive constructions in which silicon conductivity “allows” or “spreads” heat. State that heat flows/is conducted in-plane through silicon, then connect conduction resistance to thermal conductivity and path geometry. For a simple uniform path, R = L/(kA); actual die paths may require a more detailed geometry/model. The value k = 140 W/m·K remains source- and condition-dependent and must be verified. Do not infer reduced temperature or suppressed heat accumulation from the conductivity value alone.
+
+
+## 11. 2026-10-12 update — sentence-level Korean naturalness check
+
+Before returning any sentence written or substantially revised for the researcher, translate it into Korean and check naturalness, technical meaning, and unintended overclaim. Apply the check sentence by sentence. For English academic prose, this is an internal QA step; show the translation in the answer when useful or requested. A connector such as “rather than” may be grammatical but still awkward in the sentence's full context; use parallel clauses or split sentences when Korean back-translation reveals that problem.
