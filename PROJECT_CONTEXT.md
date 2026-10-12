@@ -16,9 +16,9 @@ Kim Hyeongjun
 - 기술 동향 조사
 
 ## Current Research Context
-- 현재 대화의 활성 주제는 AI 가속기·HBM·3D 패키징용 ECTC 히트싱크 연구 주제 탐색이다.
-- DLC 테스트 셋업 구축이 지도 의견상 우선 과제다. ECTC 주제, 단상/2상 선택, 기준 구조와 측정 조건은 아직 미결정이다.
-- V-Die Cu pillar inter-die 냉각(ECTC 2027 초록, 시뮬레이션 전용)의 결정·결론·교훈은 `Research/Thermal/VDie_Simulation_Knowledge.md`에 누적한다.
+- 현재 활성 초록 작업은 V-die Cu-pillar inter-die liquid cooling 연구다. HBM의 TSV 기반 I/O 라우팅 면적 제약과 적층 열저항을 연구 동기로 다루고, V-die는 이러한 확장 제약에 대응하기 위해 제안된 구조로 설명한다.
+- V-die 연구는 해석과 thermal test vehicle(TTV) 실험 검증을 함께 계획한다. 해석/실험 결과는 아직 확정된 것으로 취급하지 않는다.
+- V-die 구조 설명에서는 die 수 증가가 DRAM capacity와 side-edge I/O 연결 수를 함께 늘릴 수 있다는 논리, silicon 내면 열전도 경로, 그리고 남아 있는 die 간 thermal coupling 문제를 구분한다. 자세한 결정·근거·미결정 사항은 Research/Thermal/VDie_Simulation_Knowledge.md와 최신 AI_HANDOFF.md에서 확인한다.
 - V-Die, direct-to-silicon, conventional cold plate/heat sink는 서로 다른 구조와 선행기술 범위로 다룬다. 최신 상태는 `AI_HANDOFF.md`와 해당 Research 문서에서 확인한다.
 
 ## Working Preferences
