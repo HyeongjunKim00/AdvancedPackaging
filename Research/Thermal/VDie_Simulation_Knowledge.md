@@ -174,3 +174,8 @@ The value *k* = 140 W/m·K was carried over from the researcher's draft and stil
 - Describe side-edge I/O connections cumulatively across added dies; avoid saying that side-edge I/O density per die increases.
 - State the silicon heat-spreading path once. Then pivot to its remaining limitations instead of restating the same benefit.
 - The user's standing abstract preferences apply: avoid “but” and the prohibited English word “set” in drafted prose; avoid author-led “We” openings when natural; keep “However,” for a meaningful problem pivot; foreground specific mechanisms and metrics; separate structural rationale from measured outcome.
+
+
+## 10. 2026-10-12 update — mechanism-specific wording for thermal conductivity
+
+The user rejects “allow” when it merely asserts that a property makes an outcome possible without naming the mechanism. Avoid agentive constructions in which silicon conductivity “allows” or “spreads” heat. State that heat flows/is conducted in-plane through silicon, then connect conduction resistance to thermal conductivity and path geometry. For a simple uniform path, R = L/(kA); actual die paths may require a more detailed geometry/model. The value k = 140 W/m·K remains source- and condition-dependent and must be verified. Do not infer reduced temperature or suppressed heat accumulation from the conductivity value alone.
