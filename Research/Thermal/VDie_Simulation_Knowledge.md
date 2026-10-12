@@ -150,3 +150,27 @@
 - Describe pillars as mechanically supporting neighboring dies **and** conducting heat between them.
 - State that the Cu-Cu bond interface remains uncoated when describing passivation. Avoid implying that passivation covers the bonding face.
 - Keep process temperatures attributed to specific literature examples. Do not imply process validation or thermal benefit before measurements/simulations exist.
+
+
+---
+
+## 9. 2026-10-12 update — HBM-to-V-die rationale and abstract logic
+
+### Researcher's intended argument
+1. HBM die stacking increases DRAM capacity. Further bandwidth scaling faces a routing-area constraint from TSV-based I/O; added dies and bonding layers also increase the thermal resistance along the stack heat path.
+2. V-die was proposed to address these coupled scaling constraints. Avoid describing the architecture as having merely “recently emerged” when the abstract needs to explain why it was proposed.
+3. DRAM dies stand upright and use side-edge pads for I/O. Adding dies can therefore increase memory capacity and the number of side-edge I/O connections, supporting bandwidth growth. Do not imply that the pad density on one die increases solely because the die is upright.
+4. Silicon’s high in-plane thermal conductivity gives each upright die an in-plane heat-spreading path toward a top-mounted cold plate, in contrast to conduction through multiple stacked dies and bonding layers in HBM.
+5. This architectural heat-path distinction is a rationale, not a proven cooling result. The long in-plane path to the narrow upper edge and thermal coupling between neighboring upright dies remain relevant thermal constraints and motivate inter-die liquid cooling.
+
+### Current background paragraph for continued revision
+“The growing demand for data processing requires higher memory capacity and bandwidth from artificial intelligence (AI) accelerators. High-bandwidth memory (HBM) increases DRAM capacity through die stacking, whereas the routing area available for TSV-based I/O constrains further bandwidth scaling. As additional dies and bonding layers are stacked, heat must conduct through the stack, increasing thermal resistance and limiting further scaling [1], [2]. To address these coupled scaling constraints, vertically oriented die (V-die) architectures have been proposed [3], [4]. Upright DRAM dies use side-edge pads for I/O; adding dies can therefore increase memory capacity and the number of I/O connections, supporting higher bandwidth. Silicon’s high in-plane thermal conductivity (*k* = 140 W/m·K) provides a heat-spreading path from each die toward a top-mounted cold plate, avoiding the through-stack heat path across multiple dies and bonding layers. However, the long in-plane path to the narrow upper die edge and thermal coupling between adjacent dies may still limit die power and count.”
+
+The value *k* = 140 W/m·K was carried over from the researcher's draft and still needs a traceable source and condition check. Confirm references [3], [4] support the V-die architecture and side-edge I/O rationale. Do not infer that the cold-plate path suppresses heat accumulation without analysis or measurement.
+
+### Reusable prose rules
+- Prefer “V-die architectures have been proposed to address…” over “V-die architectures have recently emerged” when motivating the architecture.
+- Preserve the distinction that HBM can increase capacity through stacking; the cited bottlenecks concern scaling bandwidth alongside capacity and the thermal cost of stack growth.
+- Describe side-edge I/O connections cumulatively across added dies; avoid saying that side-edge I/O density per die increases.
+- State the silicon heat-spreading path once. Then pivot to its remaining limitations instead of restating the same benefit.
+- The user's standing abstract preferences apply: avoid “but” and the prohibited English word “set” in drafted prose; avoid author-led “We” openings when natural; keep “However,” for a meaningful problem pivot; foreground specific mechanisms and metrics; separate structural rationale from measured outcome.
