@@ -1,3 +1,13 @@
+# Latest update — 2026-10-12: back-translate and check naturalness
+
+## Mandatory sentence review step
+- The user requires every sentence we draft or revise to be checked by translating it into Korean, then reviewing whether the Korean is natural and whether it preserves the intended meaning. Apply this to every proposed sentence, not just the first sentence.
+- For English technical prose, back-translation is a quality-control step before delivery. Provide the Korean translation alongside the English when useful or requested; do not make literal Korean that sounds unnatural.
+- The user questioned “rather than” in the V-die/HBM heat-path sentence. It is valid English in general, yet the full sentence felt awkward in context. Prefer clear parallel clauses or separate sentences when the contrast reads more naturally in Korean.
+- Abstract draft wording now states the two heat paths in parallel: “Heat from each upright die is conducted in-plane through silicon toward a top-mounted cold plate; HBM heat travels through stacked dies and bonding layers. For the V-die path, conduction resistance depends on silicon’s thermal conductivity (*k* = 140 W/m·K), die thickness, and heat-flow length.”
+
+---
+
 # Latest update — 2026-10-12: use mechanism-specific verbs
 
 ## New writing correction
