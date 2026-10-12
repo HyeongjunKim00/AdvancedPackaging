@@ -87,3 +87,10 @@ Use these rules when drafting or revising research abstracts for the lab. Keep t
 - Treat an improved heat path as structural rationale, not proof of lower temperature or suppressed heat accumulation. Reserve claims such as “suppresses heat accumulation” for results supported by the model or measurements.
 - Avoid repeating the same heat-path explanation in consecutive sentences. Follow the architecture benefit with the remaining limitation, such as the long path to a narrow upper edge or thermal coupling between adjacent dies, then introduce the proposed cooling method.
 - Use the argument order: HBM I/O and thermal constraints → V-die proposed to address those constraints → die-count scaling of capacity and side-edge I/O → in-plane silicon heat path → unresolved thermal bottleneck → present study.
+
+
+## Mechanism-first verbs
+- Avoid semantically weak verbs such as “allow” when they only say that a structure makes an outcome possible without naming the physical process. Avoid attributing agency to a material property: thermal conductivity does not actively “spread” heat.
+- Name the physical process directly: heat flows or is conducted through the solid; convection transfers heat from the wetted surface to the coolant.
+- Connect properties to the governing relationship and conditions. For conduction, state that resistance depends on conductivity and path geometry (for a simple uniform path, R = L/(kA)); do not imply that conductivity alone guarantees lower temperature or suppressed accumulation.
+- Prefer a sentence such as “Heat from each upright die is conducted in-plane through silicon toward a top-mounted cold plate; the corresponding conduction resistance depends on silicon’s thermal conductivity, die thickness, and path length.” Verify any numerical k value and its condition before retaining it.
