@@ -1,3 +1,14 @@
+# Latest update — 2026-10-12: validate comparison structure, not only translation
+
+## Additional sentence-review requirement
+- The Korean back-translation check must also test the sentence’s logical and syntactic structure. Identify the two things being compared, the grammatical attachment of the comparison phrase, and whether the compared mechanisms are parallel.
+- The user found “... toward a top-mounted cold plate, rather than through overlying dies and bonding layers as in HBM” awkward because the trailing phrase leaves the scope of comparison unclear and juxtaposes a complete V-die path with only part of the HBM path.
+- When a final comparison phrase has unclear attachment, consider naming HBM first and then presenting the corresponding V-die heat path. Example: “Unlike in HBM, where heat must travel through overlying dies and bonding layers, heat generated in each DRAM die of a V-die stack is conducted laterally through silicon toward a top-mounted cold plate.”
+- Treat this as a sentence-structure example, not an automatically approved technical claim. Confirm that the cited HBM reference supports the stated heat path and whether “must travel” is appropriate for the specific cooling boundary conditions.
+- For careful revisions, explain the original ambiguity, propose the revised sentence, provide its Korean rendering, and state why the new clause order makes the comparison easier to follow.
+
+---
+
 # Latest update — 2026-10-12: back-translate and check naturalness
 
 ## Mandatory sentence review step
