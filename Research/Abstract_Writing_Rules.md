@@ -107,3 +107,11 @@ Use these rules when drafting or revising research abstracts for the lab. Keep t
 - Do not assume that a grammatically valid connector such as “rather than” makes the comparison clear. A trailing contrast may attach ambiguously to only the nearest phrase instead of the full physical pathway.
 - If clause order creates ambiguity, name the reference architecture first and then state the proposed architecture’s corresponding mechanism. For the HBM/V-die heat-path contrast, an example is: “Unlike in HBM, where heat must travel through overlying dies and bonding layers, heat generated in each DRAM die of a V-die stack is conducted laterally through silicon toward a top-mounted cold plate.” Check whether “must travel” accurately describes the cited HBM cooling configuration before using it.
 - For every proposed alternative, include a natural Korean rendering and check that the Korean makes the intended comparison explicit. Then provide the original, revision, and reason when the user asks for careful editing.
+
+
+## Define the actual comparison before writing the problem statement
+- Identify the paper’s direct baseline accurately. In the current V-die study, the core comparison is inter-die heat-path cooling versus direct-to-silicon liquid cooling; HBM motivates the architecture but is not the direct cooling comparator.
+- Describe the reference mechanism: Cu heat-path layers conduct heat between upright DRAM dies toward a top-mounted cold plate, with no coolant flowing through inter-die gaps.
+- Describe the proposed mechanism: coolant flows through the inter-die gaps and removes heat from die faces; Cu pillars support adjacent dies, maintain the gaps, add coolant-exposed area, and conduct heat between dies.
+- State the study objective as identifying the thermal limit of the heat-path reference and the die-count/per-die-power envelope supported by direct liquid cooling under matched conditions and a specified DRAM temperature ceiling.
+- Do not imply that Cu-pillar geometry optimization is the entire contribution when the central result is a comparative thermal operating envelope.
