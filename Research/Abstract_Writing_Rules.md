@@ -94,3 +94,9 @@ Use these rules when drafting or revising research abstracts for the lab. Keep t
 - Name the physical process directly: heat flows or is conducted through the solid; convection transfers heat from the wetted surface to the coolant.
 - Connect properties to the governing relationship and conditions. For conduction, state that resistance depends on conductivity and path geometry (for a simple uniform path, R = L/(kA)); do not imply that conductivity alone guarantees lower temperature or suppressed accumulation.
 - Prefer a sentence such as “Heat from each upright die is conducted in-plane through silicon toward a top-mounted cold plate; the corresponding conduction resistance depends on silicon’s thermal conductivity, die thickness, and path length.” Verify any numerical k value and its condition before retaining it.
+
+
+## Korean back-translation and naturalness check
+- Before returning any sentence drafted or substantially revised for the user, translate it into Korean and check that the Korean rendering is natural, preserves the intended technical meaning, and exposes ambiguity or overclaim. Apply this check to every proposed sentence, not only the opening or novelty statement.
+- For English academic prose, use the Korean back-translation as an internal quality check before delivery. Include the Korean version in the response when it helps the user assess nuance or when the user asks for it; do not force a literal translation if it sounds unnatural.
+- If a contrast such as “rather than” produces a cumbersome sentence, split the physical mechanisms into parallel clauses or sentences. Select connectors only after checking how the complete sentence reads in Korean.
