@@ -1,3 +1,31 @@
+# Latest update — 2026-10-12: clarify HBM-to-V-die motivation and prose
+
+## Research narrative to carry forward
+- Present V-die as an architecture proposed to address HBM scaling constraints, not as a structure that merely “recently emerged.”
+- State the two HBM constraints distinctly: DRAM stacking increases capacity, while the routing area available for TSV-based I/O constrains further bandwidth scaling; heat conduction across added dies and bonding layers raises stack thermal resistance and limits further vertical stacking.
+- Explain the V-die bandwidth mechanism at the stack level. Upright DRAM dies use side-edge pads for I/O, so adding dies can increase both memory capacity and the number of side-edge I/O connections. Do not imply that the I/O density of an individual die increases just because it is mounted upright.
+- Explain the thermal distinction as a heat-path difference: HBM heat travels through stacked dies and bonding layers, whereas V-die can conduct heat in-plane through silicon toward a top-mounted cold plate. The high silicon conductivity is a structural opportunity, not proof that the design suppresses heat accumulation.
+- Keep the remaining problem explicit: a long in-plane path to a narrow upper die edge and thermal coupling between neighboring upright dies may still limit die power and count. The proposed inter-die liquid cooling addresses this unresolved thermal bottleneck.
+
+## Reusable candidate wording
+“High-bandwidth memory (HBM) increases DRAM capacity through die stacking, whereas the routing area available for TSV-based I/O constrains further bandwidth scaling. As additional dies and bonding layers are stacked, heat must conduct through the stack, increasing thermal resistance and limiting further scaling [1], [2]. To address these coupled scaling constraints, vertically oriented die (V-die) architectures have been proposed [3], [4]. Upright DRAM dies use side-edge pads for I/O; adding dies can therefore increase memory capacity and the number of I/O connections, supporting higher bandwidth. Silicon’s high in-plane thermal conductivity (*k* = 140 W/m·K) provides a heat-spreading path from each die toward a top-mounted cold plate, avoiding the through-stack heat path across multiple dies and bonding layers.”
+
+This is a draft rationale, not a verified result. Confirm the source and conditions for *k* = 140 W/m·K, and ensure references [3], [4] support the V-die architecture claims. Avoid “suppressing heat accumulation” unless simulation or measurement supports that outcome.
+
+## Durable writing preferences
+- Use “have been proposed to address…” when introducing V-die and state the motivating HBM constraints. Avoid “have recently emerged” when proposal rationale is central.
+- Preserve the causal chain: HBM I/O/thermal constraints → V-die proposal → added upright dies increase capacity and side-edge I/O connections → silicon in-plane heat path → remaining thermal bottleneck → inter-die cooling proposal.
+- Do not say that HBM cannot increase capacity through stacking; the key limitation is scaling bandwidth alongside capacity, plus the thermal cost of additional layers.
+- Avoid phrasing such as “increase side-edge I/O density” if it suggests the pad density on each die rises. Describe the total number of side-edge I/O connections increasing as dies are added.
+- Combine duplicate heat-path sentences. State silicon conductivity and the in-plane cold-plate path once, then use the next sentence for the unresolved limitation.
+- Use cautious language for physical benefits. A heat path or material property does not establish a measured reduction in temperature or heat accumulation.
+- Keep the user’s established abstract rules: purpose-driven flow, specific physical quantities, minimal demonstrative pronouns, normally avoid author-led “We” openings, use “However,” deliberately for the central problem pivot, and never use the prohibited word “set” in drafted prose.
+
+## Next AI prompt
+Read AI_GUIDE.md, PROJECT_CONTEXT.md, TODO.md, this latest handoff section, and Research/Abstract_Writing_Rules.md. Apply the updated HBM-to-V-die rationale to the abstract. First check whether the references support each claim, especially the side-edge I/O mechanism and the silicon conductivity value. Preserve the distinction between architecture rationale and demonstrated cooling result. Keep Cu posts’ mechanical-support and thermal-bridge roles, and the proposed selective passivation/bonding sequence, from the prior handoff. Do not invent simulation or TTV results. When revising, show the original sentence, proposed replacement, and reason.
+
+---
+
 # Latest update — 2026-10-11: abstract editing preferences clarified
 
 ## User feedback and reusable rules
