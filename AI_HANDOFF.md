@@ -1,3 +1,9 @@
+# Latest update — 2026-10-12: avoid generic “study” framing in abstracts
+
+The user prefers abstracts that state the scientific purpose and the evidence used to resolve it, rather than narrating that a study “investigates,” “compares,” or “evaluates” cases and reports what happened. Avoid generic author/project subjects such as “This study …” and “The study …” in abstract prose. Lead with the research question, constraint, metric, or inference and connect the action to its purpose. For example: “Comparative simulations quantify the thermal limit of inter-die heat-path cooling as die count and per-die power increase.” Do not mechanically replace “This study” with “We” or passive voice; write a concrete, purpose-led sentence. This preference applies to abstract wording and does not ban precise references to prior studies.
+
+---
+
 # Latest update — 2026-10-12: place Cu heat-path baseline before the problem pivot
 
 ## Introductory narrative sequence
