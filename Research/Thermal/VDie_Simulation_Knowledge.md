@@ -189,3 +189,17 @@ Before returning any sentence written or substantially revised for the researche
 ## 12. 2026-10-12 update — inspect comparison scope and clause attachment
 
 When reviewing English abstract sentences, translate to Korean and separately inspect the comparison logic: identify both comparison targets and check whether a final phrase attaches to the intended full clause. In “... toward a top-mounted cold plate, rather than through overlying dies and bonding layers as in HBM,” the reader may be unsure whether the comparison is between the complete heat paths or only the nearest phrases. Restructure by naming the HBM path first and then the V-die path if that makes the contrast explicit. Suggested structure: “Unlike in HBM, where heat must travel through overlying dies and bonding layers, heat generated in each DRAM die of a V-die stack is conducted laterally through silicon toward a top-mounted cold plate.” Verify that any statement about the HBM path matches the cited stack and cooling boundaries; the sentence example is not a substitute for source validation.
+
+
+## 13. 2026-10-12 update — correct core cooling comparator
+
+The current paper compares two cooling approaches within V-die DRAM, not HBM directly against V-die:
+
+- **Inter-die heat-path cooling:** Cu heat-path layers bridge upright dies and conduct heat toward a top-mounted cold plate. There is no coolant flow through the inter-die gaps.
+- **Direct-to-silicon liquid cooling:** coolant flows through inter-die gaps and extracts heat from die faces. Discrete Cu pillars maintain the gaps and mechanically support neighboring dies; their coolant-exposed surfaces add heat-transfer area, while the pillars conduct heat between dies as solid thermal bridges.
+
+HBM is background motivation only: capacity rises with die stacking, TSV I/O routing area can constrain bandwidth scaling, and heat conduction through the stack raises thermal resistance. The main question is the thermal scaling limit of inter-die heat-path cooling and the die-count/per-die-power envelope that direct liquid cooling can support under a specified DRAM temperature limit.
+
+Compare *T*max and die-temperature distribution under matched geometry and heat/boundary conditions. For direct liquid cooling, also report pressure drop and pumping power. Confirm the comparison basis, geometry, coolant, flow/pumping condition, die-count range, and per-die-power range before finalizing the abstract. The sketch values *T*max = 99.64 °C and 46.68 °C are displayed in a concept figure but are not accepted here as final results; verify solver convergence, boundary conditions, mesh independence, and validation before reporting them. This update supersedes older notes that described a 12-die HBM cold-plate package as the paper’s direct benchmark.
+
+Working title: “Comparative Thermal Analysis of Inter-Die Heat-Path Cooling and Direct-to-Silicon Liquid Cooling in Vertical-Die (V-die) DRAM.”
