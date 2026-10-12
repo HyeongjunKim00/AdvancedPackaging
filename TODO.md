@@ -5,10 +5,10 @@
 - [ ] Revise the motivation paragraph to state that V-die was proposed to address HBM's TSV-based I/O routing-area constraint and stack thermal resistance. Explain capacity and bandwidth scaling through adding upright dies and side-edge I/O connections; explain the in-plane silicon heat path without claiming proven cooling improvement.
 - [ ] Add a traceable source for the stated silicon thermal conductivity (*k* = 140 W/m·K) and confirm the applicable temperature/material condition.
 
-- [ ] Reconcile the current study sequence: the latest discussion includes a 12-die HBM-representative benchmark and a 20-die pillar-layout sweep, while prior drafts proposed different die counts. Confirm one consistent simulation matrix before finalizing the abstract.
-- [ ] Define the HBM reference and V-die conditions with matched per-die heat input, coolant, inlet temperature, and a clearly stated flow or pumping-power basis.
-- [ ] Compare pillar-free, in-line, and staggered Cu-post configurations. The latest draft mentions 200 µm–1 mm pitch and 100 µm diameter/height, but confirm final geometry and which die count applies.
-- [ ] Confirm the per-die power sweep and temperature limit. Prior drafts contain different power ranges; do not treat them as approved until confirmed.
+- [ ] Define the direct comparison between two V-die cooling architectures: inter-die heat-path cooling with Cu heat-path layers and a top-mounted cold plate, and direct-to-silicon liquid cooling through gaps containing Cu pillars. HBM is background motivation, not the core cooling benchmark.
+- [ ] Define matched geometry, die count, per-die heat input, boundary conditions, and temperature ceiling. For the liquid-cooling architecture, specify coolant, inlet temperature, flow or pumping-power basis.
+- [ ] Design die-count and per-die-power sweeps to identify the maximum die count and thermal load each architecture supports below the DRAM temperature limit. Confirm the ranges before writing them into the abstract.
+- [ ] Define the Cu heat-path layer geometry in the cold-plate reference and Cu-pillar geometry, pitch, and arrangement in direct liquid cooling. Confirm whether 100 µm diameter/height and prior pitch ranges remain applicable.
 - [ ] Evaluate Cu-to-Cu thermocompression bonding to a backside Cu landing pad, including bonding temperature, pressure, time, alignment, thermal budget, joint resistance, and bond strength.
 - [ ] Select passivation material/thickness and coating sequence for coolant-facing die surfaces and exposed Cu-post sidewalls while keeping Cu-Cu bond interfaces clean.
 - [ ] Use the two-die TTV to assess local structural/flow feasibility and validate local temperature and pressure-drop predictions. Do not claim full-stack validation from a two-die test vehicle.
